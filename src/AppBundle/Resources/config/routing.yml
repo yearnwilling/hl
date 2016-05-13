@@ -1,0 +1,7 @@
+new_page:
+    path:  /newpage
+    defaults: { _controller: AppBundle:NewPage:index }
+
+page_stady:
+    path:  /study
+    defaults: { _controller: AppBundle:NewPage:study }
