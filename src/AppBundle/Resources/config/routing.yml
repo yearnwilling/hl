@@ -5,3 +5,15 @@ new_page:
 page_stady:
     path:  /study
     defaults: { _controller: AppBundle:NewPage:study }
+
+page_photo:
+    path: /photo
+    defaults: { _controller: AppBundle:NewPage:photo }
+
+page_single:
+    path: /single
+    defaults: { _controller: AppBundle:NewPage:single }
+
+page_travel:
+    path: /travel
+    defaults: { _controller: AppBundle:NewPage:travel }
