@@ -34,7 +34,8 @@ $kernel->boot();
 
 $serviceKernel = ServiceKernel::create($kernel->getEnvironment(), $kernel->isDebug());
 $serviceKernel->setParameterBag($kernel->getContainer()->getParameterBag());
-$kernel->loadClassCache();
+$serviceKernel->setConnection($kernel->getContainer()->get('database_connection'));
+
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
