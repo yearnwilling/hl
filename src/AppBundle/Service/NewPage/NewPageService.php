@@ -1,7 +1,7 @@
 <?php
 namespace AppBundle\Service\NewPage;
 
-interface NewpageService
+interface NewPageService
 {
-
+    public function test();
 }

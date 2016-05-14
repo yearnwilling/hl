@@ -1,9 +1,12 @@
 <?php
-namespace Custom\Service\NewPage\Impl;
+namespace AppBundle\Service\NewPage\Impl;
 
-use AppBundle\Service\NewPage\NewpageService;
+use AppBundle\Service\NewPage\NewPageService;
 
-class NewPagerServiceImpl implements  NewpageService
+class NewPageServiceImpl implements  NewPageService
 {
-
+    public function test()
+    {
+        return 1;
+    }
 }
