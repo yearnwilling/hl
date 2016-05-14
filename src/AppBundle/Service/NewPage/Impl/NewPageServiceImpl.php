@@ -11,8 +11,13 @@ class NewPageServiceImpl extends BaseService implements  NewPageService
         return $this->getNewPageDao()->test();
     }
 
+    public function getArtical()
+    {
+        return $this->getNewPageDao()->getIndexArtical();
+    }
     protected function getNewPageDao()
     {
         return $this->createDao('AppBundle:NewPage.NewPageDao');
     }
+
 }

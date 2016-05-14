@@ -7,16 +7,23 @@ use AppBundle\Service\Common\BaseDao;
 
 class NewPageDaoImpl extends BaseDao implements NewPageDao
 {
-    protected $table = 'user';
+    protected $table = 'index_artcal';
 
-    public function test()
+//    public function test()
+//    {
+//        $affected = $this->getConnection()->insert(self::TABLENAME, array('name'=>'123','sex'=>'nan'));
+//
+//        if ($affected <= 0) {
+//            throw $this->createDaoException('Insert course error.');
+//        }
+//        return 1;
+//    }
+
+
+    public function getIndexArtical()
     {
-        $affected = $this->getConnection()->insert(self::TABLENAME, array('name'=>'123','sex'=>'nan'));
-
-        if ($affected <= 0) {
-            throw $this->createDaoException('Insert course error.');
-        }
-        return 1;
+        $sql = "SELECT * FROM {$this->table} ";
+        $sql = $this->modifyLimitQuery($sql,4,0);
+        return $this->fetchAll($sql) ?: null;
     }
-
 }

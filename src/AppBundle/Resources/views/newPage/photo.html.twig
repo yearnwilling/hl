@@ -10,9 +10,11 @@
         <!-- banner-bottom-left -->
         <div class="banner-bottom-left">
             <div class="banner-bottom-left-grids">
+
+                {% for i in 1..8 %}
                 <div class="col-md-4 banner-left-grid fullwidth-left-grid">
 
-                    <a href="photo.html"><img src="images/a1.jpg" alt=""/></a>
+                    <a href="{{ asset('AppBundles/image/a') }}{{ i }}.jpg"><img src="{{ asset('AppBundles/image/a') }}{{ i }}.jpg" alt=""/></a>
 
                     <div class="blog-grids">
                         <div class="blog-grid-left">
@@ -31,154 +33,16 @@
                         <div class="clearfix"></div>
                     </div>
                 </div>
-                <div class="col-md-4 banner-left-grid fullwidth-left-grid">
-
-                    <a href="photo.html"><img src="images/a2.jpg" alt=""/></a>
-
-                    <div class="blog-grids">
-                        <div class="blog-grid-left">
-                            <!-- <img src="images/b5.jpg" alt="" /> -->
-                        </div>
-
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="blog-grids">
-                        <div class="blog-grid-left">
-                            <!-- <img src="images/b6.jpg" alt="" /> -->
-                        </div>
-
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                <div class="col-md-4 banner-left-grid fullwidth-left-grid">
-
-                    <a href="photo.html"><img src="images/a3.jpg" alt=""/></a>
-
-                    <div class="blog-grids">
-                        <div class="blog-grid-left">
-                            <!-- <img src="images/b5.jpg" alt="" /> -->
-                        </div>
-
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="blog-grids">
-                        <div class="blog-grid-left">
-                            <!-- <img src="images/b6.jpg" alt="" /> -->
-                        </div>
-
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="banner-bottom-left-grids">
-            <div class="col-md-4 banner-left-grid fullwidth-left-grid">
-
-                <a href="photo.html"><img src="images/a4.jpg" alt=""/></a>
-
-                <div class="blog-grids">
-                    <div class="blog-grid-left">
-                        <!-- <img src="images/b6.jpg" alt="" /> -->
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div>
-                <div class="blog-grids">
-                    <div class="blog-grid-left">
-                        <!-- <img src="images/b5.jpg" alt="" /> -->
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="col-md-4 banner-left-grid fullwidth-left-grid">
-
-                <a href="photo.html"><img src="images/a5.jpg" alt=""/></a>
-
-                <div class="blog-grids">
-                    <div class="blog-grid-left">
-                        <!-- <img src="images/b5.jpg" alt="" /> -->
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div>
-                <div class="blog-grids">
-                    <div class="blog-grid-left">
-                        <!-- <img src="images/b6.jpg" alt="" /> -->
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="col-md-4 banner-left-grid fullwidth-left-grid">
-
-                <a href="photo.html"><img src="images/a6.jpg" alt=""/></a>
-
-                <div class="blog-grids">
-                    <div class="blog-grid-left">
-                        <!-- <img src="images/b5.jpg" alt="" /> -->
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div>
-                <div class="blog-grids">
-                    <div class="blog-grid-left">
-                        <!-- <img src="images/b6.jpg" alt="" /> -->
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="col-md-4 banner-left-grid fullwidth-left-grid">
-
-                <a href="photo.html"><img src="images/a7.jpg" alt=""/></a>
-
-                <div class="blog-grids">
-                    <div class="blog-grid-left">
-                        <!-- <img src="images/b5.jpg" alt="" /> -->
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div>
-                <div class="blog-grids">
-                    <div class="blog-grid-left">
-                        <!-- <img src="images/b6.jpg" alt="" /> -->
-                    </div>
-
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="col-md-4 banner-left-grid fullwidth-left-grid">
-
-                <a href="photo.html"><img src="images/a8.jpg" alt=""/></a>
-
-                <div class="blog-grids">
-                    <div class="blog-grid-left">
-                        <!-- <img src="images/b5.jpg" alt="" /> -->
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div>
-                <div class="blog-grids">
-                    <div class="blog-grid-left">
-                        <!-- <img src="images/b6.jpg" alt="" /> -->
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-
-
+                {% if i == 3 or i == 6 or i == 8%}
+                <div class="clearfix"></div>
+                {% endif %}
+                {% endfor %}
         <!-- post -->
         <div class="post">
             <h3>Latest Posts</h3>
             <div class="post-grids">
                 <div class="col-md-4 post-left">
-                    <img src="images/p1.jpg" alt=""/>
+                    <img src="{{ asset('AppBundles/image/p1.jpg') }}" alt=""/>
                 </div>
                 <div class="col-md-8 post-right fullwidth-left">
 
@@ -189,7 +53,7 @@
             </div>
             <div class="post-grids">
                 <div class="col-md-4 post-left">
-                    <img src="images/p2.jpg" alt=""/>
+                    <img src="{{ asset('AppBundles/image/p2.jpg') }}" alt=""/>
                 </div>
                 <div class="col-md-8 post-right fullwidth-left">
 
@@ -200,7 +64,7 @@
             </div>
             <div class="post-grids">
                 <div class="col-md-4 post-left">
-                    <img src="images/p3.jpg" alt=""/>
+                    <img src="{{ asset('AppBundles/image/p3.jpg') }}" alt=""/>
                 </div>
                 <div class="col-md-8 post-right">
 
@@ -212,7 +76,7 @@
             </div>
             <div class="post-grids">
                 <div class="col-md-4 post-left">
-                    <img src="images/p4.jpg" alt=""/>
+                    <img src="{{ asset('AppBundles/image/p4.jpg') }}" alt=""/>
                 </div>
                 <div class="col-md-8 post-right">
 

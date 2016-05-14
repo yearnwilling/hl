@@ -2,7 +2,7 @@ new_page:
     path:  /newpage
     defaults: { _controller: AppBundle:NewPage:index }
 
-page_stady:
+page_study:
     path:  /study
     defaults: { _controller: AppBundle:NewPage:study }
 
@@ -17,3 +17,7 @@ page_single:
 page_travel:
     path: /travel
     defaults: { _controller: AppBundle:NewPage:travel }
+
+page_blog:
+    path: /blog
+    defaults: { _controller: AppBundle:NewPage:blog }

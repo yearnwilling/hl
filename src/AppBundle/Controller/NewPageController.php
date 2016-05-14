@@ -12,10 +12,11 @@ class NewPageController extends BaseController
 	public function indexAction()
     {
 
-        $this->getNewPageService()->test();
+        $artcal = $this->getNewPageService()->getArtical();
+        return $this->render('AppBundle:newPage:newPage.html.twig', array(
+                'artcals' => $artcal,
 
-        return $this->render('AppBundle:newPage:newPage.html.twig'
-        );
+        ));
 
     }
 
@@ -37,6 +38,11 @@ class NewPageController extends BaseController
     public function travelAction()
     {
         return $this->render('AppBundle:newPage:travel.html.twig');
+    }
+
+    public function blogAction()
+    {
+        return $this->render('AppBundle:newPage:blog.html.twig');
     }
 
     protected function getNewPageService()

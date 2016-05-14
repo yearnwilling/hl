@@ -1,148 +1,118 @@
 {% extends 'AppBundle:newPage:newPage.html.twig' %}
 
- {%- block bannerMiddle-%}
+ {%- block bannerMiddle -%}
+     <div class="banner-middle">
+         <div class="strip"></div>
+
+         <!-- banner-bottom-grids -->
+         <div class="banner-bottom-grids">
+             <!-- banner-bottom-left -->
+             <div class="col-md-8 banner-bottom-left">
+                 <div class="banner-bottom-left-grids">
+                     <div class="single-left-grid">
+                         <img src="{{ asset('AppBundles/image/a5.jpg') }}" alt=""/>
+                         <h4>我每天醒来都要告诉自己的真理</h4>
+                         <p style="text-indent: 2em;">
+                             就芸芸众生而言，虽并非每一个人都会有“天将降大任于斯人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为”的际遇。也并非每一个人都会有“三十功名尘与土，八千里路云和月”的感喟，但在人生的漫漫旅程里，我们需要挑战，更需要在不断的磨难与努力之中去改造自己，证明自我。因为人生本来就是一个不断实现自我反思与追求完善的过程。<br/>
+
+                             犹清晰记得“千人迷”——足球明星贝克汉姆面对众多媒体闪动的镁光灯时所发自内心的那一句名言：我喜欢证明自己是对的，我也喜欢在别人对自己众多的否定或赞扬中不断的努力，去证明自己是对的，但绝对不是自大和狂妄！<br/>
 
 
-<div class="banner-middle">
-    <div class="strip"></div>
+                             要证明自己，因此你我必须品尝常人难以想象的艰辛与苦乐，甚至是忍受精神的压力以及肉体的病痛和伤残；要证明自己，因此你我必须付出比别人更多的汗水，忍受比别人更多的孤独与寂寞；要证明自己，因此你我务必摈弃那一些飘渺的想法以及某些自私固执的心态，必须无数次积极的去面对喜悦或失落；要证明自己，因此你我必须学会品味生活，笑对现实中的否定与褒奖。因为生活永远会像天空一样，并不总是纯洁湛蓝，她会让人欢笑，也会叫人悲伤。
+                         </p>
 
-    <!-- banner-bottom-grids -->
-    <div class="banner-bottom-grids">
-        <!-- banner-bottom-left -->
-        <div class="col-md-8 banner-bottom-left">
-            <div class="banner-bottom-left-grids">
-                <div class="single-left-grid">
-                    <img src="images/a5.jpg" alt=""/>
-                    <h4>我每天醒来都要告诉自己的真理</h4>
-                    <p style="text-indent: 2em;">
-                        就芸芸众生而言，虽并非每一个人都会有“天将降大任于斯人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为”的际遇。也并非每一个人都会有“三十功名尘与土，八千里路云和月”的感喟，但在人生的漫漫旅程里，我们需要挑战，更需要在不断的磨难与努力之中去改造自己，证明自我。因为人生本来就是一个不断实现自我反思与追求完善的过程。<br/>
+                     </div>
+                 </div>
+                 <div class="showWord">
+                     <div class="">宝宝</div>
+                     <div>aa@126.com</div>
+                     <div>我觉得你的网页很好看！</div>
+                     <div>
+                         <span type="text" value='' class="pull-right text-muted " style="cursor:pointer">删除</span>
 
-                        犹清晰记得“千人迷”——足球明星贝克汉姆面对众多媒体闪动的镁光灯时所发自内心的那一句名言：我喜欢证明自己是对的，我也喜欢在别人对自己众多的否定或赞扬中不断的努力，去证明自己是对的，但绝对不是自大和狂妄！<br/>
+                     </div>
+                     <hr>
+                 </div>
 
+                 <div class="respond">
+                     <h4>Leave a comment</h4>
+                     <form action="#">
+                         <input type="text" placeholder="Name" required="">
+                         <input class="name" type="text" placeholder="Email" required="">
+                         <textarea placeholder="Message" required=""></textarea>
+                         <input type="submit" value="SEND">
+                     </form>
+                 </div>
 
-                        要证明自己，因此你我必须品尝常人难以想象的艰辛与苦乐，甚至是忍受精神的压力以及肉体的病痛和伤残；要证明自己，因此你我必须付出比别人更多的汗水，忍受比别人更多的孤独与寂寞；要证明自己，因此你我务必摈弃那一些飘渺的想法以及某些自私固执的心态，必须无数次积极的去面对喜悦或失落；要证明自己，因此你我必须学会品味生活，笑对现实中的否定与褒奖。因为生活永远会像天空一样，并不总是纯洁湛蓝，她会让人欢笑，也会叫人悲伤。
-                    </p>
-                    <hr/>
-                </div>
-            </div>
-            <!-- post -->
-            <!-- <div class="post">
-<hr/>										<h3>Latest Posts</h3>
-                <div class="post-grids">
-                    <div class="col-md-4 post-left">
-                        <a href="single.html"><img src="images/p1.jpg" alt="" /></a>
-                    </div>
-                    <div class="col-md-8 post-right">
-                        <h4><a href="single.html">Silicon Valley Shows Signs of Dot-Com Frenzy</a></h4>
-                        <p class="comments">August 4 2010, <a href="#">8 Comments</a></p>
-                        <p class="text">Lorem ipsum ex vix illud nonummy, novum tation et his. At vix scripta patrioque scribentur...</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="post-grids">
-                    <div class="col-md-4 post-left">
-                        <a href="single.html"><img src="images/p2.jpg" alt="" /></a>
-                    </div>
-                    <div class="col-md-8 post-right">
-                        <h4><a href="single.html">Silicon Valley Shows Signs of Dot-Com Frenzy</a></h4>
-                        <p class="comments">August 4 2010, <a href="#">8 Comments</a></p>
-                        <p class="text">Lorem ipsum ex vix illud nonummy, novum tation et his. At vix scripta patrioque scribentur...</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="post-grids">
-                    <div class="col-md-4 post-left">
-                        <a href="single.html"><img src="images/p3.jpg" alt="" /></a>
-                    </div>
-                    <div class="col-md-8 post-right">
-                        <h4><a href="#">Silicon Valley Shows Signs of Dot-Com Frenzy</a></h4>
-                        <p class="comments">August 4 2010, <a href="#">8 Comments</a></p>
-                        <p class="text">Lorem ipsum ex vix illud nonummy, novum tation et his. At vix scripta patrioque scribentur...</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div> -->
-            <!-- //post -->
-            <div class="respond">
-                <h4>Leave a comment</h4>
-                <form>
-                    <input type="text" placeholder="Name" required="">
-                    <input class="name" type="text" placeholder="Email" required="">
-                    <textarea placeholder="Message" required=""></textarea>
-                    <input type="submit" value="SEND">
-                </form>
-            </div>
-        </div>
-        <!-- //banner-bottom-left -->
-        <!-- banner-bottom-right -->
-        <div class="col-md-4 banner-bottom-right">
-            <div class="banner-bottom-left-grids">
+             </div>
+             <!-- //banner-bottom-left -->
+             <!-- banner-bottom-right -->
+             <div class="col-md-4 banner-bottom-right">
+                 <div class="banner-bottom-left-grids">
 
-                <div class="advertisement">
-                    <h3>picture</h3><br>
-                    <img src="images/me1.jpeg">
-                </div>
-                <div class="sponsors">
-                    <h3>picture</h3>
-                    <div class="sponsors-grids">
-                        <div class="sponsors-grid-left">
-                            <div class="sponsors-grid">
-                                <img src="images/me2.jpg">
-                            </div>
-                        </div>
-                        <div class="sponsors-grid-left">
-                            <div class="sponsors-grid">
-                                <img src="images/me3.jpg">
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                <div class="video">
-                    <h3> Life Video</h3>
-                    <iframe src="http://www.bilibili.com/video/av4313395/" width="500" height="281" frameborder="0"
-                            webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                </div>
-                <div class="twitter">
-                    <h3>experience</h3>
-                    <div class="twitter-info">
-                        <p>小学第一次参加了舞蹈比赛</p>
-                    </div>
-                    <div class="twitter-info">
-                        <p>初中加入了校护旗队</p>
-                    </div>
-                    <div class="twitter-info">
-                        <p>高中进入了重点班</p>
-                    </div>
-                    <div class="twitter-info">
-                        <p>大学参加了以前没接触的实践活动</p>
-                    </div>
-                </div>
-                <div class="recent-posts">
-                    <h3>university</h3>
-                    <ul>
-                        <li>人生第一次的军训(。・・)ノ(。・・)ノ</li>
-                        <li>人生第一次远离父母，虽然说家离杭州很近n(*≧▽≦*)n</li>
-                        <li>参加了暑期实践，低碳馆之旅~\(≧▽≦)/~</li>
-                        <li>原来计算机的作业那么多，那么难(╥╯^╰╥)</li>
-                        <li>我们已经是女汉纸了，不解释┌(。Д。)┐</li>
-                        <li>通宵赶期末大作业(*Φ皿Φ*)</li>
-                        <li>小伙伴们出去爬山了wow~ ⊙o⊙</li>
-                        <li>寝室里的小幸福ヾ(o◕∀◕)ﾉヾ</li>
-                        <li>又要检查卫生，不想打扫(′д｀ )…彡…彡</li>
-                        <li>跑完800米，人都瘫掉了┗( T﹏T )┛</li>
-                        <li>今天好无聊，躺尸中～(￣▽￣～)(～￣▽￣)～</li>
-                        <li>回家吃肉去＼(＾∀＾)メ(＾∀＾)ノ</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- banner-bottom-right -->
-        <div class="clearfix"></div>
-        <div class="up-arrow">
-            <a class="scroll" href="#home">Back to Top</a>
-        </div>
-    </div>
-</div>
-
+                     <div class="advertisement">
+                         <h3>picture</h3><br>
+                         <img src="{{ asset('AppBundles/image/me1.jpeg') }}">
+                     </div>
+                     <div class="sponsors">
+                         <h3>picture</h3>
+                         <div class="sponsors-grids">
+                             <div class="sponsors-grid-left">
+                                 <div class="sponsors-grid">
+                                     <img src="{{ asset('AppBundles/image/me2.jpg') }}">
+                                 </div>
+                             </div>
+                             <div class="sponsors-grid-left">
+                                 <div class="sponsors-grid">
+                                     <img src="{{ asset('AppBundles/image/me3.jpg') }}">
+                                 </div>
+                             </div>
+                             <div class="clearfix"></div>
+                         </div>
+                     </div>
+                     <div class="video">
+                         <h3> Life Video</h3>
+                         <iframe src="http://www.bilibili.com/video/av4313395/" width="500" height="281" frameborder="0"
+                                 webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                     </div>
+                     <div class="twitter">
+                         <h3>experience</h3>
+                         <div class="twitter-info">
+                             <p>小学第一次参加了舞蹈比赛</p>
+                         </div>
+                         <div class="twitter-info">
+                             <p>初中加入了校护旗队</p>
+                         </div>
+                         <div class="twitter-info">
+                             <p>高中进入了重点班</p>
+                         </div>
+                         <div class="twitter-info">
+                             <p>大学参加了以前没接触的实践活动</p>
+                         </div>
+                     </div>
+                     <div class="recent-posts">
+                         <h3>university</h3>
+                         <ul>
+                             <li>人生第一次的军训(。・・)ノ(。・・)ノ</li>
+                             <li>人生第一次远离父母，虽然说家离杭州很近n(*≧▽≦*)n</li>
+                             <li>参加了暑期实践，低碳馆之旅~\(≧▽≦)/~</li>
+                             <li>原来计算机的作业那么多，那么难(╥╯^╰╥)</li>
+                             <li>我们已经是女汉纸了，不解释┌(。Д。)┐</li>
+                             <li>通宵赶期末大作业(*Φ皿Φ*)</li>
+                             <li>小伙伴们出去爬山了wow~ ⊙o⊙</li>
+                             <li>寝室里的小幸福ヾ(o◕∀◕)ﾉヾ</li>
+                             <li>又要检查卫生，不想打扫(′д｀ )…彡…彡</li>
+                             <li>跑完800米，人都瘫掉了┗( T﹏T )┛</li>
+                             <li>今天好无聊，躺尸中～(￣▽￣～)(～￣▽￣)～</li>
+                             <li>回家吃肉去＼(＾∀＾)メ(＾∀＾)ノ</li>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+             <!-- banner-bottom-right -->
+             <div class="clearfix"></div>
+             <div class="up-arrow">
+                 <a class="scroll" href="#home">Back to Top</a>
+             </div>
+         </div>
  {%- endblock -%}
