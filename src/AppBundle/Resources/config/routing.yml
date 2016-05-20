@@ -14,6 +14,11 @@ page_single:
     path: /single
     defaults: { _controller: AppBundle:NewPage:single }
 
+page_single_delete:
+    path: /single/delete/{id}
+    defaults: { _controller:  AppBundle:NewPage:singleDelete }
+    methods: [POST]
+
 page_travel:
     path: /travel
     defaults: { _controller: AppBundle:NewPage:travel }

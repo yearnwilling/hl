@@ -1,5 +1,9 @@
 {% extends 'AppBundle:newPage:newPage.html.twig' %}
 
+{%- block script -%}
+    <script src="{{ asset('bundles/app/js/Controller/NewPage/single.js') }}"></script>
+{%- endblock -%}
+
  {%- block bannerMiddle -%}
      <div class="banner-middle">
          <div class="strip"></div>
@@ -23,23 +27,23 @@
 
                      </div>
                  </div>
+                 {% for message in messages %}
                  <div class="showWord">
-                     <div class="">宝宝</div>
-                     <div>aa@126.com</div>
-                     <div>我觉得你的网页很好看！</div>
+                     <div class="">昵称:{{ message.nickname }}</div>
+                     <div>邮箱:{{ message.email }}</div>
+                     <div>评论:{{ message.info }}</div>
                      <div>
-                         <span type="text" value='' class="pull-right text-muted " style="cursor:pointer">删除</span>
-
+                         <span type="text" value='' class="pull-right text-muted single-delete" data-id="{{ message.id }}"  data-url="{{ path('page_single_delete',{id:message.id}) }}" style="cursor:pointer">删除</span>
                      </div>
                      <hr>
                  </div>
-
+                {% endfor %}
                  <div class="respond">
                      <h4>Leave a comment</h4>
-                     <form action="#">
-                         <input type="text" placeholder="Name" required="">
-                         <input class="name" type="text" placeholder="Email" required="">
-                         <textarea placeholder="Message" required=""></textarea>
+                     <form action="{{ path('page_single')}}" method="POST">
+                         <input  name='nickname' type="text" placeholder="Name" required="">
+                         <input name="email" class="name" type="text" placeholder="Email" required="">
+                         <textarea name="info" placeholder="Message" required=""></textarea>
                          <input type="submit" value="SEND">
                      </form>
                  </div>
@@ -72,7 +76,7 @@
                      </div>
                      <div class="video">
                          <h3> Life Video</h3>
-                         <iframe src="http://www.bilibili.com/video/av4313395/" width="500" height="281" frameborder="0"
+                         <iframe src="http://static.hdslb.com/miniloader.swf?aid=4313395&page=1" width="500" height="281" frameborder="0"
                                  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                      </div>
                      <div class="twitter">

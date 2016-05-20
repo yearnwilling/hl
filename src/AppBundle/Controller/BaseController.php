@@ -16,4 +16,9 @@ abstract class BaseController extends Controller
     {
         return ServiceKernel::instance();
     }
+
+    protected function createJsonResponse($data)
+    {
+        return new JsonResponse($data);
+    }
 }

@@ -7,4 +7,10 @@ interface NewPageService
 
     public function getArtical();
 
+    public function addMessage($message);
+
+    public function getMessage();
+
+
+
 }

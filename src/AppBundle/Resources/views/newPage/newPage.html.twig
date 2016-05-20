@@ -11,13 +11,17 @@
     <script src="{{ asset('resource/jquery/jquery.js') }}"></script>
     <script src="{{ asset('resource/jquery/jquery.easydropdown.js') }}"></script>
     <script src="{{ asset('resource/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('resource/bootstrap/js/bootstrap-notify.js') }}"></script>
     <script src="{{ asset('AppBundles/js/easyResponsiveTabs.js') }}"></script>
     <script src="{{ asset('AppBundles/js/responsiveslides.min.js') }}"></script>
     <link href="{{ asset('resource/bootstrap/css/bootstrap.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('resource/bootstrap/css/animate.css') }}" rel="stylesheet"/>
     <link href="{{ asset('AppBundles/css/style.css') }}" rel="stylesheet"/>
     <link href="{{ asset('AppBundles/css/useso.css') }}" rel="stylesheet"/>
     <link href="{{ asset('AppBundles/css/nav.css') }}" rel="stylesheet"/>
+    {%- block script -%}
 
+    {%- endblock -%}
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -319,13 +323,13 @@
         </div>
     </div>
 </div>
-</div>
+
 <!-- //bg-banner -->
-<div class="footer">
-    <div class="copyright">
-        <p>Copyright &copy; 2016.All rights reserved.</p>
-    </div>
-</div>
+{#<div class="footer">#}
+    {#<div class="copyright">#}
+        {#<p>Copyright &copy; 2016.All rights reserved.</p>#}
+    {#</div>#}
+{#</div>#}
 
 </body>
 </html>

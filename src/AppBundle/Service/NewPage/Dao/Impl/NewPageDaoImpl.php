@@ -26,4 +26,6 @@ class NewPageDaoImpl extends BaseDao implements NewPageDao
         $sql = $this->modifyLimitQuery($sql,4,0);
         return $this->fetchAll($sql) ?: null;
     }
+
+
 }

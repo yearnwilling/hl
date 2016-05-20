@@ -10,4 +10,6 @@ interface NewPageDao
 //    public function test();
 
     public function getIndexArtical();
+
+    public function deleteMessage($id);
 }
