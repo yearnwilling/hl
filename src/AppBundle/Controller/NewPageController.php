@@ -34,8 +34,8 @@ class NewPageController extends BaseController
     public function singleAction(Request $request)
     {
         if ($request->getMethod() == 'POST') {
-            $message  = $request->request->all();
-            $this->getNewPageService()->addMessage($message);
+            $messageS  = $request->request->all();
+            $this->getNewPageService()->addMessage($messageS);
 
         }
         $message = $this->getNewPageService()->getMessage();

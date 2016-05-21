@@ -11,5 +11,4 @@ interface NewPageDao
 
     public function getIndexArtical();
 
-    public function deleteMessage($id);
 }
