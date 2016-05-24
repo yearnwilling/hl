@@ -113,10 +113,10 @@ class ServiceKernel
                 }
             }
 
-            if (!$this->debug) {
-                $cache = "<?php \nreturn ".var_export($this->_moduleConfig, true) . ';';
-                file_put_contents($moduleConfigCacheFile, $cache);
-            }
+//            if (!$this->debug) {
+//                $cache = "<?php \nreturn ".var_export($this->_moduleConfig, true) . ';';
+//                file_put_contents($moduleConfigCacheFile, $cache);
+//            }
         }
 
         $subscribers = empty($this->_moduleConfig['event_subscriber']) ? array() : $this->_moduleConfig['event_subscriber'];

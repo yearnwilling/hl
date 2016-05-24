@@ -116,6 +116,7 @@ class DoctrineExtension extends AbstractDoctrineExtension
             $config['default_connection'] = reset($keys);
         }
 
+
         $this->defaultConnection = $config['default_connection'];
 
         $container->setAlias('database_connection', sprintf('doctrine.dbal.%s_connection', $this->defaultConnection));
