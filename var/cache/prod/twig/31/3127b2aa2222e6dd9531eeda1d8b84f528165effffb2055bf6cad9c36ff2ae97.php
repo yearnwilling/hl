@@ -11,8 +11,10 @@ class __TwigTemplate_d7e9a29f53dbd58b9b659fbe5051812452b2ca9a2704f38a077fa5a39a2
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
+            'script' => array($this, 'block_script'),
             'header' => array($this, 'block_header'),
             'bannerTop' => array($this, 'block_bannerTop'),
+            'bannerMiddle' => array($this, 'block_bannerMiddle'),
         );
     }
 
@@ -43,31 +45,40 @@ class __TwigTemplate_d7e9a29f53dbd58b9b659fbe5051812452b2ca9a2704f38a077fa5a39a2
         echo "\"></script>
     <script src=\"";
         // line 14
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/js/easyResponsiveTabs.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("resource/bootstrap/js/bootstrap-notify.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
         // line 15
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/js/easyResponsiveTabs.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 16
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/js/responsiveslides.min.js"), "html", null, true);
         echo "\"></script>
     <link href=\"";
-        // line 16
+        // line 17
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("resource/bootstrap/css/bootstrap.css"), "html", null, true);
         echo "\" rel=\"stylesheet\"/>
     <link href=\"";
-        // line 17
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/css/style.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\"/>
-    <link href=\"";
         // line 18
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/css/useso.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("resource/bootstrap/css/animate.css"), "html", null, true);
         echo "\" rel=\"stylesheet\"/>
     <link href=\"";
         // line 19
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/css/nav.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/css/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\"/>
-
-
-    <script type=\"text/javascript\">
+    <link href=\"";
+        // line 20
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/css/useso.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\"/>
+    <link href=\"";
+        // line 21
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/css/nav.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\"/>";
+        // line 22
+        $this->displayBlock('script', $context, $blocks);
+        // line 26
+        echo "<script type=\"text/javascript\">
         \$(document).ready(function () {
             \$('#horizontalTab').easyResponsiveTabs({
                 type: 'default', //Types: default, vertical, accordion
@@ -85,11 +96,25 @@ class __TwigTemplate_d7e9a29f53dbd58b9b659fbe5051812452b2ca9a2704f38a077fa5a39a2
 
         var myDate = new Date();
     </script>
+
+    <style>
+    .showWord{
+    max-width:710px;
+    height:auto;
+    border:1px solid gray;
+    margin:30px 0px;
+    padding: 10px;
+    font-family: Courier, \"Courier New\", monospace;
+    font-weight: bold;
+    border-radius: 10px;
+    color: rgb(124,204,79);
+    }
+    </style>
 </head>
 <body>";
-        // line 42
+        // line 60
         $this->displayBlock('header', $context, $blocks);
-        // line 75
+        // line 93
         echo "<!-- //header -->
 
 <!-- bg-banner -->
@@ -101,295 +126,12 @@ class __TwigTemplate_d7e9a29f53dbd58b9b659fbe5051812452b2ca9a2704f38a077fa5a39a2
                 <!-- banner -->
                 <div class=\"banner\">
                     <div class=\"banner-grids\">";
-        // line 86
+        // line 104
         $this->displayBlock('bannerTop', $context, $blocks);
-        // line 113
-        echo "<div class=\"banner-middle\">
-
-                            <div class=\"slider\">
-                                <!-- Slideshow 3 -->
-                                <ul class=\"rslides\" id=\"slider\">
-                                    <li><img src=\"";
-        // line 118
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/1.jpg"), "html", null, true);
-        echo "\" alt=\"\"></li>
-                                    <li><img src=\"";
-        // line 119
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/2.jpg"), "html", null, true);
-        echo "\" alt=\"\"></li>
-                                    <li><img src=\"";
-        // line 120
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/3.jpg"), "html", null, true);
-        echo "\" alt=\"\"></li>
-                                    <li><img src=\"";
-        // line 121
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/4.jpg"), "html", null, true);
-        echo "\" alt=\"\"></li>
-                                    <li><img src=\"";
-        // line 122
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/5.jpg"), "html", null, true);
-        echo "\" alt=\"\"></li>
-                                    <li><img src=\"";
-        // line 123
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/6.jpg"), "html", null, true);
-        echo "\" alt=\"\"></li>
-                                </ul>
-                                <!-- Slideshow 3 Pager -->
-                                <ul id=\"slider3-pager\">
-                                    <li><a href=\"#\"><img src=\"";
-        // line 127
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/1c.jpg"), "html", null, true);
-        echo "\" alt=\"\"></a></li>
-                                    <li><a href=\"#\"><img src=\"";
-        // line 128
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/2c.jpg"), "html", null, true);
-        echo "\" alt=\"\"></a></li>
-                                    <li><a href=\"#\"><img src=\"";
-        // line 129
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/3c.jpg"), "html", null, true);
-        echo "\" alt=\"\"></a></li>
-                                    <li><a href=\"#\"><img src=\"";
-        // line 130
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/4c.jpg"), "html", null, true);
-        echo "\" alt=\"\"></a></li>
-                                    <li><a href=\"#\"><img src=\"";
-        // line 131
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/5c.jpg"), "html", null, true);
-        echo "\" alt=\"\"></a></li>
-                                    <li><a href=\"#\"><img src=\"";
-        // line 132
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/6c.jpg"), "html", null, true);
-        echo "\" alt=\"\"></a></li>
-
-                                </ul>
-                            </div>
-                            <div class=\"strip1\"></div>
-                            <!-- banner-bottom-grids -->
-                            <div class=\"banner-bottom-grids\">
-                                <!-- banner-bottom-left -->
-                                <div class=\"col-md-8 banner-bottom-left\">
-                                    <div class=\"banner-bottom-left-grids\">
-                                        <div class=\"col-md-6 banner-left-grid\">
-                                            <h3>artical</h3>
-                                            <a href=\"blog.html\"><img src=\"images/b1.jpg\" alt=\"\"/></a>
-
-                                            <p class=\"text\">
-                                                西风卷帘笑落花,低吟浅唱泻芳华。日出东海落西山，兰溪幽悠浣流沙。梦逐天涯。风吹雨成花。岁月蒸发，掌心的梦匣。浮尘轻抹，渡过春秋冬夏。<br>
-                                                朝暮踏歌，悲欢离合。了搓跎，花开风过，一步一岁末。潺潺地淌过岁月之河。日子轻轻的在指间跌落......</p>
-                                            <div class=\"blog-grids\">
-                                                <div class=\"blog-grid-left\">
-                                                    <img src=\"images/b5.jpg\" alt=\"\"/>
-                                                </div>
-                                                <div class=\"blog-grid-right\">
-                                                    不去追逐你所渴求，你将永远不会拥有。不开口问，回答永远是No。不往前走，就将永远停留。
-
-                                                </div>
-                                                <div class=\"clearfix\"></div>
-                                            </div>
-                                            <div class=\"blog-grids\">
-                                                <div class=\"blog-grid-left\">
-                                                    <img src=\"images/b6.jpg\" alt=\"\"/>
-                                                </div>
-                                                <div class=\"blog-grid-right\">
-                                                    昨天很重要，它构建了我们的记忆；明天很重要，它让我们有了憧憬和梦想。
-                                                </div>
-                                                <div class=\"clearfix\"></div>
-                                            </div>
-                                        </div>
-                                        <div class=\"col-md-6 banner-left-grid\">
-                                            <h3>artical</h3>
-                                            <a href=\"blog.html\"><img src=\"images/b2.jpg\" alt=\"\"/></a>
-
-                                            <p class=\"text\">
-                                                总是在回眸之间，才想留住你脸上那一抹微笑，也才知道那熟悉的浪漫，其实每天都在我的生活中展现。突然觉得自己好像错过了命运对我的恩惠，准确的说不是好像，是肯定……美好的只属于回忆，现实的却总是残缺，离我们的憧憬总是存在一定的距离......</p>
-                                            <div class=\"blog-grids\">
-                                                <div class=\"blog-grid-left\">
-                                                    <img src=\"images/b5.jpg\" alt=\"\"/>
-                                                </div>
-                                                <div class=\"blog-grid-right\">
-                                                    用最少的悔恨面对过去，用最少的浪费面对现在，用最多的梦想面对未来。
-                                                </div>
-                                                <div class=\"clearfix\"></div>
-                                            </div>
-                                            <div class=\"blog-grids\">
-                                                <div class=\"blog-grid-left\">
-                                                    <img src=\"images/b6.jpg\" alt=\"\"/>
-                                                </div>
-                                                <div class=\"blog-grid-right\">
-                                                    我只是一朵向日葵，等待着属于我的唯一的阳光
-
-                                                </div>
-                                                <div class=\"clearfix\"></div>
-                                            </div>
-                                        </div>
-                                        <div class=\"clearfix\"></div>
-                                    </div>
-                                    <div class=\"banner-bottom-left-grids\">
-                                        <div class=\"col-md-6 banner-left-grid\">
-                                            <h3>artical</h3>
-                                            <a href=\"blog.html\"><img src=\"images/b3.jpg\" alt=\"\"/></a>
-
-                                            <p class=\"text\">
-                                                最近看了一部影片叫《蓝色迷情》，唤起了我对海的向往。虽然自己是个平原长大的孩子，但是对海却情有独钟，因为站在海的面前，心情会无比的旷达与纯净。一泓幽蓝浩浩汤汤，仿佛卷走了尘世间所有的喧嚣与浮躁，剩下的只是心灵的跃动和神思的空灵……</p>
-                                            <div class=\"blog-grids\">
-                                                <div class=\"blog-grid-left\">
-                                                    <img src=\"images/b7.jpg\" alt=\"\"/>
-                                                </div>
-                                                <div class=\"blog-grid-right\">
-                                                    <p>伤痛使你更坚强，眼泪使你更勇敢，心碎使你更明智。</p>
-
-                                                </div>
-                                                <div class=\"clearfix\"></div>
-                                            </div>
-                                            <div class=\"blog-grids\">
-                                                <div class=\"blog-grid-left\">
-                                                    <img src=\"images/b8.jpg\" alt=\"\"/>
-                                                </div>
-                                                <div class=\"blog-grid-right\">
-                                                    <p>生命就好像旅行，在过程中我们可以拥有一些东西，但终究不能带走它。</p>
-
-                                                </div>
-                                                <div class=\"clearfix\"></div>
-                                            </div>
-                                        </div>
-                                        <div class=\"col-md-6 banner-left-grid\">
-                                            <h3>artical</h3>
-                                            <a href=\"blog.html\"><img src=\"images/b4.jpg\" alt=\"\"/></a>
-
-                                            <p class=\"text\">
-                                                在你的沉思与歌唱里，我发现窗的曼妙和无与伦比。倚窗而立，凭窗远眺，临窗而坐，拥窗入眠，落窗凝思，一卷书，一杯茗，一首歌，是你的情怀，亦是人生欢景，那些窗内窗外的世象，或许是你于红尘中，独爱窗棱的缘故。世间有窗，总那么一点点，似有似无，开开合合....</p>
-                                            <div class=\"blog-grids\">
-                                                <div class=\"blog-grid-left\">
-                                                    <img src=\"images/b7.jpg\" alt=\"\"/>
-                                                </div>
-                                                <div class=\"blog-grid-right\">
-                                                    <p>不管发生什么，都不要放弃，坚持走下去，肯定会有意想不到的风景。</p>
-                                                </div>
-                                                <div class=\"clearfix\"></div>
-                                            </div>
-                                            <div class=\"blog-grids\">
-                                                <div class=\"blog-grid-left\">
-                                                    <img src=\"images/b8.jpg\" alt=\"\"/>
-                                                </div>
-                                                <div class=\"blog-grid-right\">
-                                                    <p>人与人之间最远的距离，不是隔了千山万水，而是心与心的距离。</p>
-                                                </div>
-                                                <div class=\"clearfix\"></div>
-                                            </div>
-                                        </div>
-                                        <div class=\"clearfix\"></div>
-                                    </div>
-                                    <!-- post -->
-                                    <div class=\"post\">
-                                        <h3>Latest artical</h3>
-                                        <div class=\"post-grids\">
-                                            <div class=\"col-md-4 post-left\">
-                                                <img src=\"images/p1.jpg\" alt=\"\"/>
-                                            </div>
-                                            <div class=\"col-md-8 post-right\">
-
-                                                <p class=\"text\">Search for knowledge, read more, sit on your front porch
-                                                    and admire the view without paying attention to your needs.
-                                                    寻找更多的知识，多读一些书，坐在你家的前廊里，以赞美的眼光去享受眼前的风景，不要带上任何功利的想法</p>
-                                            </div>
-                                            <div class=\"clearfix\"></div>
-                                        </div>
-                                        <div class=\"post-grids\">
-                                            <div class=\"col-md-4 post-left\">
-                                                <img src=\"images/p2.jpg\" alt=\"\"/>
-                                            </div>
-                                            <div class=\"col-md-8 post-right\">
-
-                                                <p class=\"text\">Friendship isn't about whom you've known the longest,
-                                                    it's about who came, and never left your
-                                                    side.——朋友不是那个你认识得最久的人，而是那个来到你身边后便不再离开的人。</p>
-                                            </div>
-                                            <div class=\"clearfix\"></div>
-                                        </div>
-                                        <div class=\"post-grids\">
-                                            <div class=\"col-md-4 post-left\">
-                                                <img src=\"images/p3.jpg\" alt=\"\"/>
-                                            </div>
-                                            <div class=\"col-md-8 post-right\">
-
-                                                <p class=\"text\">Travel the greatest benefit, not to see how many people,
-                                                    see more beautiful scenery, but walked, in a fate, suddenly find
-                                                    themselves.旅行最大的好处，不是见到多少人，见过多美的风景，而是走着走着，在一个际遇下，突然重新认识了自己。</p>
-                                            </div>
-                                            <div class=\"clearfix\"></div>
-                                        </div>
-                                    </div>
-                                    <!-- //post -->
-                                </div>
-                                <!-- //banner-bottom-left -->
-                                <!-- banner-bottom-right -->
-                                <div class=\"col-md-4 banner-bottom-right\">
-
-                                    <div class=\"advertisement\">
-                                        <h3>my girl</h3><br>
-                                        <img src=\"images/a.jpg\" alt=\"\">
-                                    </div>
-                                    <div class=\"sponsors\">
-                                        <h3>my girl</h3>
-                                        <div class=\"sponsors-grids\">
-                                            <div class=\"sponsors-grid-left\">
-
-                                                <img src=\"images/b.jpg\" alt=\"\">
-
-                                            </div>
-                                            <div class=\"sponsors-grid-left\">
-
-                                                <img src=\"images/c.jpg\" alt=\"\">
-
-                                            </div>
-                                            <div class=\"clearfix\"></div>
-                                        </div>
-                                    </div>
-                                    <div class=\"video\">
-                                        <h3>Taylor swift</h3>
-                                        <iframe src=\"http://v.yinyuetai.com/video/535338\"></iframe>
-                                    </div>
-                                    <div class=\"twitter\">
-                                        <h3>about she</h3>
-                                        <div class=\"twitter-info\">
-                                            <p>泰勒·斯威夫特（Taylor
-                                                Swift），1989年12月13日出生于美国宾夕法尼亚州，美国流行音乐、乡村音乐创作型女歌手、音乐制作人、演员、慈善家。</p>
-                                        </div>
-                                        <div class=\"twitter-info\">
-                                            <p>2006年与独立唱片公司大机器唱片签约，发行首张录音室专辑《泰勒·斯威夫特》，获美国唱片业协会认证5倍白金唱片[1]
-                                                。2007年至2015年共获7届纳什维尔创作人协会国际奖年度创作人/艺人。</p>
-                                        </div>
-                                        <div class=\"twitter-info\">
-                                            <p>2008年发行第二张录音室专辑《Fearless》，在美国公告牌专辑榜上获11周冠军，是2009年全美最畅销专辑，认证7倍白金唱片[2]
-                                                ，专辑获第52届格莱美奖年度专辑，使泰勒成为获此奖项的最年轻歌手， [3] 也是获奖最多的乡村音乐专辑[4] 。</p>
-                                        </div>
-                                        <div class=\"twitter-info\">
-                                            <p>2015年4月获第50届乡村音乐学院奖50周年里程碑奖[13-14] 。5月，成为2015福布斯全球权势女性榜上榜最年轻女性[15-16]
-                                                。8月获MTV音乐录像带奖年度音乐录像带[17] 。</p>
-                                        </div>
-                                    </div>
-                                    <div class=\"recent-posts\">
-                                        <h3>all CDs</h3>
-                                        <ul>
-                                            <li>2006年10月24日，同名专辑《泰勒·斯威夫特》发行</li>
-                                            <li>2008年11月11日，泰勒的第二张专辑《Fearless》发行，
-                                                公告牌专辑榜夺冠，这也是泰勒的第一张冠军专辑。
-                                            </li>
-                                            <li>2010年10月25日，泰勒发行了第三张录音室专辑《Speak Now》</li>
-                                            <li>2012年10月22日，泰勒发行了她的第四张个人专辑《Red》</li>
-                                            <li>
-                                                2014年10月27日，发行第五张录音室专辑《1989》，这也是泰勒的第一张正式流行专辑，发行首周售出128万余张，成为美国唱片市场近十二年最高的首周销量纪录，泰勒也成为唯一一位拥有三张首周百万销量专辑的歌手
-                                            </li>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- banner-bottom-right -->
-                            <div class=\"clearfix\"></div>
-                            <div class=\"up-arrow\">
-                                <a class=\"scroll\" href=\"#home\">Back to Top</a>
-                            </div>
-                        </div>
-                        <!-- //banner-bottom-grids -->
+        // line 136
+        $this->displayBlock('bannerMiddle', $context, $blocks);
+        // line 318
+        echo "<!-- //banner-bottom-grids -->
                     </div>
                 </div>
             </div>
@@ -397,14 +139,17 @@ class __TwigTemplate_d7e9a29f53dbd58b9b659fbe5051812452b2ca9a2704f38a077fa5a39a2
         </div>
     </div>
 </div>
-</div>
-<!-- //bg-banner -->
-<div class=\"footer\">
-    <div class=\"copyright\">
-        <p>Copyright &copy; 2016.All rights reserved.</p>
-    </div>
-</div>
 
+<!-- //bg-banner -->
+";
+        // line 329
+        echo "    ";
+        // line 330
+        echo "        ";
+        // line 331
+        echo "    ";
+        // line 333
+        echo "
 </body>
 </html>";
     }
@@ -416,75 +161,397 @@ class __TwigTemplate_d7e9a29f53dbd58b9b659fbe5051812452b2ca9a2704f38a077fa5a39a2
         echo "莉莉blog";
     }
 
-    // line 42
-    public function block_header($context, array $blocks = array())
+    // line 22
+    public function block_script($context, array $blocks = array())
     {
-        // line 43
-        echo "<div id=\"home\" class=\"header\">
-    <div class=\"header-top\">
-        <!-- container -->
-        <div class=\"container\">
-            <div class=\"top-nav\">
-                <script>
-                    document.write(myDate.tolocaleString());
-                </script>
-            </div>
-            <div class=\"nav-right\">
-                <p>created by hl, <a href=\"\">Emaiil</a> for contact!</p>
-            </div>
-            <div class=\"clearfix\"></div>
-            <!-- script-for-menu -->
-        </div>
-        <!-- //container -->
-    </div>
-    <div class=\"header-bottom\">
-        <!-- container -->
-        <div class=\"container\">
-            <div class=\"head-logo\">
-                <a href=\"index.html\"><img src=\"";
-        // line 64
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/icon/logo.png"), "html", null, true);
-        echo "\" alt=\"\"/></a>
-            </div>
-            <div class=\"logo-right\">
-
-            </div>
-            <div class=\"clearfix\"></div>
-        </div>
-        <!-- //container -->
-    </div>
-</div>";
     }
 
-    // line 86
+    // line 60
+    public function block_header($context, array $blocks = array())
+    {
+        // line 61
+        echo "<div id=\"home\" class=\"header\">
+        <div class=\"header-top\">
+            <!-- container -->
+            <div class=\"container\">
+                <div class=\"top-nav\">
+                    <script>
+                        document.write(myDate.tolocaleString());
+                    </script>
+                </div>
+                <div class=\"nav-right\">
+                    <p>created by hl, <a href=\"\">Emaiil</a> for contact!</p>
+                </div>
+                <div class=\"clearfix\"></div>
+                <!-- script-for-menu -->
+            </div>
+            <!-- //container -->
+        </div>
+        <div class=\"header-bottom\">
+            <!-- container -->
+            <div class=\"container\">
+                <div class=\"head-logo\">
+                    <a href=\"index.html\"><img src=\"";
+        // line 82
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/icon/logo.png"), "html", null, true);
+        echo "\" alt=\"\"/></a>
+                </div>
+                <div class=\"logo-right\">
+
+                </div>
+                <div class=\"clearfix\"></div>
+            </div>
+            <!-- //container -->
+        </div>
+    </div>";
+    }
+
+    // line 104
     public function block_bannerTop($context, array $blocks = array())
     {
-        // line 87
+        // line 105
         echo "<div class=\"banner-top\">
-                            <ul class=\"nav banner-nav\">
-                                <li class=\"dropdown1\"><a href=\"index.html\">主页<span>my &nbsp;homepage</span></a>
+                                <ul class=\"nav banner-nav\">
+                                    <li class=\"dropdown1\"><a
+                                                href=\"";
+        // line 108
+        echo $this->env->getExtension('routing')->getPath("new_page");
+        echo "\">主页<span>my &nbsp;homepage</span></a>
 
-                                </li>
-                                <li class=\"dropdown1\"><a href=\"blog.html\">日志<span>my &nbsp;blog</span></a>
+                                    </li>
+                                    <li class=\"dropdown1\"><a href=\"";
+        // line 111
+        echo $this->env->getExtension('routing')->getPath("page_blog");
+        echo "\">日志<span>my &nbsp;blog</span></a>
 
-                                </li>
-                                <li class=\"dropdown1\"><a href=\"photo.html\">相册<span>my &nbsp;photo</span></a>
+                                    </li>
+                                    <li class=\"dropdown1\"><a
+                                                href=\"";
+        // line 115
+        echo $this->env->getExtension('routing')->getPath("page_photo");
+        echo "\">相册<span>my &nbsp;photo</span></a>
 
-                                </li>
-                                <li class=\"dropdown1\"><a href=\"study.html\">学习<span>my &nbsp;study</span></a>
+                                    </li>
+                                    <li class=\"dropdown1\"><a
+                                                href=\"";
+        // line 119
+        echo $this->env->getExtension('routing')->getPath("page_study");
+        echo "\">学习<span>my &nbsp;study</span></a>
 
-                                </li>
-                                <li class=\"dropdown1\"><a href=\"travel.html\">旅游<span>my &nbsp;travel</span></a>
+                                    </li>
+                                    <li class=\"dropdown1\"><a
+                                                href=\"";
+        // line 123
+        echo $this->env->getExtension('routing')->getPath("page_travel");
+        echo "\">旅游<span>my &nbsp;travel</span></a>
 
-                                </li>
-                                <li class=\"dropdown1\"><a href=\"single.html\">个人中心<span> individual &nbsp;center </span></a>
+                                    </li>
+                                    <li class=\"dropdown1\"><a href=\"";
+        // line 126
+        echo $this->env->getExtension('routing')->getPath("page_single");
+        echo "\">个人中心<span> individual &nbsp;center </span></a>
 
-                                </li>
-                            </ul>
-                            <script>
+                                    </li>
+                                </ul>
+                                <script>
 
-                            </script>
-                        </div>";
+                                </script>
+                            </div>";
+    }
+
+    // line 136
+    public function block_bannerMiddle($context, array $blocks = array())
+    {
+        // line 137
+        echo "<div class=\"banner-middle\">
+
+                                <div class=\"slider\">
+                                    <!-- Slideshow 3 -->
+                                    <ul class=\"rslides\" id=\"slider\">
+                                        <li><img src=\"";
+        // line 142
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/1.jpg"), "html", null, true);
+        echo "\" alt=\"\"></li>
+                                        <li><img src=\"";
+        // line 143
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/2.jpg"), "html", null, true);
+        echo "\" alt=\"\"></li>
+                                        <li><img src=\"";
+        // line 144
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/3.jpg"), "html", null, true);
+        echo "\" alt=\"\"></li>
+                                        <li><img src=\"";
+        // line 145
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/4.jpg"), "html", null, true);
+        echo "\" alt=\"\"></li>
+                                        <li><img src=\"";
+        // line 146
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/5.jpg"), "html", null, true);
+        echo "\" alt=\"\"></li>
+                                        ";
+        // line 148
+        echo "                                    </ul>
+                                    <!-- Slideshow 3 Pager -->
+                                    <ul id=\"slider3-pager\">
+                                        <li><a href=\"#\"><img src=\"";
+        // line 151
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/1c.jpg"), "html", null, true);
+        echo "\" alt=\"\"></a>
+                                        </li>
+                                        <li><a href=\"#\"><img src=\"";
+        // line 153
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/2c.jpg"), "html", null, true);
+        echo "\" alt=\"\"></a>
+                                        </li>
+                                        <li><a href=\"#\"><img src=\"";
+        // line 155
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/3c.jpg"), "html", null, true);
+        echo "\" alt=\"\"></a>
+                                        </li>
+                                        <li><a href=\"#\"><img src=\"";
+        // line 157
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/4c.jpg"), "html", null, true);
+        echo "\" alt=\"\"></a>
+                                        </li>
+                                        <li><a href=\"#\"><img src=\"";
+        // line 159
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/5c.jpg"), "html", null, true);
+        echo "\" alt=\"\"></a>
+                                        </li>
+                                        ";
+        // line 162
+        echo "
+                                    </ul>
+                                </div>
+                                <div class=\"strip1\"></div>
+                                <!-- banner-bottom-grids -->
+                                <div class=\"banner-bottom-grids\">
+                                    <!-- banner-bottom-left -->
+                                    <div class=\"col-md-8 banner-bottom-left\">
+                                        <div class=\"banner-bottom-left-grids\">
+                                            ";
+        // line 171
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["artcals"]) ? $context["artcals"] : null));
+        $context['loop'] = array(
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        );
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
+        foreach ($context['_seq'] as $context["_key"] => $context["artcal"]) {
+            // line 172
+            echo "                                            <div class=\"col-md-6 banner-left-grid\">
+                                                <h3>";
+            // line 173
+            echo twig_escape_filter($this->env, $this->getAttribute($context["artcal"], "title", array()), "html", null, true);
+            echo "</h3>
+                                                <a href=\"blog.html\"><img src=\"";
+            // line 174
+            echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["artcal"], "image", array()), "html", null, true);
+            echo "\" alt=\"\"/></a>
+
+                                                <p class=\"text\">
+                                                    ";
+            // line 177
+            echo twig_escape_filter($this->env, $this->getAttribute($context["artcal"], "info", array()), "html", null, true);
+            echo "
+                                                </p>
+                                                <div class=\"blog-grids\">
+                                                    <div class=\"blog-grid-left\">
+                                                        <img src=\"";
+            // line 181
+            echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["artcal"], "frist_image", array()), "html", null, true);
+            echo "\" alt=\"\"/>
+                                                    </div>
+                                                    <div class=\"blog-grid-right\">
+                                                        ";
+            // line 184
+            echo twig_escape_filter($this->env, $this->getAttribute($context["artcal"], "frist_title", array()), "html", null, true);
+            echo "
+                                                    </div>
+                                                    <div class=\"clearfix\"></div>
+                                                </div>
+                                                <div class=\"blog-grids\">
+                                                    <div class=\"blog-grid-left\">
+                                                        <img src=\"";
+            // line 190
+            echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["artcal"], "next_image", array()), "html", null, true);
+            echo "\" alt=\"\"/>
+                                                    </div>
+                                                    <div class=\"blog-grid-right\">
+                                                        ";
+            // line 193
+            echo twig_escape_filter($this->env, $this->getAttribute($context["artcal"], "next_title", array()), "html", null, true);
+            echo "
+                                                    </div>
+                                                    <div class=\"clearfix\"></div>
+                                                </div>
+                                            </div>
+                                                ";
+            // line 198
+            if ((($this->getAttribute($context["loop"], "index", array()) == 2) || ($this->getAttribute($context["loop"], "index", array()) == 4))) {
+                // line 199
+                echo "                                                    <div class=\"clearfix\"></div>
+                                                ";
+            }
+            // line 201
+            echo "                                            ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['artcal'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 202
+        echo "                                        </div>
+                                        <!-- post -->
+                                        <div class=\"post\">
+                                            <h3>Latest artical</h3>
+                                            <div class=\"post-grids\">
+                                                <div class=\"col-md-4 post-left\">
+                                                    <img src=\"";
+        // line 208
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/p1.jpg"), "html", null, true);
+        echo "\" alt=\"\"/>
+                                                </div>
+                                                <div class=\"col-md-8 post-right\">
+
+                                                    <p class=\"text\">Search for knowledge, read more, sit on your front
+                                                        porch
+                                                        and admire the view without paying attention to your needs.
+                                                        寻找更多的知识，多读一些书，坐在你家的前廊里，以赞美的眼光去享受眼前的风景，不要带上任何功利的想法</p>
+                                                </div>
+                                                <div class=\"clearfix\"></div>
+                                            </div>
+                                            <div class=\"post-grids\">
+                                                <div class=\"col-md-4 post-left\">
+                                                    <img src=\"";
+        // line 221
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/p2.jpg"), "html", null, true);
+        echo "\" alt=\"\"/>
+                                                </div>
+                                                <div class=\"col-md-8 post-right\">
+
+                                                    <p class=\"text\">Friendship isn't about whom you've known the
+                                                        longest,
+                                                        it's about who came, and never left your
+                                                        side.——朋友不是那个你认识得最久的人，而是那个来到你身边后便不再离开的人。</p>
+                                                </div>
+                                                <div class=\"clearfix\"></div>
+                                            </div>
+                                            <div class=\"post-grids\">
+                                                <div class=\"col-md-4 post-left\">
+                                                    <img src=\"";
+        // line 234
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/p3.jpg"), "html", null, true);
+        echo "\" alt=\"\"/>
+                                                </div>
+                                                <div class=\"col-md-8 post-right\">
+
+                                                    <p class=\"text\">Travel the greatest benefit, not to see how many
+                                                        people,
+                                                        see more beautiful scenery, but walked, in a fate, suddenly find
+                                                        themselves.旅行最大的好处，不是见到多少人，见过多美的风景，而是走着走着，在一个际遇下，突然重新认识了自己。</p>
+                                                </div>
+                                                <div class=\"clearfix\"></div>
+                                            </div>
+                                        </div>
+                                        <!-- //post -->
+                                    </div>
+                                    <!-- //banner-bottom-left -->
+                                    <!-- banner-bottom-right -->
+                                    <div class=\"col-md-4 banner-bottom-right\">
+
+                                        <div class=\"advertisement\">
+                                            <h3>my girl</h3><br>
+                                            <img src=\"";
+        // line 254
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/a.jpg"), "html", null, true);
+        echo "\" alt=\"\">
+                                        </div>
+                                        <div class=\"sponsors\">
+                                            <h3>my girl</h3>
+                                            <div class=\"sponsors-grids\">
+                                                <div class=\"sponsors-grid-left\">
+
+                                                    <img src=\"";
+        // line 261
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/b.jpg"), "html", null, true);
+        echo "\" alt=\"\">
+
+                                                </div>
+                                                <div class=\"sponsors-grid-left\">
+
+                                                    <img src=\"";
+        // line 266
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("AppBundles/image/c.jpg"), "html", null, true);
+        echo "\" alt=\"\">
+
+                                                </div>
+                                                <div class=\"clearfix\"></div>
+                                            </div>
+                                        </div>
+                                        <div class=\"video\">
+                                            <h3>Taylor swift</h3>
+                                            <iframe src=\"http://v.yinyuetai.com/video/535338\"></iframe>
+                                        </div>
+                                        <div class=\"twitter\">
+                                            <h3>about she</h3>
+                                            <div class=\"twitter-info\">
+                                                <p>泰勒·斯威夫特（Taylor
+                                                    Swift），1989年12月13日出生于美国宾夕法尼亚州，美国流行音乐、乡村音乐创作型女歌手、音乐制作人、演员、慈善家。</p>
+                                            </div>
+                                            <div class=\"twitter-info\">
+                                                <p>2006年与独立唱片公司大机器唱片签约，发行首张录音室专辑《泰勒·斯威夫特》，获美国唱片业协会认证5倍白金唱片[1]
+                                                    。2007年至2015年共获7届纳什维尔创作人协会国际奖年度创作人/艺人。</p>
+                                            </div>
+                                            <div class=\"twitter-info\">
+                                                <p>2008年发行第二张录音室专辑《Fearless》，在美国公告牌专辑榜上获11周冠军，是2009年全美最畅销专辑，认证7倍白金唱片[2]
+                                                    ，专辑获第52届格莱美奖年度专辑，使泰勒成为获此奖项的最年轻歌手， [3] 也是获奖最多的乡村音乐专辑[4] 。</p>
+                                            </div>
+                                            <div class=\"twitter-info\">
+                                                <p>2015年4月获第50届乡村音乐学院奖50周年里程碑奖[13-14] 。5月，成为2015福布斯全球权势女性榜上榜最年轻女性[15-16]
+                                                    。8月获MTV音乐录像带奖年度音乐录像带[17] 。</p>
+                                            </div>
+                                        </div>
+                                        <div class=\"recent-posts\">
+                                            <h3>all CDs</h3>
+                                            <ul>
+                                                <li>2006年10月24日，同名专辑《泰勒·斯威夫特》发行</li>
+                                                <li>2008年11月11日，泰勒的第二张专辑《Fearless》发行，
+                                                    公告牌专辑榜夺冠，这也是泰勒的第一张冠军专辑。
+                                                </li>
+                                                <li>2010年10月25日，泰勒发行了第三张录音室专辑《Speak Now》</li>
+                                                <li>2012年10月22日，泰勒发行了她的第四张个人专辑《Red》</li>
+                                                <li>
+                                                    2014年10月27日，发行第五张录音室专辑《1989》，这也是泰勒的第一张正式流行专辑，发行首周售出128万余张，成为美国唱片市场近十二年最高的首周销量纪录，泰勒也成为唯一一位拥有三张首周百万销量专辑的歌手
+                                                </li></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- banner-bottom-right -->
+                                <div class=\"clearfix\"></div>
+                                <div class=\"up-arrow\">
+                                    <a class=\"scroll\" href=\"#home\">Back to Top</a>
+                                </div>
+                            </div>";
     }
 
     public function getTemplateName()
@@ -499,7 +566,7 @@ class __TwigTemplate_d7e9a29f53dbd58b9b659fbe5051812452b2ca9a2704f38a077fa5a39a2
 
     public function getDebugInfo()
     {
-        return array (  463 => 87,  460 => 86,  446 => 64,  423 => 43,  420 => 42,  416 => 6,  413 => 5,  161 => 132,  157 => 131,  153 => 130,  149 => 129,  145 => 128,  141 => 127,  134 => 123,  130 => 122,  126 => 121,  122 => 120,  118 => 119,  114 => 118,  107 => 113,  105 => 86,  93 => 75,  91 => 42,  66 => 19,  62 => 18,  58 => 17,  54 => 16,  50 => 15,  46 => 14,  42 => 13,  38 => 12,  34 => 11,  29 => 8,  27 => 5,  22 => 1,);
+        return array (  504 => 266,  496 => 261,  486 => 254,  463 => 234,  447 => 221,  431 => 208,  423 => 202,  409 => 201,  405 => 199,  403 => 198,  395 => 193,  388 => 190,  379 => 184,  372 => 181,  365 => 177,  358 => 174,  354 => 173,  351 => 172,  334 => 171,  323 => 162,  318 => 159,  313 => 157,  308 => 155,  303 => 153,  298 => 151,  293 => 148,  289 => 146,  285 => 145,  281 => 144,  277 => 143,  273 => 142,  266 => 137,  263 => 136,  251 => 126,  245 => 123,  238 => 119,  231 => 115,  224 => 111,  218 => 108,  213 => 105,  210 => 104,  196 => 82,  173 => 61,  170 => 60,  165 => 22,  161 => 6,  158 => 5,  152 => 333,  150 => 331,  148 => 330,  146 => 329,  134 => 318,  132 => 136,  130 => 104,  118 => 93,  116 => 60,  81 => 26,  79 => 22,  76 => 21,  72 => 20,  68 => 19,  64 => 18,  60 => 17,  56 => 16,  52 => 15,  48 => 14,  44 => 13,  40 => 12,  36 => 11,  31 => 8,  29 => 5,  24 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -515,13 +582,17 @@ class __TwigTemplate_d7e9a29f53dbd58b9b659fbe5051812452b2ca9a2704f38a077fa5a39a2
 /*     <script src="{{ asset('resource/jquery/jquery.js') }}"></script>*/
 /*     <script src="{{ asset('resource/jquery/jquery.easydropdown.js') }}"></script>*/
 /*     <script src="{{ asset('resource/bootstrap/js/bootstrap.min.js') }}"></script>*/
+/*     <script src="{{ asset('resource/bootstrap/js/bootstrap-notify.js') }}"></script>*/
 /*     <script src="{{ asset('AppBundles/js/easyResponsiveTabs.js') }}"></script>*/
 /*     <script src="{{ asset('AppBundles/js/responsiveslides.min.js') }}"></script>*/
 /*     <link href="{{ asset('resource/bootstrap/css/bootstrap.css') }}" rel="stylesheet"/>*/
+/*     <link href="{{ asset('resource/bootstrap/css/animate.css') }}" rel="stylesheet"/>*/
 /*     <link href="{{ asset('AppBundles/css/style.css') }}" rel="stylesheet"/>*/
 /*     <link href="{{ asset('AppBundles/css/useso.css') }}" rel="stylesheet"/>*/
 /*     <link href="{{ asset('AppBundles/css/nav.css') }}" rel="stylesheet"/>*/
+/*     {%- block script -%}*/
 /* */
+/*     {%- endblock -%}*/
 /* */
 /*     <script type="text/javascript">*/
 /*         $(document).ready(function () {*/
@@ -541,40 +612,54 @@ class __TwigTemplate_d7e9a29f53dbd58b9b659fbe5051812452b2ca9a2704f38a077fa5a39a2
 /* */
 /*         var myDate = new Date();*/
 /*     </script>*/
+/* */
+/*     <style>*/
+/*     .showWord{*/
+/*     max-width:710px;*/
+/*     height:auto;*/
+/*     border:1px solid gray;*/
+/*     margin:30px 0px;*/
+/*     padding: 10px;*/
+/*     font-family: Courier, "Courier New", monospace;*/
+/*     font-weight: bold;*/
+/*     border-radius: 10px;*/
+/*     color: rgb(124,204,79);*/
+/*     }*/
+/*     </style>*/
 /* </head>*/
 /* <body>*/
 /* {%- block header -%}*/
-/* <div id="home" class="header">*/
-/*     <div class="header-top">*/
-/*         <!-- container -->*/
-/*         <div class="container">*/
-/*             <div class="top-nav">*/
-/*                 <script>*/
-/*                     document.write(myDate.tolocaleString());*/
-/*                 </script>*/
+/*     <div id="home" class="header">*/
+/*         <div class="header-top">*/
+/*             <!-- container -->*/
+/*             <div class="container">*/
+/*                 <div class="top-nav">*/
+/*                     <script>*/
+/*                         document.write(myDate.tolocaleString());*/
+/*                     </script>*/
+/*                 </div>*/
+/*                 <div class="nav-right">*/
+/*                     <p>created by hl, <a href="">Emaiil</a> for contact!</p>*/
+/*                 </div>*/
+/*                 <div class="clearfix"></div>*/
+/*                 <!-- script-for-menu -->*/
 /*             </div>*/
-/*             <div class="nav-right">*/
-/*                 <p>created by hl, <a href="">Emaiil</a> for contact!</p>*/
-/*             </div>*/
-/*             <div class="clearfix"></div>*/
-/*             <!-- script-for-menu -->*/
+/*             <!-- //container -->*/
 /*         </div>*/
-/*         <!-- //container -->*/
-/*     </div>*/
-/*     <div class="header-bottom">*/
-/*         <!-- container -->*/
-/*         <div class="container">*/
-/*             <div class="head-logo">*/
-/*                 <a href="index.html"><img src="{{ asset('AppBundles/icon/logo.png') }}" alt=""/></a>*/
-/*             </div>*/
-/*             <div class="logo-right">*/
+/*         <div class="header-bottom">*/
+/*             <!-- container -->*/
+/*             <div class="container">*/
+/*                 <div class="head-logo">*/
+/*                     <a href="index.html"><img src="{{ asset('AppBundles/icon/logo.png') }}" alt=""/></a>*/
+/*                 </div>*/
+/*                 <div class="logo-right">*/
 /* */
+/*                 </div>*/
+/*                 <div class="clearfix"></div>*/
 /*             </div>*/
-/*             <div class="clearfix"></div>*/
+/*             <!-- //container -->*/
 /*         </div>*/
-/*         <!-- //container -->*/
 /*     </div>*/
-/* </div>*/
 /* {%- endblock -%}*/
 /* <!-- //header -->*/
 /* */
@@ -588,281 +673,219 @@ class __TwigTemplate_d7e9a29f53dbd58b9b659fbe5051812452b2ca9a2704f38a077fa5a39a2
 /*                 <div class="banner">*/
 /*                     <div class="banner-grids">*/
 /*                         {%- block bannerTop -%}*/
-/*                         <div class="banner-top">*/
-/*                             <ul class="nav banner-nav">*/
-/*                                 <li class="dropdown1"><a href="index.html">主页<span>my &nbsp;homepage</span></a>*/
+/*                             <div class="banner-top">*/
+/*                                 <ul class="nav banner-nav">*/
+/*                                     <li class="dropdown1"><a*/
+/*                                                 href="{{ path('new_page') }}">主页<span>my &nbsp;homepage</span></a>*/
 /* */
-/*                                 </li>*/
-/*                                 <li class="dropdown1"><a href="blog.html">日志<span>my &nbsp;blog</span></a>*/
+/*                                     </li>*/
+/*                                     <li class="dropdown1"><a href="{{ path('page_blog') }}">日志<span>my &nbsp;blog</span></a>*/
 /* */
-/*                                 </li>*/
-/*                                 <li class="dropdown1"><a href="photo.html">相册<span>my &nbsp;photo</span></a>*/
+/*                                     </li>*/
+/*                                     <li class="dropdown1"><a*/
+/*                                                 href="{{ path('page_photo') }}">相册<span>my &nbsp;photo</span></a>*/
 /* */
-/*                                 </li>*/
-/*                                 <li class="dropdown1"><a href="study.html">学习<span>my &nbsp;study</span></a>*/
+/*                                     </li>*/
+/*                                     <li class="dropdown1"><a*/
+/*                                                 href="{{ path('page_study') }}">学习<span>my &nbsp;study</span></a>*/
 /* */
-/*                                 </li>*/
-/*                                 <li class="dropdown1"><a href="travel.html">旅游<span>my &nbsp;travel</span></a>*/
+/*                                     </li>*/
+/*                                     <li class="dropdown1"><a*/
+/*                                                 href="{{ path('page_travel') }}">旅游<span>my &nbsp;travel</span></a>*/
 /* */
-/*                                 </li>*/
-/*                                 <li class="dropdown1"><a href="single.html">个人中心<span> individual &nbsp;center </span></a>*/
+/*                                     </li>*/
+/*                                     <li class="dropdown1"><a href="{{ path('page_single') }}">个人中心<span> individual &nbsp;center </span></a>*/
 /* */
-/*                                 </li>*/
-/*                             </ul>*/
-/*                             <script>*/
+/*                                     </li>*/
+/*                                 </ul>*/
+/*                                 <script>*/
 /* */
-/*                             </script>*/
-/*                         </div>*/
+/*                                 </script>*/
+/*                             </div>*/
 /*                         {%- endblock -%}*/
-/*                         <div class="banner-middle">*/
 /* */
-/*                             <div class="slider">*/
-/*                                 <!-- Slideshow 3 -->*/
-/*                                 <ul class="rslides" id="slider">*/
-/*                                     <li><img src="{{ asset('AppBundles/image/1.jpg') }}" alt=""></li>*/
-/*                                     <li><img src="{{ asset('AppBundles/image/2.jpg') }}" alt=""></li>*/
-/*                                     <li><img src="{{ asset('AppBundles/image/3.jpg') }}" alt=""></li>*/
-/*                                     <li><img src="{{ asset('AppBundles/image/4.jpg') }}" alt=""></li>*/
-/*                                     <li><img src="{{ asset('AppBundles/image/5.jpg') }}" alt=""></li>*/
-/*                                     <li><img src="{{ asset('AppBundles/image/6.jpg') }}" alt=""></li>*/
-/*                                 </ul>*/
-/*                                 <!-- Slideshow 3 Pager -->*/
-/*                                 <ul id="slider3-pager">*/
-/*                                     <li><a href="#"><img src="{{ asset('AppBundles/image/1c.jpg') }}" alt=""></a></li>*/
-/*                                     <li><a href="#"><img src="{{ asset('AppBundles/image/2c.jpg') }}" alt=""></a></li>*/
-/*                                     <li><a href="#"><img src="{{ asset('AppBundles/image/3c.jpg') }}" alt=""></a></li>*/
-/*                                     <li><a href="#"><img src="{{ asset('AppBundles/image/4c.jpg') }}" alt=""></a></li>*/
-/*                                     <li><a href="#"><img src="{{ asset('AppBundles/image/5c.jpg') }}" alt=""></a></li>*/
-/*                                     <li><a href="#"><img src="{{ asset('AppBundles/image/6c.jpg') }}" alt=""></a></li>*/
+/*                         {%- block bannerMiddle -%}*/
+/*                             <div class="banner-middle">*/
 /* */
-/*                                 </ul>*/
-/*                             </div>*/
-/*                             <div class="strip1"></div>*/
-/*                             <!-- banner-bottom-grids -->*/
-/*                             <div class="banner-bottom-grids">*/
-/*                                 <!-- banner-bottom-left -->*/
-/*                                 <div class="col-md-8 banner-bottom-left">*/
-/*                                     <div class="banner-bottom-left-grids">*/
-/*                                         <div class="col-md-6 banner-left-grid">*/
-/*                                             <h3>artical</h3>*/
-/*                                             <a href="blog.html"><img src="images/b1.jpg" alt=""/></a>*/
+/*                                 <div class="slider">*/
+/*                                     <!-- Slideshow 3 -->*/
+/*                                     <ul class="rslides" id="slider">*/
+/*                                         <li><img src="{{ asset('AppBundles/image/1.jpg') }}" alt=""></li>*/
+/*                                         <li><img src="{{ asset('AppBundles/image/2.jpg') }}" alt=""></li>*/
+/*                                         <li><img src="{{ asset('AppBundles/image/3.jpg') }}" alt=""></li>*/
+/*                                         <li><img src="{{ asset('AppBundles/image/4.jpg') }}" alt=""></li>*/
+/*                                         <li><img src="{{ asset('AppBundles/image/5.jpg') }}" alt=""></li>*/
+/*                                         {#<li><img src="{{ asset('AppBundles/image/6.jpg') }}" alt=""></li>#}*/
+/*                                     </ul>*/
+/*                                     <!-- Slideshow 3 Pager -->*/
+/*                                     <ul id="slider3-pager">*/
+/*                                         <li><a href="#"><img src="{{ asset('AppBundles/image/1c.jpg') }}" alt=""></a>*/
+/*                                         </li>*/
+/*                                         <li><a href="#"><img src="{{ asset('AppBundles/image/2c.jpg') }}" alt=""></a>*/
+/*                                         </li>*/
+/*                                         <li><a href="#"><img src="{{ asset('AppBundles/image/3c.jpg') }}" alt=""></a>*/
+/*                                         </li>*/
+/*                                         <li><a href="#"><img src="{{ asset('AppBundles/image/4c.jpg') }}" alt=""></a>*/
+/*                                         </li>*/
+/*                                         <li><a href="#"><img src="{{ asset('AppBundles/image/5c.jpg') }}" alt=""></a>*/
+/*                                         </li>*/
+/*                                         {#<li><a href="#"><img src="{{ asset('AppBundles/image/6c.jpg') }}" alt=""></a></li>#}*/
 /* */
-/*                                             <p class="text">*/
-/*                                                 西风卷帘笑落花,低吟浅唱泻芳华。日出东海落西山，兰溪幽悠浣流沙。梦逐天涯。风吹雨成花。岁月蒸发，掌心的梦匣。浮尘轻抹，渡过春秋冬夏。<br>*/
-/*                                                 朝暮踏歌，悲欢离合。了搓跎，花开风过，一步一岁末。潺潺地淌过岁月之河。日子轻轻的在指间跌落......</p>*/
-/*                                             <div class="blog-grids">*/
-/*                                                 <div class="blog-grid-left">*/
-/*                                                     <img src="images/b5.jpg" alt=""/>*/
-/*                                                 </div>*/
-/*                                                 <div class="blog-grid-right">*/
-/*                                                     不去追逐你所渴求，你将永远不会拥有。不开口问，回答永远是No。不往前走，就将永远停留。*/
-/* */
-/*                                                 </div>*/
-/*                                                 <div class="clearfix"></div>*/
-/*                                             </div>*/
-/*                                             <div class="blog-grids">*/
-/*                                                 <div class="blog-grid-left">*/
-/*                                                     <img src="images/b6.jpg" alt=""/>*/
-/*                                                 </div>*/
-/*                                                 <div class="blog-grid-right">*/
-/*                                                     昨天很重要，它构建了我们的记忆；明天很重要，它让我们有了憧憬和梦想。*/
-/*                                                 </div>*/
-/*                                                 <div class="clearfix"></div>*/
-/*                                             </div>*/
-/*                                         </div>*/
-/*                                         <div class="col-md-6 banner-left-grid">*/
-/*                                             <h3>artical</h3>*/
-/*                                             <a href="blog.html"><img src="images/b2.jpg" alt=""/></a>*/
-/* */
-/*                                             <p class="text">*/
-/*                                                 总是在回眸之间，才想留住你脸上那一抹微笑，也才知道那熟悉的浪漫，其实每天都在我的生活中展现。突然觉得自己好像错过了命运对我的恩惠，准确的说不是好像，是肯定……美好的只属于回忆，现实的却总是残缺，离我们的憧憬总是存在一定的距离......</p>*/
-/*                                             <div class="blog-grids">*/
-/*                                                 <div class="blog-grid-left">*/
-/*                                                     <img src="images/b5.jpg" alt=""/>*/
-/*                                                 </div>*/
-/*                                                 <div class="blog-grid-right">*/
-/*                                                     用最少的悔恨面对过去，用最少的浪费面对现在，用最多的梦想面对未来。*/
-/*                                                 </div>*/
-/*                                                 <div class="clearfix"></div>*/
-/*                                             </div>*/
-/*                                             <div class="blog-grids">*/
-/*                                                 <div class="blog-grid-left">*/
-/*                                                     <img src="images/b6.jpg" alt=""/>*/
-/*                                                 </div>*/
-/*                                                 <div class="blog-grid-right">*/
-/*                                                     我只是一朵向日葵，等待着属于我的唯一的阳光*/
-/* */
-/*                                                 </div>*/
-/*                                                 <div class="clearfix"></div>*/
-/*                                             </div>*/
-/*                                         </div>*/
-/*                                         <div class="clearfix"></div>*/
-/*                                     </div>*/
-/*                                     <div class="banner-bottom-left-grids">*/
-/*                                         <div class="col-md-6 banner-left-grid">*/
-/*                                             <h3>artical</h3>*/
-/*                                             <a href="blog.html"><img src="images/b3.jpg" alt=""/></a>*/
-/* */
-/*                                             <p class="text">*/
-/*                                                 最近看了一部影片叫《蓝色迷情》，唤起了我对海的向往。虽然自己是个平原长大的孩子，但是对海却情有独钟，因为站在海的面前，心情会无比的旷达与纯净。一泓幽蓝浩浩汤汤，仿佛卷走了尘世间所有的喧嚣与浮躁，剩下的只是心灵的跃动和神思的空灵……</p>*/
-/*                                             <div class="blog-grids">*/
-/*                                                 <div class="blog-grid-left">*/
-/*                                                     <img src="images/b7.jpg" alt=""/>*/
-/*                                                 </div>*/
-/*                                                 <div class="blog-grid-right">*/
-/*                                                     <p>伤痛使你更坚强，眼泪使你更勇敢，心碎使你更明智。</p>*/
-/* */
-/*                                                 </div>*/
-/*                                                 <div class="clearfix"></div>*/
-/*                                             </div>*/
-/*                                             <div class="blog-grids">*/
-/*                                                 <div class="blog-grid-left">*/
-/*                                                     <img src="images/b8.jpg" alt=""/>*/
-/*                                                 </div>*/
-/*                                                 <div class="blog-grid-right">*/
-/*                                                     <p>生命就好像旅行，在过程中我们可以拥有一些东西，但终究不能带走它。</p>*/
-/* */
-/*                                                 </div>*/
-/*                                                 <div class="clearfix"></div>*/
-/*                                             </div>*/
-/*                                         </div>*/
-/*                                         <div class="col-md-6 banner-left-grid">*/
-/*                                             <h3>artical</h3>*/
-/*                                             <a href="blog.html"><img src="images/b4.jpg" alt=""/></a>*/
-/* */
-/*                                             <p class="text">*/
-/*                                                 在你的沉思与歌唱里，我发现窗的曼妙和无与伦比。倚窗而立，凭窗远眺，临窗而坐，拥窗入眠，落窗凝思，一卷书，一杯茗，一首歌，是你的情怀，亦是人生欢景，那些窗内窗外的世象，或许是你于红尘中，独爱窗棱的缘故。世间有窗，总那么一点点，似有似无，开开合合....</p>*/
-/*                                             <div class="blog-grids">*/
-/*                                                 <div class="blog-grid-left">*/
-/*                                                     <img src="images/b7.jpg" alt=""/>*/
-/*                                                 </div>*/
-/*                                                 <div class="blog-grid-right">*/
-/*                                                     <p>不管发生什么，都不要放弃，坚持走下去，肯定会有意想不到的风景。</p>*/
-/*                                                 </div>*/
-/*                                                 <div class="clearfix"></div>*/
-/*                                             </div>*/
-/*                                             <div class="blog-grids">*/
-/*                                                 <div class="blog-grid-left">*/
-/*                                                     <img src="images/b8.jpg" alt=""/>*/
-/*                                                 </div>*/
-/*                                                 <div class="blog-grid-right">*/
-/*                                                     <p>人与人之间最远的距离，不是隔了千山万水，而是心与心的距离。</p>*/
-/*                                                 </div>*/
-/*                                                 <div class="clearfix"></div>*/
-/*                                             </div>*/
-/*                                         </div>*/
-/*                                         <div class="clearfix"></div>*/
-/*                                     </div>*/
-/*                                     <!-- post -->*/
-/*                                     <div class="post">*/
-/*                                         <h3>Latest artical</h3>*/
-/*                                         <div class="post-grids">*/
-/*                                             <div class="col-md-4 post-left">*/
-/*                                                 <img src="images/p1.jpg" alt=""/>*/
-/*                                             </div>*/
-/*                                             <div class="col-md-8 post-right">*/
-/* */
-/*                                                 <p class="text">Search for knowledge, read more, sit on your front porch*/
-/*                                                     and admire the view without paying attention to your needs.*/
-/*                                                     寻找更多的知识，多读一些书，坐在你家的前廊里，以赞美的眼光去享受眼前的风景，不要带上任何功利的想法</p>*/
-/*                                             </div>*/
-/*                                             <div class="clearfix"></div>*/
-/*                                         </div>*/
-/*                                         <div class="post-grids">*/
-/*                                             <div class="col-md-4 post-left">*/
-/*                                                 <img src="images/p2.jpg" alt=""/>*/
-/*                                             </div>*/
-/*                                             <div class="col-md-8 post-right">*/
-/* */
-/*                                                 <p class="text">Friendship isn't about whom you've known the longest,*/
-/*                                                     it's about who came, and never left your*/
-/*                                                     side.——朋友不是那个你认识得最久的人，而是那个来到你身边后便不再离开的人。</p>*/
-/*                                             </div>*/
-/*                                             <div class="clearfix"></div>*/
-/*                                         </div>*/
-/*                                         <div class="post-grids">*/
-/*                                             <div class="col-md-4 post-left">*/
-/*                                                 <img src="images/p3.jpg" alt=""/>*/
-/*                                             </div>*/
-/*                                             <div class="col-md-8 post-right">*/
-/* */
-/*                                                 <p class="text">Travel the greatest benefit, not to see how many people,*/
-/*                                                     see more beautiful scenery, but walked, in a fate, suddenly find*/
-/*                                                     themselves.旅行最大的好处，不是见到多少人，见过多美的风景，而是走着走着，在一个际遇下，突然重新认识了自己。</p>*/
-/*                                             </div>*/
-/*                                             <div class="clearfix"></div>*/
-/*                                         </div>*/
-/*                                     </div>*/
-/*                                     <!-- //post -->*/
+/*                                     </ul>*/
 /*                                 </div>*/
-/*                                 <!-- //banner-bottom-left -->*/
+/*                                 <div class="strip1"></div>*/
+/*                                 <!-- banner-bottom-grids -->*/
+/*                                 <div class="banner-bottom-grids">*/
+/*                                     <!-- banner-bottom-left -->*/
+/*                                     <div class="col-md-8 banner-bottom-left">*/
+/*                                         <div class="banner-bottom-left-grids">*/
+/*                                             {% for artcal in artcals %}*/
+/*                                             <div class="col-md-6 banner-left-grid">*/
+/*                                                 <h3>{{ artcal.title }}</h3>*/
+/*                                                 <a href="blog.html"><img src="{{ asset('AppBundles/image/') }}{{ artcal.image }}" alt=""/></a>*/
+/* */
+/*                                                 <p class="text">*/
+/*                                                     {{ artcal.info }}*/
+/*                                                 </p>*/
+/*                                                 <div class="blog-grids">*/
+/*                                                     <div class="blog-grid-left">*/
+/*                                                         <img src="{{ asset('AppBundles/image/') }}{{ artcal.frist_image }}" alt=""/>*/
+/*                                                     </div>*/
+/*                                                     <div class="blog-grid-right">*/
+/*                                                         {{ artcal.frist_title }}*/
+/*                                                     </div>*/
+/*                                                     <div class="clearfix"></div>*/
+/*                                                 </div>*/
+/*                                                 <div class="blog-grids">*/
+/*                                                     <div class="blog-grid-left">*/
+/*                                                         <img src="{{ asset('AppBundles/image/') }}{{ artcal.next_image }}" alt=""/>*/
+/*                                                     </div>*/
+/*                                                     <div class="blog-grid-right">*/
+/*                                                         {{ artcal.next_title }}*/
+/*                                                     </div>*/
+/*                                                     <div class="clearfix"></div>*/
+/*                                                 </div>*/
+/*                                             </div>*/
+/*                                                 {% if loop.index== 2 or loop.index == 4 %}*/
+/*                                                     <div class="clearfix"></div>*/
+/*                                                 {% endif %}*/
+/*                                             {% endfor %}*/
+/*                                         </div>*/
+/*                                         <!-- post -->*/
+/*                                         <div class="post">*/
+/*                                             <h3>Latest artical</h3>*/
+/*                                             <div class="post-grids">*/
+/*                                                 <div class="col-md-4 post-left">*/
+/*                                                     <img src="{{ asset('AppBundles/image/p1.jpg') }}" alt=""/>*/
+/*                                                 </div>*/
+/*                                                 <div class="col-md-8 post-right">*/
+/* */
+/*                                                     <p class="text">Search for knowledge, read more, sit on your front*/
+/*                                                         porch*/
+/*                                                         and admire the view without paying attention to your needs.*/
+/*                                                         寻找更多的知识，多读一些书，坐在你家的前廊里，以赞美的眼光去享受眼前的风景，不要带上任何功利的想法</p>*/
+/*                                                 </div>*/
+/*                                                 <div class="clearfix"></div>*/
+/*                                             </div>*/
+/*                                             <div class="post-grids">*/
+/*                                                 <div class="col-md-4 post-left">*/
+/*                                                     <img src="{{ asset('AppBundles/image/p2.jpg') }}" alt=""/>*/
+/*                                                 </div>*/
+/*                                                 <div class="col-md-8 post-right">*/
+/* */
+/*                                                     <p class="text">Friendship isn't about whom you've known the*/
+/*                                                         longest,*/
+/*                                                         it's about who came, and never left your*/
+/*                                                         side.——朋友不是那个你认识得最久的人，而是那个来到你身边后便不再离开的人。</p>*/
+/*                                                 </div>*/
+/*                                                 <div class="clearfix"></div>*/
+/*                                             </div>*/
+/*                                             <div class="post-grids">*/
+/*                                                 <div class="col-md-4 post-left">*/
+/*                                                     <img src="{{ asset('AppBundles/image/p3.jpg') }}" alt=""/>*/
+/*                                                 </div>*/
+/*                                                 <div class="col-md-8 post-right">*/
+/* */
+/*                                                     <p class="text">Travel the greatest benefit, not to see how many*/
+/*                                                         people,*/
+/*                                                         see more beautiful scenery, but walked, in a fate, suddenly find*/
+/*                                                         themselves.旅行最大的好处，不是见到多少人，见过多美的风景，而是走着走着，在一个际遇下，突然重新认识了自己。</p>*/
+/*                                                 </div>*/
+/*                                                 <div class="clearfix"></div>*/
+/*                                             </div>*/
+/*                                         </div>*/
+/*                                         <!-- //post -->*/
+/*                                     </div>*/
+/*                                     <!-- //banner-bottom-left -->*/
+/*                                     <!-- banner-bottom-right -->*/
+/*                                     <div class="col-md-4 banner-bottom-right">*/
+/* */
+/*                                         <div class="advertisement">*/
+/*                                             <h3>my girl</h3><br>*/
+/*                                             <img src="{{ asset('AppBundles/image/a.jpg') }}" alt="">*/
+/*                                         </div>*/
+/*                                         <div class="sponsors">*/
+/*                                             <h3>my girl</h3>*/
+/*                                             <div class="sponsors-grids">*/
+/*                                                 <div class="sponsors-grid-left">*/
+/* */
+/*                                                     <img src="{{ asset('AppBundles/image/b.jpg') }}" alt="">*/
+/* */
+/*                                                 </div>*/
+/*                                                 <div class="sponsors-grid-left">*/
+/* */
+/*                                                     <img src="{{ asset('AppBundles/image/c.jpg') }}" alt="">*/
+/* */
+/*                                                 </div>*/
+/*                                                 <div class="clearfix"></div>*/
+/*                                             </div>*/
+/*                                         </div>*/
+/*                                         <div class="video">*/
+/*                                             <h3>Taylor swift</h3>*/
+/*                                             <iframe src="http://v.yinyuetai.com/video/535338"></iframe>*/
+/*                                         </div>*/
+/*                                         <div class="twitter">*/
+/*                                             <h3>about she</h3>*/
+/*                                             <div class="twitter-info">*/
+/*                                                 <p>泰勒·斯威夫特（Taylor*/
+/*                                                     Swift），1989年12月13日出生于美国宾夕法尼亚州，美国流行音乐、乡村音乐创作型女歌手、音乐制作人、演员、慈善家。</p>*/
+/*                                             </div>*/
+/*                                             <div class="twitter-info">*/
+/*                                                 <p>2006年与独立唱片公司大机器唱片签约，发行首张录音室专辑《泰勒·斯威夫特》，获美国唱片业协会认证5倍白金唱片[1]*/
+/*                                                     。2007年至2015年共获7届纳什维尔创作人协会国际奖年度创作人/艺人。</p>*/
+/*                                             </div>*/
+/*                                             <div class="twitter-info">*/
+/*                                                 <p>2008年发行第二张录音室专辑《Fearless》，在美国公告牌专辑榜上获11周冠军，是2009年全美最畅销专辑，认证7倍白金唱片[2]*/
+/*                                                     ，专辑获第52届格莱美奖年度专辑，使泰勒成为获此奖项的最年轻歌手， [3] 也是获奖最多的乡村音乐专辑[4] 。</p>*/
+/*                                             </div>*/
+/*                                             <div class="twitter-info">*/
+/*                                                 <p>2015年4月获第50届乡村音乐学院奖50周年里程碑奖[13-14] 。5月，成为2015福布斯全球权势女性榜上榜最年轻女性[15-16]*/
+/*                                                     。8月获MTV音乐录像带奖年度音乐录像带[17] 。</p>*/
+/*                                             </div>*/
+/*                                         </div>*/
+/*                                         <div class="recent-posts">*/
+/*                                             <h3>all CDs</h3>*/
+/*                                             <ul>*/
+/*                                                 <li>2006年10月24日，同名专辑《泰勒·斯威夫特》发行</li>*/
+/*                                                 <li>2008年11月11日，泰勒的第二张专辑《Fearless》发行，*/
+/*                                                     公告牌专辑榜夺冠，这也是泰勒的第一张冠军专辑。*/
+/*                                                 </li>*/
+/*                                                 <li>2010年10月25日，泰勒发行了第三张录音室专辑《Speak Now》</li>*/
+/*                                                 <li>2012年10月22日，泰勒发行了她的第四张个人专辑《Red》</li>*/
+/*                                                 <li>*/
+/*                                                     2014年10月27日，发行第五张录音室专辑《1989》，这也是泰勒的第一张正式流行专辑，发行首周售出128万余张，成为美国唱片市场近十二年最高的首周销量纪录，泰勒也成为唯一一位拥有三张首周百万销量专辑的歌手*/
+/*                                                 </li></ul>*/
+/*                                         </div>*/
+/*                                     </div>*/
+/*                                 </div>*/
 /*                                 <!-- banner-bottom-right -->*/
-/*                                 <div class="col-md-4 banner-bottom-right">*/
-/* */
-/*                                     <div class="advertisement">*/
-/*                                         <h3>my girl</h3><br>*/
-/*                                         <img src="images/a.jpg" alt="">*/
-/*                                     </div>*/
-/*                                     <div class="sponsors">*/
-/*                                         <h3>my girl</h3>*/
-/*                                         <div class="sponsors-grids">*/
-/*                                             <div class="sponsors-grid-left">*/
-/* */
-/*                                                 <img src="images/b.jpg" alt="">*/
-/* */
-/*                                             </div>*/
-/*                                             <div class="sponsors-grid-left">*/
-/* */
-/*                                                 <img src="images/c.jpg" alt="">*/
-/* */
-/*                                             </div>*/
-/*                                             <div class="clearfix"></div>*/
-/*                                         </div>*/
-/*                                     </div>*/
-/*                                     <div class="video">*/
-/*                                         <h3>Taylor swift</h3>*/
-/*                                         <iframe src="http://v.yinyuetai.com/video/535338"></iframe>*/
-/*                                     </div>*/
-/*                                     <div class="twitter">*/
-/*                                         <h3>about she</h3>*/
-/*                                         <div class="twitter-info">*/
-/*                                             <p>泰勒·斯威夫特（Taylor*/
-/*                                                 Swift），1989年12月13日出生于美国宾夕法尼亚州，美国流行音乐、乡村音乐创作型女歌手、音乐制作人、演员、慈善家。</p>*/
-/*                                         </div>*/
-/*                                         <div class="twitter-info">*/
-/*                                             <p>2006年与独立唱片公司大机器唱片签约，发行首张录音室专辑《泰勒·斯威夫特》，获美国唱片业协会认证5倍白金唱片[1]*/
-/*                                                 。2007年至2015年共获7届纳什维尔创作人协会国际奖年度创作人/艺人。</p>*/
-/*                                         </div>*/
-/*                                         <div class="twitter-info">*/
-/*                                             <p>2008年发行第二张录音室专辑《Fearless》，在美国公告牌专辑榜上获11周冠军，是2009年全美最畅销专辑，认证7倍白金唱片[2]*/
-/*                                                 ，专辑获第52届格莱美奖年度专辑，使泰勒成为获此奖项的最年轻歌手， [3] 也是获奖最多的乡村音乐专辑[4] 。</p>*/
-/*                                         </div>*/
-/*                                         <div class="twitter-info">*/
-/*                                             <p>2015年4月获第50届乡村音乐学院奖50周年里程碑奖[13-14] 。5月，成为2015福布斯全球权势女性榜上榜最年轻女性[15-16]*/
-/*                                                 。8月获MTV音乐录像带奖年度音乐录像带[17] 。</p>*/
-/*                                         </div>*/
-/*                                     </div>*/
-/*                                     <div class="recent-posts">*/
-/*                                         <h3>all CDs</h3>*/
-/*                                         <ul>*/
-/*                                             <li>2006年10月24日，同名专辑《泰勒·斯威夫特》发行</li>*/
-/*                                             <li>2008年11月11日，泰勒的第二张专辑《Fearless》发行，*/
-/*                                                 公告牌专辑榜夺冠，这也是泰勒的第一张冠军专辑。*/
-/*                                             </li>*/
-/*                                             <li>2010年10月25日，泰勒发行了第三张录音室专辑《Speak Now》</li>*/
-/*                                             <li>2012年10月22日，泰勒发行了她的第四张个人专辑《Red》</li>*/
-/*                                             <li>*/
-/*                                                 2014年10月27日，发行第五张录音室专辑《1989》，这也是泰勒的第一张正式流行专辑，发行首周售出128万余张，成为美国唱片市场近十二年最高的首周销量纪录，泰勒也成为唯一一位拥有三张首周百万销量专辑的歌手*/
-/*                                             </li>*/
-/*                                     </div>*/
+/*                                 <div class="clearfix"></div>*/
+/*                                 <div class="up-arrow">*/
+/*                                     <a class="scroll" href="#home">Back to Top</a>*/
 /*                                 </div>*/
 /*                             </div>*/
-/*                             <!-- banner-bottom-right -->*/
-/*                             <div class="clearfix"></div>*/
-/*                             <div class="up-arrow">*/
-/*                                 <a class="scroll" href="#home">Back to Top</a>*/
-/*                             </div>*/
-/*                         </div>*/
+/*                         {%- endblock -%}*/
+/* */
 /*                         <!-- //banner-bottom-grids -->*/
 /*                     </div>*/
 /*                 </div>*/
@@ -871,13 +894,13 @@ class __TwigTemplate_d7e9a29f53dbd58b9b659fbe5051812452b2ca9a2704f38a077fa5a39a2
 /*         </div>*/
 /*     </div>*/
 /* </div>*/
-/* </div>*/
+/* */
 /* <!-- //bg-banner -->*/
-/* <div class="footer">*/
-/*     <div class="copyright">*/
-/*         <p>Copyright &copy; 2016.All rights reserved.</p>*/
-/*     </div>*/
-/* </div>*/
+/* {#<div class="footer">#}*/
+/*     {#<div class="copyright">#}*/
+/*         {#<p>Copyright &copy; 2016.All rights reserved.</p>#}*/
+/*     {#</div>#}*/
+/* {#</div>#}*/
 /* */
 /* </body>*/
 /* </html>*/
