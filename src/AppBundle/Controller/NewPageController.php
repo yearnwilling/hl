@@ -36,7 +36,8 @@ class NewPageController extends BaseController
         if ($request->getMethod() == 'POST') {
             $messageS  = $request->request->all();
             $this->getNewPageService()->addMessage($messageS);
-
+            $message = $this->getNewPageService()->getMessage();
+            return $this->redirect($this->generateUrl('page_single', array('messages' => $message)));
         }
         $message = $this->getNewPageService()->getMessage();
 
