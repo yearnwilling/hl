@@ -96,9 +96,9 @@ class NumberToLocalizedStringTransformer implements DataTransformerInterface
     /**
      * Transforms a number type into localized number.
      *
-     * @param int|float $value Number value.
+     * @param int|float $value Number value
      *
-     * @return string Localized value.
+     * @return string Localized value
      *
      * @throws TransformationFailedException If the given value is not numeric
      *                                       or if the value can not be transformed.
@@ -181,6 +181,10 @@ class NumberToLocalizedStringTransformer implements DataTransformerInterface
             throw new TransformationFailedException('I don\'t have a clear idea what infinity looks like');
         }
 
+        if (is_int($result) && $result === (int) $float = (float) $result) {
+            $result = $float;
+        }
+
         if (false !== $encoding = mb_detect_encoding($value, null, true)) {
             $length = mb_strlen($value, $encoding);
             $remainder = mb_substr($value, $position, $length, $encoding);
@@ -229,9 +233,9 @@ class NumberToLocalizedStringTransformer implements DataTransformerInterface
     /**
      * Rounds a number according to the configured scale and rounding mode.
      *
-     * @param int|float $number A number.
+     * @param int|float $number A number
      *
-     * @return int|float The rounded number.
+     * @return int|float The rounded number
      */
     private function round($number)
     {

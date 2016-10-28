@@ -32,7 +32,7 @@ class DeprecationErrorHandler
      * - use a number to define the upper bound of allowed deprecations,
      *   making the test suite fail whenever more notices are trigerred.
      *
-     * @param int|string|false $mode The reporting mode. Defaults to not allowing any deprecations.
+     * @param int|string|false $mode The reporting mode, defaults to not allowing any deprecations
      */
     public static function register($mode = 0)
     {
@@ -194,7 +194,11 @@ class DeprecationErrorHandler
     private static function hasColorSupport()
     {
         if ('\\' === DIRECTORY_SEPARATOR) {
-            return false !== getenv('ANSICON') || 'ON' === getenv('ConEmuANSI') || 'xterm' === getenv('TERM');
+            return
+                0 >= version_compare('10.0.10586', PHP_WINDOWS_VERSION_MAJOR.'.'.PHP_WINDOWS_VERSION_MINOR.'.'.PHP_WINDOWS_VERSION_BUILD)
+                || false !== getenv('ANSICON')
+                || 'ON' === getenv('ConEmuANSI')
+                || 'xterm' === getenv('TERM');
         }
 
         return defined('STDOUT') && function_exists('posix_isatty') && @posix_isatty(STDOUT);

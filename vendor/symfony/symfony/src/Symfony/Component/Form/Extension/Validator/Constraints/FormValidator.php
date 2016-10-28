@@ -43,9 +43,10 @@ class FormValidator extends ConstraintValidator
         if ($form->isSynchronized()) {
             // Validate the form data only if transformation succeeded
             $groups = self::getValidationGroups($form);
+            $data = $form->getData();
 
             // Validate the data against its own constraints
-            if (self::allowDataWalking($form)) {
+            if ($form->isRoot() && (is_object($data) || is_array($data))) {
                 foreach ($groups as $group) {
                     $validator->atPath('data')->validate($form->getData(), null, $group);
                 }
@@ -115,43 +116,11 @@ class FormValidator extends ConstraintValidator
     }
 
     /**
-     * Returns whether the data of a form may be walked.
-     *
-     * @param FormInterface $form The form to test.
-     *
-     * @return bool Whether the graph walker may walk the data.
-     */
-    private static function allowDataWalking(FormInterface $form)
-    {
-        $data = $form->getData();
-
-        // Scalar values cannot have mapped constraints
-        if (!is_object($data) && !is_array($data)) {
-            return false;
-        }
-
-        // Root forms are always validated
-        if ($form->isRoot()) {
-            return true;
-        }
-
-        // Non-root forms are validated if validation cascading
-        // is enabled in all ancestor forms
-        while (null !== ($form = $form->getParent())) {
-            if (!$form->getConfig()->getOption('cascade_validation')) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    /**
      * Returns the validation groups of the given form.
      *
-     * @param FormInterface $form The form.
+     * @param FormInterface $form The form
      *
-     * @return array The validation groups.
+     * @return array The validation groups
      */
     private static function getValidationGroups(FormInterface $form)
     {
@@ -186,10 +155,10 @@ class FormValidator extends ConstraintValidator
     /**
      * Post-processes the validation groups option for a given form.
      *
-     * @param array|callable $groups The validation groups.
-     * @param FormInterface  $form   The validated form.
+     * @param array|callable $groups The validation groups
+     * @param FormInterface  $form   The validated form
      *
-     * @return array The validation groups.
+     * @return array The validation groups
      */
     private static function resolveValidationGroups($groups, FormInterface $form)
     {
