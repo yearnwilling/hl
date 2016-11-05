@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1, maximum-scale=1">
+        <title>{% block title %}智慧农业{% endblock %}</title>
+        {#全局css#}
+        <script src="{{ asset('resource/bootstrap/js/bootstrap.min.js') }}"></script>
+        <link href="{{ asset('resource/bootstrap/css/bootstrap.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('resource/bootstrap/css/animate.css') }}" rel="stylesheet"/>
+        <script src="{{ asset('resource/jquery/jquery.js') }}"></script>
+        <script src="{{ asset('resource/bootstrap/js/bootstrap-notify.js') }}"></script>
+
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <body{% if body_class is defined %} class="{{ body_class }}"{% endif %}>
+    {% block body %}{% endblock %}
+    <!-- ajax modal-->
+    <div id="modal" class="modal" data-backdrop="static" data-keyboard="false"></div>
+    <!--end static modal -->
+    {% block scripts %}
+    {% endblock %}
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?eab8e26bec12c7b8ba6d541473fffbaa";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
     </body>
 </html>
