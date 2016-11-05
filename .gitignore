@@ -1,4 +1,4 @@
-var
+var/*
 var/logs/dev.log
 var/logs/prod.log
 var/cache/dev/profiler/index.csv
