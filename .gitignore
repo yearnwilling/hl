@@ -5,3 +5,4 @@ var/cache/dev/profiler/index.csv
 vendor
 .idea
 *.log
+web/bundle/app/*
