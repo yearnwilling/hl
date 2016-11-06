@@ -2,32 +2,6 @@ base_index:
     path: /
     defaults: { _controller: AppBundle:Index:index }
 
-
-new_page:
-    path:  /newpage
-    defaults: { _controller: AppBundle:NewPage:index }
-
-page_study:
-    path:  /study
-    defaults: { _controller: AppBundle:NewPage:study }
-
-page_photo:
-    path: /photo
-    defaults: { _controller: AppBundle:NewPage:photo }
-
-page_single:
-    path: /single
-    defaults: { _controller: AppBundle:NewPage:single }
-
-page_single_delete:
-    path: /single/delete/{id}
-    defaults: { _controller:  AppBundle:NewPage:singleDelete }
-    methods: [POST]
-
-page_travel:
-    path: /travel
-    defaults: { _controller: AppBundle:NewPage:travel }
-
-page_blog:
-    path: /blog
-    defaults: { _controller: AppBundle:NewPage:blog }
+community_member:
+    path: /community/member
+    defaults: { _controller: AppBundle:Community:member }

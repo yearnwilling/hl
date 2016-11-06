@@ -1,0 +1,209 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% set nav = 'member' %}
+
+{% block content_header %}
+    <h1>全部社员</h1>
+{% endblock %}
+
+
+{% block content_body_boxed %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="well well-sm mtm">
+                <form id="table-filter-form" class="form-inline" method="get">
+                    <div class="form-group">
+                        <input class="form-control input-sm" type="text" placeholder="搜索关键字" name="keyword" value=""
+                               style="width: 240px;">
+                    </div>
+                    <button class="btn btn-primary btn-sm">搜索</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+                            style="margin-left: 13px">
+                        添加
+
+                    </button>
+                </form>
+            </div>
+            <!-- Button trigger modal -->
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">社员添加</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="inputName" class="col-sm-2 control-label">姓名</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="inputName"
+                                               placeholder="姓名">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-sm-2 control-label">性别</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="inputEmail"
+                                               placeholder="性别">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName" class="col-sm-2 control-label">部门</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputName" placeholder="部门">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName" class="col-sm-2 control-label">职位</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputName" placeholder="职位">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>部门</th>
+                        <th>职位</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>李明</td>
+                        <td>男</td>
+                        <td>宣传部</td>
+                        <td>部长</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>何丽芳</td>
+                        <td>女</td>
+                        <td>宣传部</td>
+                        <td>社长</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>黄宇松</td>
+                        <td>男</td>
+                        <td>财务部</td>
+                        <td>成员</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>张菲</td>
+                        <td>女</td>
+                        <td>文娱部</td>
+                        <td>部长</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>韩成荣</td>
+                        <td>男</td>
+                        <td>财务部</td>
+                        <td>部长</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>陈爱玲</td>
+                        <td>女</td>
+                        <td>文娱部</td>
+                        <td>成员</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>张宸</td>
+                        <td>男</td>
+                        <td>宣传部</td>
+                        <td>成员</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>王大锤</td>
+                        <td>男</td>
+                        <td>后勤部</td>
+                        <td>部长</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>马冬梅</td>
+                        <td>女</td>
+                        <td>后勤部</td>
+                        <td>成员</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>余豆腐</td>
+                        <td>男</td>
+                        <td>后勤部</td>
+                        <td>成员</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>丁当</td>
+                        <td>女</td>
+                        <td>文娱部</td>
+                        <td>成员</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+{% endblock %}
