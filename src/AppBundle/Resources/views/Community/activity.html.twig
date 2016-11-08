@@ -1,0 +1,176 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% set nav = 'community' %}
+{% set sub_nav = 'activity' %}
+
+
+{% block content_header %}
+    <h1>活动管理</h1>
+{% endblock %}
+
+
+{% block content_body_boxed %}
+    <div class="row">
+        <!-- /.col -->
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#activity" data-toggle="tab">活动</a></li>
+                    <li><a href="#settings" data-toggle="tab">设置</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="active tab-pane" id="activity">
+                        <!-- Post -->
+                        <div class="post">
+                            <div class="user-block">
+                                <img class="img-circle img-bordered-sm" src="../dist/img/hdu.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">友谊篮球赛</a>
+                        </span>
+                                <span class="description">篮球社</span>
+                            </div>
+                            <!-- /.user-block -->
+                            <p>
+                                明天下午三点，我们就在篮球场举办友谊篮球赛，计算机学院PK外国语学院，网络空间安全学院PK自动化学院，
+                                软件工程学院PK通信工程学院，6个学院，3大pk阵容，热血的青春，活力四射的少年，期待你的到来！！
+                            </p>
+                        </div>
+                        <!-- /.post -->
+
+                        <!-- Post -->
+                        <div class="post">
+                            <div class="user-block">
+                                <img class="img-circle img-bordered-sm" src="../dist/img/hdu.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">欢乐骑行</a>
+
+                        </span>
+                                <span class="description">轮滑社</span>
+                            </div>
+                            <!-- /.user-block -->
+                            <p>
+                                为了更好地锻炼我们的身体素质和增加课外兴趣，我们社要在10.15举办骑行的活动，参加的同学请在生活区大门集合，
+                                骑着车看风景，有没有觉得很美好，不知道同学们有没有很心动呀，快来加入我们吧！
+                            </p>
+                        </div>
+                        <!-- /.post -->
+
+                        <!-- Post -->
+                        <div class="post">
+                            <div class="user-block">
+                                <img class="img-circle img-bordered-sm" src="../dist/img/hdu.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">春日踏青</a>
+
+                        </span>
+                                <span class="description">新闻社</span>
+                            </div>
+                            <!-- /.user-block -->
+                            <p>
+                                走出寝室，远离手机，投身大自然的怀抱！感受自然的美好，10.22跟着我们一起踏春寻美！
+                            </p>
+                        </div>
+                        <!-- /.post -->
+                        <!-- Post -->
+                        <div class="post">
+                            <div class="user-block">
+                                <img class="img-circle img-bordered-sm" src="../dist/img/hdu.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">写给10年后的自己</a>
+
+                        </span>
+                                <span class="description">文学社</span>
+                            </div>
+                            <!-- /.user-block -->
+                            <p>
+                                10年，多么漫长的岁月，是短暂的生命中的10分之一，10年后。你不知道自己在干什么，也不知道自己完成了什么目标，
+                                我们队10年后的自己保有这幻想。那么，来参加我们的活动吧，写给10后的自己，我们会将信以特殊方式保存10年，你们
+                                可以等到10年后，自己去领取，查看现实跟想象的差距。11.1，让我们写下心里话，学活中心，不见不散！
+                            </p>
+                        </div>
+                        <!-- /.post -->
+                        <!-- Post -->
+                        <div class="post">
+                            <div class="user-block">
+                                <img class="img-circle img-bordered-sm" src="../dist/img/hdu.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">一次爱心的旅程</a>
+
+                        </span>
+                                <span class="description">国学社</span>
+                            </div>
+                            <!-- /.user-block -->
+                            <p>
+                                奉献你的爱心，给孩子一片晴天。10.18，跟我们一起关注留守儿童，生活区大门集合！
+                            </p>
+                        </div>
+                        <div class="post">
+                            <div class="user-block">
+                                <img class="img-circle img-bordered-sm" src="../dist/img/hdu.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">青春就要舞起来</a>
+
+                        </span>
+                                <span class="description">街舞社</span>
+                            </div>
+                            <!-- /.user-block -->
+                            <p>
+                                10.30，我社将举办一个小型的舞会，同学们可以尽情欢乐，享受舞蹈带来的身心的愉悦！让我们在学活中心，留下我们美丽的身姿！
+                            </p>
+                        </div>
+                        <div class="post">
+                            <div class="user-block">
+                                <img class="img-circle img-bordered-sm" src="../dist/img/hdu.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">机器人展览</a>
+
+                        </span>
+                                <span class="description">科技社</span>
+                            </div>
+                            <!-- /.user-block -->
+                            <p>
+                                科技日益发达的时代，高科技的东西已经层出不穷，机器人也不再是稀罕玩意了，然而我们的机器人展览，包括了机器人的
+                                “前世今生”，相信喜欢的你一定不会错过！11.5，学活二楼，我们不见不散！
+                            </p>
+                        </div>
+                        <!-- /.post -->
+                    </div>
+                    <div class="tab-pane" id="settings">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputName" class="col-sm-2 control-label">标题</label>
+
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="inputName" placeholder="标题">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail" class="col-sm-2 control-label">社团</label>
+
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="社团">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputExperience" class="col-sm-2 control-label">活动内容</label>
+
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="inputExperience" placeholder="活动内容"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-danger">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+    </div>
+{% endblock %}
