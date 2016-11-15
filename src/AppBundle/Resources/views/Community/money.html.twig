@@ -1,0 +1,171 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% set nav = 'community' %}
+{% set sub_nav = 'money' %}
+
+{% block content_header %}
+    <h1>经费管理</h1>
+{% endblock %}
+
+{% block content_body_boxed %}
+    <ul class="nav nav-tabs">
+        <li class="{% if type == 'in' %}active {% endif %} ">
+            <a href="{{ path('community_money', {type :'in'}) }}">经费收入</a>
+        </li>
+        <li class="{% if type == 'out' %}active {% endif %}">
+            <a href="{{ path('community_money', {type :'out'}) }}">经费支出</a>
+        </li>
+        {% if type == 'in' %}
+            <div class="btn-area">
+                <a class="btn btn-info" data-toggle="modal" data-target="#modal"
+                   data-url="">添加收入</a>
+            </div>
+        {% elseif type == 'out' %}
+            <div class="btn-area">
+                <a class="btn btn-info" data-toggle="modal" data-target="#modal"
+                   data-url="">添加支出</a>
+            </div>
+        {% endif %}
+
+    </ul>
+
+    <div class="row">
+        <div class="box-header">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">经费明细</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="inputName" class="col-sm-2 control-label">来源</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="inputName"
+                                               placeholder="姓名">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-sm-2 control-label">金额</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="inputEmail"
+                                               placeholder="性别">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName"
+                                           class="col-sm-2 control-label">参与<br/>人员</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputName"
+                                               placeholder="部门">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName" class="col-sm-2 control-label">日期</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputName"
+                                               placeholder="职位">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                            </button>
+                            <button type="button" class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        {% if type == 'in ' %}
+                            <th>来源</th>
+                        {% elseif type == 'out' %}
+                            <th>去向</th>
+                        {% endif %}
+                        <th>金额</th>
+                        <th>参与人员</th>
+                        <th>日期</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2016.10.08</td>
+                        <td>团费</td>
+                        <td>200</td>
+                        <td>全部社员</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2016.09.22</td>
+                        <td>赞助</td>
+                        <td>1000</td>
+                        <td>社长</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2016.09.12</td>
+                        <td>赞助</td>
+                        <td>500</td>
+                        <td>王大锤</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2016.09.01</td>
+                        <td>学校拨款</td>
+                        <td>2000</td>
+                        <td>全体</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2016.06.01</td>
+                        <td>赞助</td>
+                        <td>500</td>
+                        <td>陈爱玲</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2016.05.15</td>
+                        <td>赞助</td>
+                        <td>300</td>
+                        <td>张宸</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+{% endblock %}

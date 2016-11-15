@@ -67,7 +67,8 @@
                             </li>
                             <li {% if sub_nav is defined and sub_nav == 'activity' %}class="active"{% endif %}>
                                 <a href="{{ path('community_activity') }}"><i class="fa fa-circle-o"></i> 活动管理</a></li>
-                            <li><a href="../pages/money.html"><i class="fa fa-circle-o"></i> 经费管理</a></li>
+                            <li {% if sub_nav is defined and sub_nav == 'money' %}class="active"{% endif %}>
+                            <a href="{{ path('community_money') }}"><i class="fa fa-circle-o"></i> 经费管理</a></li>
                             <li><a href="../pages/pic.html"><i class="fa fa-circle-o"></i> 图片管理</a></li>
                         </ul>
                     </li>

@@ -9,3 +9,7 @@ community_member:
 community_activity:
     path: /community/activity
     defaults: { _controller: AppBundle:Community:activity }
+
+community_money:
+    path: /community/money/{type}
+    defaults: { _controller: AppBundle:Community:money , type: 'in'}
