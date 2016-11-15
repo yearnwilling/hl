@@ -13,3 +13,7 @@ community_activity:
 community_money:
     path: /community/money/{type}
     defaults: { _controller: AppBundle:Community:money , type: 'in'}
+
+personal:
+    path: /personal/normal/{type}
+    defaults: { _controller: AppBundle:Personal:index , type: 'interest' }

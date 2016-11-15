@@ -1,0 +1,41 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% set nav = 'personal' %}
+{% set sub_nav = 'interest' %}
+
+
+{% block content_header %}
+    <h1>个人信息管理</h1>
+{% endblock %}
+
+{% block content_body_boxed %}
+    <ul class="nav nav-tabs">
+        <li class="{% if type == 'interest' %}active {% endif %} ">
+            <a href="{{ path('personal', {type :'interest'}) }}">兴趣爱好</a>
+        </li>
+        <li class="{% if type == 'data' %}active {% endif %}">
+            <a href="{{ path('personal', {type :'data'}) }}">个人资料</a>
+        </li>
+    </ul>
+
+    <div class="box-body">
+        <form>
+            <div class="form-group ">
+                <label>个人爱好</label>
+                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+            </div>
+            <div class="form-group ">
+                <label>音乐</label>
+                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+            </div>
+            <div class="form-group ">
+                <label>书籍</label>
+                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+            </div>
+            <div class="form-group ">
+                <label>运动</label>
+                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+            </div>
+        </form>
+    </div>
+{% endblock %}
