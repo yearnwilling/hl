@@ -2,12 +2,28 @@
     var options = {
       success: function (data) {
         $('#modal').modal('hide');
-        notify.success('保存成功');
+        $.notify({
+          message: '保存成功'
+        }, {
+          placement: {
+            align: 'center',
+          },
+          type: 'success',
+          delay: 2000,
+        });
 
         setTimeout('window.location.reload()',2000);
       },
       error : function (data) {
-        notify.danger('保存失败',3);
+        $.notify({
+          message: '保存失败'
+        }, {
+          placement: {
+            align: 'center',
+          },
+          type: 'danger',
+          delay: 2000,
+        });
       }
     };
     $("#member").ajaxSubmit(options);
