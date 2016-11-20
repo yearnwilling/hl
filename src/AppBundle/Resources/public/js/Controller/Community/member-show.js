@@ -12,3 +12,4 @@
     };
     $("#member").ajaxSubmit(options);
   });
+

@@ -24,6 +24,21 @@ class MemberServiceImpl extends BaseService implements MemberService
         return $this->getMemberDao()->create($fields);
     }
 
+    public function getMemberById($id)
+    {
+        return $this->getMemberDao()->getMember($id);
+    }
+
+    public function updateMember($id,$fields)
+    {
+        return $this->getMemberDao()->update($id, $fields);
+    }
+
+    public function deleteMember($id)
+    {
+        return $this->getMemberDao()->delete($id);
+    }
+
     protected function getMemberDao()
     {
         return $this->createDao('AppBundle:Community.MemberDao');

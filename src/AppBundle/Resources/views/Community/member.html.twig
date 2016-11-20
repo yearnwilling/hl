@@ -42,8 +42,8 @@
                             <td>{{ member.department }}</td>
                             <td>{{ member.position }}</td>
                             <td>
-                                <button type="button" class="btn btn-primary">编辑</button>
-                                <button type="button" class="btn btn-danger">删除</button>
+                                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal" data-url="{{ path('community_member_edit', {id:member.id}) }}" >编辑</a>
+                                <button type="button" class="btn btn-danger member-delete" data-toggle="modal" data-target="#delete-modal"  data-url="{{ path('community_member_delete', {id:member.id}) }}">删除</button>
                             </td>
                         </tr>
                     {% endfor %}
@@ -53,4 +53,5 @@
             <!-- /.box-body -->
         </div>
     </div>
+
 {% endblock %}

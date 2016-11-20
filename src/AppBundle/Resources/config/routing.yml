@@ -10,6 +10,14 @@ community_member_add:
     path: /community/member/add
     defaults: { _controller: AppBundle:Community:memberAdd }
 
+community_member_edit:
+    path: /community/member/edit/{id}
+    defaults: { _controller: AppBundle:Community:memberEdit }
+
+community_member_delete:
+    path: /community/member/delete/{id}
+    defaults: { _controller: AppBundle:Community:memberDelete }
+
 community_activity:
     path: /community/activity
     defaults: { _controller: AppBundle:Community:activity }

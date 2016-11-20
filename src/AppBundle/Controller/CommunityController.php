@@ -29,9 +29,29 @@ class CommunityController extends BaseController
             return $this->createJsonResponse(true);
         }
         return $this->render('AppBundle:Community:member-show.html.twig', array(
+            'type' => 'add'
         ));
     }
 
+    public function memberEditAction(Request $request, $id)
+    {
+        if ($request->getMethod() == 'POST') {
+            $fields = $request->request->all();
+            $this->getMemberService()->updateMember($id,$fields);
+            return $this->createJsonResponse(true);
+        }
+        $member = $this->getMemberService()->getMemberById($id);
+        return $this->render('AppBundle:Community:member-show.html.twig', array(
+            'member' => $member,
+            'type' => 'edit'
+        ));
+    }
+
+    public function memberDeleteAction(Request $request, $id)
+    {
+        $member = $this->getMemberService()->deleteMember($id);
+        return $this->createJsonResponse(true);
+    }
 
     public function activityAction(Request $request)
     {

@@ -16,7 +16,6 @@
         <script src="{{ asset('resource/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('resource/bootstrap/js/bootstrap-notify.js') }}"></script>
         <script src="{{ asset('resource/adminLTE/js/app.min.js') }}"></script>
-        <script src="{{ asset('bundles/app/js/Controller/Publish/publish.js') }}"></script>
 
         {% block stylesheets %}{% endblock %}
     </head>
@@ -25,6 +24,8 @@
     <!-- ajax modal-->
     <div id="modal" class="modal" data-backdrop="static" data-keyboard="false"></div>
     <!--end static modal -->
+    {% include 'AppBundle::delete-modal.html.twig' %}
+    <script src="{{ asset('bundles/app/js/Controller/Publish/publish.js') }}"></script>
     {% block scripts %}
     {% endblock %}
     <script>

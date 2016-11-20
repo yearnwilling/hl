@@ -25,6 +25,12 @@ class MemberDaoImpl extends BaseDao implements MemberDao
         return $this->getMember($this->lastInsertId());
     }
 
+    public function update($id, $fields)
+    {
+        $this->getConnection()->update(self::TABLENAME, $fields, array('id' => $id));
+        return $this->getMember($id);
+    }
+
     public function getMember($courseId)
     {
         $that = $this;
@@ -34,6 +40,13 @@ class MemberDaoImpl extends BaseDao implements MemberDao
 
         return $that->fetchAssoc($sql, array($courseId)) ?: null;
     }
+
+    public function delete($id)
+    {
+        $result = $this->getConnection()->delete(self::TABLENAME, array('id' => $id));
+        return $result;
+    }
+
     public function findAll()
     {
         $sql = "SELECT * FROM {$this->table} ";
