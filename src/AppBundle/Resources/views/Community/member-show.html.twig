@@ -1,0 +1,49 @@
+{% extends 'modal-base.html.twig' %}
+
+{% block title %}
+    <h4 class="modal-title">
+        添加社团
+    </h4>
+{% endblock %}
+
+{% block body %}
+    <form class="form-horizontal" id="member" action="{{ path('community_member_add') }}" method="post">
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">姓名</label>
+
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputName" name="name"
+                       placeholder="姓名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">性别</label>
+
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail" name="sex"
+                       placeholder="性别">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">部门</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputName" placeholder="部门" name="department">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">职位</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputName" placeholder="职位" name="position">
+            </div>
+        </div>
+    </form>
+    <script src="{{ asset('bundles/app/js/Controller/Community/member-show.js') }}"></script>
+{% endblock %}
+
+
+{% block footer %}
+    <button type="button" class="btn btn-default " data-dismiss="modal">关闭</button>
+    <button type="button" class="btn btn-primary show-primary member-submit">保存</button>
+{% endblock %}

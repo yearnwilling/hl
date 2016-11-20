@@ -6,6 +6,10 @@ community_member:
     path: /community/member
     defaults: { _controller: AppBundle:Community:member }
 
+community_member_add:
+    path: /community/member/add
+    defaults: { _controller: AppBundle:Community:memberAdd }
+
 community_activity:
     path: /community/activity
     defaults: { _controller: AppBundle:Community:activity }
