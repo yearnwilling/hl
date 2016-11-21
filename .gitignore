@@ -6,3 +6,4 @@ vendor
 .idea
 *.log
 web/bundle/*
+web/bundles/*
