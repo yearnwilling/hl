@@ -3,6 +3,7 @@ namespace AppBundle\Service\Common;
 
 //use Topxia\Service\Common\DaoException;
 use Doctrine\DBAL\Driver\Statement;
+use AppBundle\Service\Common\DynamicQueryBuilder;
 
 abstract class BaseDao
 {

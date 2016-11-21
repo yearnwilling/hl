@@ -47,9 +47,40 @@ class MemberDaoImpl extends BaseDao implements MemberDao
         return $result;
     }
 
+    public function searchMemberCount($condition)
+    {
+        $builder = $this->_createSearchQueryBuilder($condition)
+            ->select('COUNT(id)');
+        return $builder->execute()->fetchColumn(0);
+    }
+
     public function findAll()
     {
         $sql = "SELECT * FROM {$this->table} ";
         return $this->fetchAll($sql) ?: null;
+    }
+
+    public function searchMember($conditions, $orderBy, $start, $limit)
+    {
+        $this->filterStartLimit($start, $limit);
+        $builder = $this->_createSearchQueryBuilder($conditions)
+            ->select('*')
+            ->orderBy($orderBy[0], $orderBy[1])
+            ->setFirstResult($start)
+            ->setMaxResults($limit);
+
+        if (empty($orderBy)) {
+            $builder->addOrderBy('create_time', 'DESC');
+        }
+
+        return $this->builderFetchAll($builder) ?: array();
+    }
+
+    protected function _createSearchQueryBuilder($conditions)
+    {
+        $builder = $this->createDynamicQueryBuilder($conditions)
+            ->from($this->table, 'member')
+            ->andWhere('name LIKE :name');
+        return $builder;
     }
 }

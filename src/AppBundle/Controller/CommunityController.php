@@ -8,16 +8,34 @@
 
 namespace AppBundle\Controller;
 
-
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Service\Common\Paginator;
 
 class CommunityController extends BaseController
 {
     public function memberAction(Request $request)
     {
-        $member = $this->getMemberService()->findAllMember();
+        $condition = array();
+        $name = $request->query->get('keyword');
+        if (!empty($name)) {
+            $condition['name'] = '%'.$name.'%';
+        }
+        $paginator = new Paginator(
+            $request,
+            $this->getMemberService()->searchMemberCount($condition),
+            5
+        );
+
+        $member = $this->getMemberService()->searchMember(
+            $condition,
+            array('created_time', 'DESC'),
+            $paginator->getOffsetCount(),
+            $paginator->getPerPageCount()
+        );
+
         return $this->render('AppBundle:Community:member.html.twig', array(
-            'members' => $member
+            'members' => $member,
+            'paginator' => $paginator
         ));
     }
 
