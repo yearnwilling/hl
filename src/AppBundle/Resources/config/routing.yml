@@ -1,6 +1,9 @@
 base_index:
     path: /
     defaults: { _controller: AppBundle:Index:index }
+community:
+    path: /community
+    defaults: { _controller: AppBundle:Community:index }
 
 community_member:
     path: /community/member
@@ -21,6 +24,11 @@ community_member_delete:
 community_activity:
     path: /community/activity
     defaults: { _controller: AppBundle:Community:activity }
+
+community_activity_add:
+    path: /community/{id}/activity/add
+    defaults: { _controller: AppBundle:Community:activityAdd }
+
 
 community_money:
     path: /community/money/{type}

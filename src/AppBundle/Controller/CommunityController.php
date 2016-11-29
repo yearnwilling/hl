@@ -13,6 +13,11 @@ use AppBundle\Service\Common\Paginator;
 
 class CommunityController extends BaseController
 {
+    public function indexAction(Request $request)
+    {
+        return $this->render('AppBundle:Community:index.html.twig');
+    }
+
     public function memberAction(Request $request)
     {
         $condition = array();
@@ -67,14 +72,33 @@ class CommunityController extends BaseController
 
     public function memberDeleteAction(Request $request, $id)
     {
-        $member = $this->getMemberService()->deleteMember($id);
+        $this->getMemberService()->deleteMember($id);
         return $this->createJsonResponse(true);
     }
 
     public function activityAction(Request $request)
     {
+        $condition = array();
+
+        $paginator = new Paginator(
+            $request,
+            $this->getMemberService()->searchMemberCount($condition),
+            5
+        );
+
+        $member = $this->getMemberService()->searchMember(
+            $condition,
+            array('created_time', 'DESC'),
+            $paginator->getOffsetCount(),
+            $paginator->getPerPageCount()
+        );
         return $this->render('AppBundle:Community:activity.html.twig', array(
         ));
+    }
+
+    public function activityAddAction(Request $request)
+    {
+        return $this->render('AppBundle:Community:activity-show.html.twig', array());
     }
 
     public function moneyAction(Request $request, $type = 'in')
