@@ -8,7 +8,7 @@
 
 {% block content_body %}
     <ul class="nav nav-tabs" role="tablist">
-        <li role="" class="active"><a href="#tv" role="tab" data-toggle="tab">影视科技类社团</a></li>
+        <li {% if category == 'video' %}    class="active"{% endif %}><a href="{{ path('community', {category: 'video'}) }}" >影视科技类社团</a></li>
         <li role=""><a href="#sports" role="tab" data-toggle="tab">运动类社团</a></li>
         <li role=""><a href="#chinese" role="tab" data-toggle="tab">文学类社团</a></li>
         <li role=""><a href="#elite" role="tab" data-toggle="tab">人才类社团</a></li>

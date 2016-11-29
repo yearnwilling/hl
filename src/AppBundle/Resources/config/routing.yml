@@ -1,9 +1,7 @@
 base_index:
     path: /
     defaults: { _controller: AppBundle:Index:index }
-community:
-    path: /community
-    defaults: { _controller: AppBundle:Community:index }
+
 
 community_member:
     path: /community/member
@@ -33,6 +31,10 @@ community_activity_add:
 community_money:
     path: /community/money/{type}
     defaults: { _controller: AppBundle:Community:money , type: 'in'}
+
+community:
+    path: /community/{category}
+    defaults: { _controller: AppBundle:Community:index, category: 'video' }
 
 personal:
     path: /personal/normal/{type}

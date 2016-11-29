@@ -13,9 +13,12 @@ use AppBundle\Service\Common\Paginator;
 
 class CommunityController extends BaseController
 {
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, $category = 'video')
     {
-        return $this->render('AppBundle:Community:index.html.twig');
+        $condition['category'] = $category;
+        return $this->render('AppBundle:Community:index.html.twig', array(
+            'category' => $category
+        ));
     }
 
     public function memberAction(Request $request)
