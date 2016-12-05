@@ -8,51 +8,58 @@
 
 {% block content_body %}
     <ul class="nav nav-tabs" role="tablist">
-        <li {% if category == 'video' %}    class="active"{% endif %}><a href="{{ path('community', {category: 'video'}) }}" >影视科技类社团</a></li>
-        <li role=""><a href="#sports" role="tab" data-toggle="tab">运动类社团</a></li>
-        <li role=""><a href="#chinese" role="tab" data-toggle="tab">文学类社团</a></li>
-        <li role=""><a href="#elite" role="tab" data-toggle="tab">人才类社团</a></li>
-        <li role=""><a href="#music" role="tab" data-toggle="tab">音乐舞蹈类社团</a></li>
+        <li {% if category == 'video' %} class="active"{% endif %}><a
+                    href="{{ path('community', {category: 'video'}) }}">影视科技类社团</a></li>
+        <li {% if category == 'sports' %} class="active"{% endif %}><a
+                    href="{{ path('community', {category: 'sports'}) }}">运动类社团</a></li>
+        <li {% if category == 'literature' %} class="active"{% endif %}><a
+                    href="{{ path('community', {category: 'literature'}) }}">文学类社团</a></li>
+        <li {% if category == 'personnel' %} class="active"{% endif %}><a
+                    href="{{ path('community', {category: 'personnel'}) }}">人才类社团</a></li>
+        <li {% if category == 'music' %} class="active"{% endif %}><a
+                    href="{{ path('community', {category: 'music'}) }}">音乐舞蹈类社团</a></li>
     </ul>
-
     <!-- Tab panes -->
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="tv" style="margin-left: 20px;margin-top:100px;">
-            <a href="../pages/home.html"><span class="label label-default">电脑俱乐部</span></a>
-            <a href="../pages/home.html"><span class="label label-primary">1900影音工作室</span></a>
-            <a href="../pages/home.html"><span class="label label-success">杭电助手</span></a>
-            <a href="../pages/home.html"><span class="label label-info">影视协会</span></a>
-            <a href="../pages/home.html"><span class="label label-warning">杭电橡皮糖工作室</span></a>
-            <a href="../pages/home.html"><span class="label label-danger">清晨工作室</span></a>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="sports" style="margin-left: 20px;margin-top:100px;">
-            <a href="../pages/home.html"><span class="label label-default">剑道社</span></a>
-            <a href="../pages/home.html"><span class="label label-primary">梅花拳协会</span></a>
-            <a href="../pages/home.html"><span class="label label-success">乒乓球协会</span></a>
-            <a href="../pages/home.html"><span class="label label-info">球迷协会</span></a>
-            <a href="../pages/home.html"><span class="label label-warning">台球协会</span></a>
-            <a href="../pages/home.html"><span class="label label-danger">空手道协会</span></a>
-            <a href="../pages/home.html"><span class="label label-default">勇鑫跆拳道社</span></a>
-            <a href="../pages/home.html"><span class="label label-primary">羽毛球协会</span></a>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="chinese" style="margin-left: 20px;margin-top:100px;">
-            <a href="../pages/home.html"><span class="label label-default">莽原文学社</span></a>
-            <a href="../pages/home.html"><span class="label label-primary">民族文化交流协会</span></a>
-            <a href="../pages/home.html"><span class="label label-success">星空读书会</span></a>
-            <a href="../pages/home.html"><span class="label label-info">辩论协会</span></a>
-            <a href="../pages/home.html"><span class="label label-warning">梦醒书画社</span></a>
-            <a href="../pages/home.html"><span class="label label-danger">女子学堂</span></a>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="elite" style="margin-left: 20px;margin-top:100px;">
-            <a href="../pages/home.html"><span class="label label-default">人才协会</span></a>
-            <a href="../pages/home.html"><span class="label label-primary">未来企业家协会</span></a>
-            <a href="../pages/home.html"><span class="label label-success">杭电校友协会</span></a>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="music" style="margin-left: 20px;margin-top:100px;">
-            <a href="../pages/home.html"><span class="label label-default">Setfree 斯波</span></a>
-            <a href="../pages/home.html"><span class="label label-primary">哈哈舞协</span></a>
-            <a href="../pages/home.html"><span class="label label-success">吉他协会</span></a>
-            <a href="../pages/home.html"><span class="label label-info">口琴俱乐部</span></a>
-        </div>
+        {% for community in communitys %}
+            <div class="col-md-4">
+                <div class="box box-widget widget-user">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header bg-aqua-active">
+                        <a class="widget-user-username" href="{{ path('community_member' ,{communityId:community.id   }) }}">{{ community.name }}</a>
+                        <h5 class="widget-user-desc">{{ community.create_time |date('Y-m-d H:i:s') }}</h5>
+                    </div>
+                    <div class="box-footer">
+                        <div class="row">
+                            <div class="col-sm-4 border-right">
+                                <div class="description-block">
+                                    <h5 class="description-header">3,200</h5>
+                                    <span class="description-text">SALES</span>
+                                </div>
+                                <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4 border-right">
+                                <div class="description-block">
+                                    <h5 class="description-header">13,000</h5>
+                                    <span class="description-text">FOLLOWERS</span>
+                                </div>
+                                <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4">
+                                <div class="description-block">
+                                    <h5 class="description-header">35</h5>
+                                    <span class="description-text">PRODUCTS</span>
+                                </div>
+                                <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

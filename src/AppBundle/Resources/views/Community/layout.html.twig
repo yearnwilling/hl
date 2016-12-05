@@ -32,7 +32,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li {% if sub_nav is defined and sub_nav == 'member' %}class="active"{% endif %}>
-                            <a href="{{ path('community_member') }}"><i class="fa fa-circle-o"></i> 社员管理</a>
+                            <a href="{{ path('community_member', {communityId:communityId}) }}"><i class="fa fa-circle-o"></i> 社员管理</a>
                         </li>
                         <li {% if sub_nav is defined and sub_nav == 'activity' %}class="active"{% endif %}>
                             <a href="{{ path('community_activity') }}"><i class="fa fa-circle-o"></i> 活动管理</a></li>

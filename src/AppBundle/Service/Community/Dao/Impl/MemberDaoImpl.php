@@ -80,7 +80,8 @@ class MemberDaoImpl extends BaseDao implements MemberDao
     {
         $builder = $this->createDynamicQueryBuilder($conditions)
             ->from($this->table, 'member')
-            ->andWhere('name LIKE :name');
+            ->andWhere('name LIKE :name')
+            ->andWhere('community_id LIKE :community_id');
         return $builder;
     }
 }

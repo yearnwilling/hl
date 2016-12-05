@@ -16,14 +16,31 @@ class CommunityController extends BaseController
     public function indexAction(Request $request, $category = 'video')
     {
         $condition['category'] = $category;
+
+        $paginator = new Paginator(
+            $request,
+            $this->getCommunityService()->searchCommunityCount($condition),
+            5
+        );
+
+        $community = $this->getCommunityService()->searchCommunity(
+            $condition,
+            array('create_time', 'DESC'),
+            $paginator->getOffsetCount(),
+            $paginator->getPerPageCount()
+        );
+
         return $this->render('AppBundle:Community:index.html.twig', array(
+            'communitys' => $community,
+            'paginator' => $paginator,
             'category' => $category
         ));
     }
 
-    public function memberAction(Request $request)
+    public function memberAction(Request $request, $communityId)
     {
         $condition = array();
+        $condition['community_id'] = $communityId;
         $name = $request->query->get('keyword');
         if (!empty($name)) {
             $condition['name'] = '%'.$name.'%';
@@ -43,23 +60,26 @@ class CommunityController extends BaseController
 
         return $this->render('AppBundle:Community:member.html.twig', array(
             'members' => $member,
-            'paginator' => $paginator
+            'paginator' => $paginator,
+            'communityId' => $communityId
         ));
     }
 
-    public function memberAddAction(Request $request)
+    public function memberAddAction(Request $request, $communityId)
     {
         if ($request->getMethod() == 'POST') {
             $fields = $request->request->all();
+            $fields['community_id'] = $communityId;
             $this->getMemberService()->addMember($fields);
             return $this->createJsonResponse(true);
         }
         return $this->render('AppBundle:Community:member-show.html.twig', array(
-            'type' => 'add'
+            'type' => 'add',
+            'communityId' => $communityId
         ));
     }
 
-    public function memberEditAction(Request $request, $id)
+    public function memberEditAction(Request $request, $communityId, $id)
     {
         if ($request->getMethod() == 'POST') {
             $fields = $request->request->all();
@@ -69,7 +89,8 @@ class CommunityController extends BaseController
         $member = $this->getMemberService()->getMemberById($id);
         return $this->render('AppBundle:Community:member-show.html.twig', array(
             'member' => $member,
-            'type' => 'edit'
+            'type' => 'edit',
+            'communityId' => $communityId
         ));
     }
 
@@ -114,5 +135,10 @@ class CommunityController extends BaseController
     protected function getMemberService()
     {
         return $this->getServiceKernel()->createService('AppBundle:Community.MemberService');
+    }
+
+    protected function getCommunityService()
+    {
+        return $this->getServiceKernel()->createService('AppBundle:Community.CommunityService');
     }
 }

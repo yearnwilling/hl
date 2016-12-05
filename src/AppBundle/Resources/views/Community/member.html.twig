@@ -19,7 +19,7 @@
                     </div>
                     <button class="btn btn-primary btn-sm">搜索</button>
                     <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal"
-                       style="margin-left: 13px" data-url="{{ path('community_member_add') }}">添加</a>
+                       style="margin-left: 13px" data-url="{{ path('community_member_add',{communityId:communityId}) }}">添加</a>
                 </form>
             </div>
             <!-- /.box-header -->
@@ -42,7 +42,7 @@
                             <td>{{ member.department }}</td>
                             <td>{{ member.position }}</td>
                             <td>
-                                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal" data-url="{{ path('community_member_edit', {id:member.id}) }}" >编辑</a>
+                                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal" data-url="{{ path('community_member_edit', {id:member.id, communityId:communityId}) }}" >编辑</a>
                                 <button type="button" class="btn btn-danger member-delete" data-toggle="modal" data-target="#delete-modal"  data-url="{{ path('community_member_delete', {id:member.id}) }}">删除</button>
                             </td>
                         </tr>

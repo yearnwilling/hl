@@ -9,9 +9,9 @@
 {% block body %}
     <form class="form-horizontal" id="member"
             {% if type == 'add' %}
-                action="{{ path('community_member_add') }}"
+                action="{{ path('community_member_add',{communityId:communityId}) }}"
             {% elseif type == 'edit' %}
-                action="{{ path('community_member_edit',{id:member.id }) }}"
+                action="{{ path('community_member_edit',{id:member.id,communityId:communityId}) }}"
             {% endif %}
           method="post">
         <div class="form-group">

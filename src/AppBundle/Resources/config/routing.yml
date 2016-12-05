@@ -4,15 +4,15 @@ base_index:
 
 
 community_member:
-    path: /community/member
+    path: /community/member/{communityId}
     defaults: { _controller: AppBundle:Community:member }
 
 community_member_add:
-    path: /community/member/add
+    path: /community/{communityId}/member/add
     defaults: { _controller: AppBundle:Community:memberAdd }
 
 community_member_edit:
-    path: /community/member/edit/{id}
+    path: /community/{communityId}/member/edit/{id}
     defaults: { _controller: AppBundle:Community:memberEdit }
 
 community_member_delete:
