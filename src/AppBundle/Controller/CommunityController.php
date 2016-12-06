@@ -125,10 +125,11 @@ class CommunityController extends BaseController
         return $this->render('AppBundle:Community:activity-show.html.twig', array());
     }
 
-    public function moneyAction(Request $request, $type = 'in')
+    public function moneyAction(Request $request, $communityId, $type = 'in')
     {
         return $this->render('AppBundle:Community:money.html.twig', array(
-            'type' => $type
+            'type' => $type,
+            'communityId' => $communityId
         ));
     }
 

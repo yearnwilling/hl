@@ -29,7 +29,7 @@ community_activity_add:
 
 
 community_money:
-    path: /community/money/{type}
+    path: /community/{communityId}/money/{type}
     defaults: { _controller: AppBundle:Community:money , type: 'in'}
 
 community:

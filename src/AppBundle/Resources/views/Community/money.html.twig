@@ -5,15 +5,15 @@
 
 {% block content_header %}
     <h1>经费管理</h1>
-{% endblock %}
+{% endblock %}/
 
 {% block content_body_boxed %}
     <ul class="nav nav-tabs">
         <li class="{% if type == 'in' %}active {% endif %} ">
-            <a href="{{ path('community_money', {type :'in'}) }}">经费收入</a>
+            <a href="{{ path('community_money', {type :'in',communityId:communityId}) }}">经费收入</a>
         </li>
         <li class="{% if type == 'out' %}active {% endif %}">
-            <a href="{{ path('community_money', {type :'out'}) }}">经费支出</a>
+            <a href="{{ path('community_money', {type :'out',communityId:communityId}) }}">经费支出</a>
         </li>
         {% if type == 'in' %}
             <div class="btn-area">
