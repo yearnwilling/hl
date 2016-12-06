@@ -20,11 +20,11 @@ community_member_delete:
     defaults: { _controller: AppBundle:Community:memberDelete }
 
 community_activity:
-    path: /community/activity
+    path: /community/{communityId}/activity
     defaults: { _controller: AppBundle:Community:activity }
 
 community_activity_add:
-    path: /community/{id}/activity/add
+    path: /community/{communityId}/activity/add
     defaults: { _controller: AppBundle:Community:activityAdd }
 
 

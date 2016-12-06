@@ -100,7 +100,7 @@ class CommunityController extends BaseController
         return $this->createJsonResponse(true);
     }
 
-    public function activityAction(Request $request)
+    public function activityAction(Request $request, $communityId)
     {
         $condition = array();
 
@@ -117,12 +117,21 @@ class CommunityController extends BaseController
             $paginator->getPerPageCount()
         );
         return $this->render('AppBundle:Community:activity.html.twig', array(
+            'communityId' => $communityId
         ));
     }
 
-    public function activityAddAction(Request $request)
+    public function activityAddAction(Request $request, $communityId)
     {
-        return $this->render('AppBundle:Community:activity-show.html.twig', array());
+        if ($request->getMethod() == 'POST') {
+            $active =$request->request->all();
+            $active['community_id'] = $communityId;
+            $this->getCommunityActiveService()->addActive($active);
+            return $this->createJsonResponse(true);
+        }
+        return $this->render('AppBundle:Community:activity-show.html.twig', array(
+            'communityId' => $communityId
+        ));
     }
 
     public function moneyAction(Request $request, $communityId, $type = 'in')
@@ -131,6 +140,11 @@ class CommunityController extends BaseController
             'type' => $type,
             'communityId' => $communityId
         ));
+    }
+
+    protected function getCommunityActiveService()
+    {
+        return $this->getServiceKernel()->createService('AppBundle:Community.ActiveService');
     }
 
     protected function getMemberService()
