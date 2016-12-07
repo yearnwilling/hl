@@ -24,6 +24,11 @@ class CommunityServiceImpl extends BaseService implements CommunityService
         return $this->getCommunityDao()->searchCommunity($conditions, $orderBy, $start, $limit);
     }
 
+    public function getCommunity($id)
+    {
+        return $this->getCommunityDao()->getById($id);
+    }
+
     protected function getCommunityDao()
     {
         return $this->createDao('AppBundle:Community.CommunityDao');

@@ -14,6 +14,8 @@ use AppBundle\Service\Community\Dao\CommunityDao;
 
 class CommunityDaoImpl extends BaseDao implements CommunityDao
 {
+    protected $table = 'community';
+
     public function searchCommunityCount($condition)
     {
         $builder = $this->_createSearchQueryBuilder($condition)
@@ -35,6 +37,14 @@ class CommunityDaoImpl extends BaseDao implements CommunityDao
         }
 
         return $this->builderFetchAll($builder) ?: array();
+    }
+
+    public function getById($id)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE id = ?";
+        $sql = $this->modifyLimitQuery($sql, 1);
+
+        return $this->fetchAssoc($sql, array($id)) ?: null;
     }
 
     protected function _createSearchQueryBuilder($conditions)

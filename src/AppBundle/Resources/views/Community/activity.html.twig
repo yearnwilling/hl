@@ -21,32 +21,36 @@
                     </div>
                     <button class="btn btn-primary btn-sm">搜索</button>
                     <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal"
-                       style="margin-left: 13px" data-url="{{ path('community_activity_add', {communityId: communityId }) }}">添加</a>
+                       style="margin-left: 13px"
+                       data-url="{{ path('community_activity_add', {communityId: communityId }) }}">添加</a>
                 </form>
             </div>
-            <div class="nav-tabs-custom">
-                <div class="tab-content">
-                    <div class="active tab-pane" id="activity">
-                        <!-- Post -->
-                        <div class="post">
-                            <div class="user-block">
+            {% for active in actives %}
+                <div class="nav-tabs-custom">
+                    <div class="tab-content">
+                        <div class="active tab-pane" id="activity">
+                            <!-- Post -->
+                            <div class="post">
+                                <div class="user-block">
                                 <span class="username">
-                                  <a href="#">友谊篮球赛</a>
+                                  <a href="#">{{ active.name}}</a>
                                 </span>
-                                <span class="description">篮球社</span>
+                                    <span class="description">{{ active.community.name }}</span>
+                                </div>
+                                <!-- /.user-block -->
+                                <p>
+                                    {{ active.info }}
+                                </p>
                             </div>
-                            <!-- /.user-block -->
-                            <p>
-                                明天下午三点，我们就在篮球场举办友谊篮球赛，计算机学院PK外国语学院，网络空间安全学院PK自动化学院，
-                                软件工程学院PK通信工程学院，6个学院，3大pk阵容，热血的青春，活力四射的少年，期待你的到来！！
-                            </p>
+                            <!-- /.post -->
                         </div>
-                        <!-- /.post -->
+                        <!-- /.tab-pane -->
                     </div>
-                    <!-- /.tab-pane -->
+                    <!-- /.tab-content -->
                 </div>
-                <!-- /.tab-content -->
-            </div>
+            {% endfor %}
+            {{ macro.paginator(paginator) }}
+
             <!-- /.nav-tabs-custom -->
         </div>
         <!-- /.col -->

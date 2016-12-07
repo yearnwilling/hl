@@ -104,20 +104,28 @@ class CommunityController extends BaseController
     {
         $condition = array();
 
+        $name = $request->query->get('keyword');
+        if (!empty($name)) {
+            $condition['name'] = '%'.$name.'%';
+        }
+
         $paginator = new Paginator(
             $request,
-            $this->getMemberService()->searchMemberCount($condition),
+            $this->getCommunityActiveService()->searchActiveCount($condition),
             5
         );
 
-        $member = $this->getMemberService()->searchMember(
+        $active = $this->getCommunityActiveService()->searchActive(
             $condition,
             array('created_time', 'DESC'),
             $paginator->getOffsetCount(),
             $paginator->getPerPageCount()
         );
+
         return $this->render('AppBundle:Community:activity.html.twig', array(
-            'communityId' => $communityId
+            'communityId' => $communityId,
+            'actives' => $active,
+            'paginator' => $paginator
         ));
     }
 
