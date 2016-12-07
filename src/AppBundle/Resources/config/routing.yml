@@ -32,6 +32,10 @@ community_money:
     path: /community/{communityId}/money/{type}
     defaults: { _controller: AppBundle:Community:money , type: 'in'}
 
+community_money_add:
+    path: /community/{communityId}/money/{type}/add
+    defaults: { _controller: AppBundle:Community:moneyAdd , type: 'in'}
+
 community:
     path: /community/{category}
     defaults: { _controller: AppBundle:Community:index, category: 'video' }

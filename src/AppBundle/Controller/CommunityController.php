@@ -150,6 +150,23 @@ class CommunityController extends BaseController
         ));
     }
 
+    public function moneyAddAction(Request $request, $communityId, $type = 'in')
+    {
+        if ($request->getMethod() == 'POST') {
+            $money =$request->request->all();
+            $money['community_id'] = $communityId;
+            $money['type'] = $type;
+            $this->getMoneyService()->addMoney($money);
+            return $this->createJsonResponse(true);
+        }
+
+        return $this->render('AppBundle:Community:money-show.html.twig', array(
+            'communityId' => $communityId,
+            'type' => $type,
+            'submitType' => 'add'
+        ));
+    }
+
     protected function getCommunityActiveService()
     {
         return $this->getServiceKernel()->createService('AppBundle:Community.ActiveService');
@@ -158,6 +175,11 @@ class CommunityController extends BaseController
     protected function getMemberService()
     {
         return $this->getServiceKernel()->createService('AppBundle:Community.MemberService');
+    }
+
+    protected function getMoneyService()
+    {
+        return $this->getServiceKernel()->createService('AppBundle:Community.MoneyService');
     }
 
     protected function getCommunityService()
