@@ -35,6 +35,11 @@ class MoneyServiceImpl extends BaseService implements MoneyService
         return $this->getMoneyDao()->update($id, $money);
     }
 
+    public function deleteMoney($id)
+    {
+        return $this->getMoneyDao()->delete($id);
+    }
+
     public function searchMoney(array $conditions, array $orderBy, $start, $limit)
     {
         return $this->getMoneyDao()->searchMoney($conditions, $orderBy, $start, $limit);

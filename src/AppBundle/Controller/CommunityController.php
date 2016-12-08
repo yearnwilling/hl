@@ -204,6 +204,12 @@ class CommunityController extends BaseController
         ));
     }
 
+    public function moneyDeleteAction(Request $request, $id)
+    {
+        $this->getMoneyService()->deleteMoney($id);
+        return $this->createJsonResponse(true);
+    }
+
     protected function getCommunityActiveService()
     {
         return $this->getServiceKernel()->createService('AppBundle:Community.ActiveService');

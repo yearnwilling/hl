@@ -54,6 +54,12 @@ class MoneyDaoImpl extends BaseDao implements MoneyDao
         return $this->getMoney($id);
     }
 
+    public function delete($id)
+    {
+        $result = $this->getConnection()->delete(self::TABLENAME, array('id' => $id));
+        return $result;
+    }
+
     public function getById($id)
     {
         $sql = "SELECT * FROM {$this->table} WHERE id = ?";
