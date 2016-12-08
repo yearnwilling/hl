@@ -144,9 +144,28 @@ class CommunityController extends BaseController
 
     public function moneyAction(Request $request, $communityId, $type = 'in')
     {
+        $condition = array();
+        $condition['type'] = $type;
+        $condition['communit_id'] = $communityId;
+
+        $paginator = new Paginator(
+            $request,
+            $this->getMoneyService()->searchMoneyCount($condition),
+            5
+        );
+
+        $money = $this->getMoneyService()->searchMoney(
+            $condition,
+            array('created_time', 'DESC'),
+            $paginator->getOffsetCount(),
+            $paginator->getPerPageCount()
+        );
+
         return $this->render('AppBundle:Community:money.html.twig', array(
             'type' => $type,
-            'communityId' => $communityId
+            'communityId' => $communityId,
+            'moneys' => $money,
+            'paginator' => $paginator
         ));
     }
 
@@ -164,6 +183,24 @@ class CommunityController extends BaseController
             'communityId' => $communityId,
             'type' => $type,
             'submitType' => 'add'
+        ));
+    }
+
+    public function moneyEditAction(Request $request, $communityId, $type = 'in', $id)
+    {
+        if ($request->getMethod() == 'POST') {
+            $money =$request->request->all();
+            $this->getMoneyService()->updateMoney($id, $money);
+            return $this->createJsonResponse(true);
+        }
+
+        $money = $this->getMoneyService()->getMoney($id);
+        return $this->render('AppBundle:Community:money-show.html.twig', array(
+            'communityId' => $communityId,
+            'type' => $type,
+            'submitType' => 'edit',
+            'id' => $id,
+            'money' => $money
         ));
     }
 

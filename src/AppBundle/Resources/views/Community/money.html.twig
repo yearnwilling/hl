@@ -47,67 +47,21 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>2016.10.08</td>
-                        <td>团费</td>
-                        <td>200</td>
-                        <td>全部社员</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">编辑</button>
-                            <button type="button" class="btn btn-danger">删除</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2016.09.22</td>
-                        <td>赞助</td>
-                        <td>1000</td>
-                        <td>社长</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">编辑</button>
-                            <button type="button" class="btn btn-danger">删除</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2016.09.12</td>
-                        <td>赞助</td>
-                        <td>500</td>
-                        <td>王大锤</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">编辑</button>
-                            <button type="button" class="btn btn-danger">删除</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2016.09.01</td>
-                        <td>学校拨款</td>
-                        <td>2000</td>
-                        <td>全体</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">编辑</button>
-                            <button type="button" class="btn btn-danger">删除</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2016.06.01</td>
-                        <td>赞助</td>
-                        <td>500</td>
-                        <td>陈爱玲</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">编辑</button>
-                            <button type="button" class="btn btn-danger">删除</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2016.05.15</td>
-                        <td>赞助</td>
-                        <td>300</td>
-                        <td>张宸</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">编辑</button>
-                            <button type="button" class="btn btn-danger">删除</button>
-                        </td>
-                    </tr>
+                    {% for money in moneys %}
+                        <tr>
+                            <td>{{ money.info }}</td>
+                            <td>{{ money.number }}</td>
+                            <td>{{ money.community_member }}</td>
+                            <td>{{ money.created_time | date('Y-m-d H:i:s') }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal"
+                                        data-url="{{ path('community_money_edit', {communityId:communityId, type:type, id:money.id}) }}">编辑</button>
+                                <button type="button" class="btn btn-danger">删除</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
+                    {{ macro.paginator(paginator) }}
                 </table>
             </div>
             <!-- /.box-body -->

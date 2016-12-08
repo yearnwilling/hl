@@ -20,6 +20,26 @@ class MoneyServiceImpl extends BaseService implements MoneyService
         return $this->getMoneyDao()->create($money);
     }
 
+    public function searchMoneyCount($condition)
+    {
+        return $this->getMoneyDao()->searchMoneyCount($condition);
+    }
+
+    public function getMoney($id)
+    {
+        return $this->getMoneyDao()->getById($id);
+    }
+
+    public function updateMoney($id, $money)
+    {
+        return $this->getMoneyDao()->update($id, $money);
+    }
+
+    public function searchMoney(array $conditions, array $orderBy, $start, $limit)
+    {
+        return $this->getMoneyDao()->searchMoney($conditions, $orderBy, $start, $limit);
+    }
+
     protected function getMoneyDao()
     {
         return $this->createDao('AppBundle:Community.MoneyDao');
