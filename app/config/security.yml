@@ -1,11 +1,17 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
+
+
 security:
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+            app:
+                id: app.user_provider
+
+
+    encoders:
+        "%app.current_user.class%": sha256
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -15,6 +21,16 @@ security:
 
         main:
             anonymous: ~
+            form_login:
+                login_path: login
+                check_path: login_check
+#                default_target_path: default_security_target
+                use_referer: true
+            remember_me:
+                secret:   '%secret%'
+                lifetime:  8640000
+            logout:
+                path: logout
             # activate different ways to authenticate
 
             # http_basic: ~
@@ -22,3 +38,10 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_USER }
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]

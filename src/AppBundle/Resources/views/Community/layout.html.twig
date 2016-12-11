@@ -41,28 +41,7 @@
                         <li><a href="{{ path('community_picture',{communityId:communityId}) }}"><i class="fa fa-circle-o"></i> 图片管理</a></li>
                     </ul>
                 </li>
-                <li class="treeview {% if nav == 'personal' %}active{% endif %}">
-                    <a href="#">
-                        <i class="fa fa-files-o"></i>
-                        <span>个人信息管理</span>
-                            <span class="pull-right-container">
-                             <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li {% if sub_nav is defined and sub_nav == 'interest' %}class="active"{% endif %}>
-                            <a href="{{ path('personal') }}"><i class="fa fa-circle-o"></i> 个人信息管理</a>
-                        </li>
-                        <li><a href="../pages/pwd.html"><i class="fa fa-circle-o"></i> 修改密码</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../pages/Administrator.html">
-                        <i class="fa fa-th"></i> <span>管理员管理</span>
-                            <span class="pull-right-container">
-                            </span>
-                    </a>
-                </li>
+
             </ul>
         </section>
         <!-- /.sidebar -->

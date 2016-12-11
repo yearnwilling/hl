@@ -2,6 +2,15 @@ base_index:
     path: /
     defaults: { _controller: AppBundle:Index:index }
 
+login:
+    path:      /login
+    defaults:  { _controller: AppBundle:Login:index }
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout
 
 community_member:
     path: /community/member/{communityId}

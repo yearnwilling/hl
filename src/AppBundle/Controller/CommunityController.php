@@ -8,6 +8,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Service\Common\ServiceKernel;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\Common\Paginator;
 
@@ -290,5 +291,10 @@ class CommunityController extends BaseController
     protected function getCommunityService()
     {
         return $this->getServiceKernel()->createService('AppBundle:Community.CommunityService');
+    }
+
+    protected function getUserService()
+    {
+        return ServiceKernel::instance()->createService('AppBundle:User.UserService');
     }
 }

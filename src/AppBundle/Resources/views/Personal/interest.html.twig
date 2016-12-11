@@ -19,7 +19,7 @@
     </ul>
 
     <div class="box-body">
-        <form>
+        <form action="{{ path('personal', {type :type}) }}" method="post">
             <div class="form-group ">
                 <label>个人爱好</label>
                 <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
@@ -35,6 +35,10 @@
             <div class="form-group ">
                 <label>运动</label>
                 <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+            </div>
+
+            <div class="btn-area">
+                <button type='submit' class="btn btn-info">保存</button>
             </div>
         </form>
     </div>

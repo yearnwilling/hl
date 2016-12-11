@@ -9,6 +9,9 @@ class PersonalController extends Controller
 {
     public function indexAction(Request $request, $type = 'interest')
     {
+        if ($request->getMethod() == 'POST') {
+
+        }
         return $this->render("AppBundle:Personal:{$type}.html.twig", array(
             'type' => $type
         ));
