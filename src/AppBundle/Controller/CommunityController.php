@@ -210,14 +210,76 @@ class CommunityController extends BaseController
         return $this->createJsonResponse(true);
     }
 
+    public function pictureAction(Request $request, $communityId)
+    {
+        $condition = array();
+        $condition['community_id'] = $communityId;
+
+        $paginator = new Paginator(
+            $request,
+            $this->getPictureService()->searchPictureCount($condition),
+            6
+        );
+
+        $picture = $this->getPictureService()->searchPicture(
+            $condition,
+            array('created_time', 'DESC'),
+            $paginator->getOffsetCount(),
+            $paginator->getPerPageCount()
+        );
+
+        return $this->render('AppBundle:Community:picture.html.twig', array(
+            'communityId' => $communityId,
+            'pictures' => $picture,
+            'paginator' => $paginator
+        ));
+    }
+
+    public function pictureAddAction(Request $request, $communityId)
+    {
+        if ($request->getMethod() == 'POST') {
+            $fields = $request->request->all();
+            $file = $request->files->get('file');
+            $fields['picture_uri'] = $this->getUploadFileService()->uploadFile($file);
+            $fields['community_id'] = $communityId;
+            $this->getPictureService()->addPicture($fields);
+            return $this->createJsonResponse(true);
+        }
+        return $this->createJsonResponse(false);
+    }
+
+    public function pictureDisplayAction(Request $request, $pictureId)
+    {
+        $picture = $this->getPictureService()->getPicture($pictureId);
+        if (empty($picture)) {
+            throw new \RuntimeException('作物不存在');
+        }
+
+        $parsed = $this->getUploadFileService()->parseFileUri($picture['picture_uri']);
+
+        return $this->forward('AppBundle:UploadFile:downloadLocalFile', [
+            'filepath' => $parsed['fullpath']
+        ]);
+    }
+
     protected function getCommunityActiveService()
     {
         return $this->getServiceKernel()->createService('AppBundle:Community.ActiveService');
     }
 
+    protected function getPictureService()
+    {
+        return $this->getServiceKernel()->createService('AppBundle:Community.PictureService');
+    }
+
     protected function getMemberService()
     {
         return $this->getServiceKernel()->createService('AppBundle:Community.MemberService');
+    }
+
+    protected function getUploadFileService()
+    {
+        return $this->getServiceKernel()->createService('AppBundle:UploadFile.UploadFileService');
     }
 
     protected function getMoneyService()

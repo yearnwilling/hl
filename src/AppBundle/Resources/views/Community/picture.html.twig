@@ -1,0 +1,75 @@
+{% extends 'AppBundle:Community:layout.html.twig' %}
+{% set nav = 'community' %}
+{% set sub_nav = 'picture' %}
+
+{% block content_header %}
+    <h1>活动图片</h1>
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/app/css/community/picture.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content_body_boxed %}
+    <div class="btn-area">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#image-form">添加</button>
+    </div>
+    <div>
+        <div class="row">
+        {% for picture in pictures %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{ path('community_picture_display',{pictureId: picture.id}) }}" alt="...">
+                    <div class="caption">
+                        <h3>{{ picture.name }}</h3>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+
+    </div>
+    {{ macro.paginator(paginator) }}
+    <div class="modal fade message-modal" id="image-form">
+        <div class="modal-dialog message">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">添加图片</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id='image-form-submit' action="{{ path('community_picture_add', {communityId : communityId}) }}" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-sm-2 control-label">名称</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" name="name"
+                                       value="{{ member.sex |default('') }}"
+                                       placeholder="名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-sm-2 control-label">上传图片</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" id="file" name="file"
+                                       value="{{ member.sex |default('') }}"
+                                       placeholder="性别">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><i class="toparrow"></i>
+                    <button id="picture-submit" type="button" class="btn btn-primary" data-loading-text="正在上传"
+                            >确定
+                    </button>
+                    <button class="btn btn-primary" data-dismiss="modal" type="button" data-role="message-modal-close">
+                        取消
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('bundles/app/js/Controller/Community/picture.js') }}"></script>
+
+{% endblock %}

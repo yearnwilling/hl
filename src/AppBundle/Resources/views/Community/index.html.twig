@@ -18,48 +18,29 @@
                     href="{{ path('community', {category: 'personnel'}) }}">人才类社团</a></li>
         <li {% if category == 'music' %} class="active"{% endif %}><a
                     href="{{ path('community', {category: 'music'}) }}">音乐舞蹈类社团</a></li>
+        <div class="btn-area">
+            <a class="btn btn-info" data-toggle="modal" data-target="#modal">添加社团</a>
+        </div>
     </ul>
+
     <!-- Tab panes -->
     <div class="tab-content">
-        {% for community in communitys %}
-            <div class="col-md-4">
-                <div class="box box-widget widget-user">
-                    <!-- Add the bg color to the header using any of the bg-* classes -->
-                    <div class="widget-user-header bg-aqua-active">
-                        <a class="widget-user-username" href="{{ path('community_member' ,{communityId:community.id   }) }}">{{ community.name }}</a>
-                        <h5 class="widget-user-desc">{{ community.create_time |date('Y-m-d H:i:s') }}</h5>
-                    </div>
-                    <div class="box-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">3,200</h5>
-                                    <span class="description-text">SALES</span>
-                                </div>
-                                <!-- /.description-block -->
+        <div role="tabpanel" class="tab-pane active" id="tv" style="margin-top: 20px;">
+            {% for community in communitys %}
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-gray">
+                            <div class="inner">
+                                <h4><a href="{{ path('community_member', {communityId:community.id}) }}">{{ community.name }}</a></h4>
+
+                                <p>{{ community.principal  }}</p>
                             </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">13,000</h5>
-                                    <span class="description-text">FOLLOWERS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                                <div class="description-block">
-                                    <h5 class="description-header">35</h5>
-                                    <span class="description-text">PRODUCTS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
+                            <a href="{{ path('community_member', {communityId:community.id}) }}" class="small-box-footer">
+                                更多 <i class="fa fa-arrow-circle-right"></i>
+                            </a>
                         </div>
-                        <!-- /.row -->
                     </div>
-                </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

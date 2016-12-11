@@ -44,6 +44,21 @@ community_money_delete:
     path: /community/money/{id}
     defaults: { _controller: AppBundle:Community:moneyDelete }
 
+community_picture_add:
+    path: /community/{communityId}/picture/add
+    defaults: { _controller: AppBundle:Community:pictureAdd }
+
+community_picture_display:
+    path: /community/picture/{pictureId}/display
+    defaults: { _controller: AppBundle:Community:pictureDisplay }
+
+community_picture:
+    path: /community/{communityId}/picture
+    defaults: { _controller: AppBundle:Community:picture }
+
+
+
+
 community:
     path: /community/{category}
     defaults: { _controller: AppBundle:Community:index, category: 'video' }

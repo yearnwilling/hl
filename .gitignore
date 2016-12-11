@@ -7,3 +7,4 @@ vendor
 *.log
 web/bundle/*
 web/bundles/*
+web/files/*
