@@ -21,7 +21,7 @@ class UserProvider extends EntityRepository implements UserProviderInterface
     public function loadUserByUsername($username)
     {
         $user = $this->getUserService()->getUserByUsername($username);
-        $user['password'] = $this->getPasswordEncoder()->encodePassword('123456', '123456');
+//        $user['password'] = $this->getPasswordEncoder()->encodePassword('123456', '123456');
         $user['roles'] = array($user['roles']);
 //            $user = array(
 //                'username' => '123',
