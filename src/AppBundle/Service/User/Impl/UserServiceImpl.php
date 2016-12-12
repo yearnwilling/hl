@@ -38,7 +38,7 @@ class UserServiceImpl extends BaseService implements UserService
 
     public function register($user)
     {
-        $user['salt'] = md5(time() . mt_rand(0, 1000));
+        $user['salt'] = md5(time().mt_rand(0, 1000));
         $user['password'] = $this->getPasswordEncoder()->encodePassword($user['password'], $user['salt']);
         if (empty($user['roles'])) {
             $user['roles'] = array('ROLE_USER');
@@ -51,11 +51,15 @@ class UserServiceImpl extends BaseService implements UserService
         return new MessageDigestPasswordEncoder('sha256');
     }
 
-    protected function processUserInformation($userMeta, $fields)
+    protected function processUserInformation($userMeta ,$fields)
     {
-        $userMeta = json_decode($userMeta, true);
+        $userMeta = json_decode($userMeta,true);
         foreach ($fields as $key => $value) {
-            $userMeta[$key] = $value;
+            if (!empty($userMeta) && in_array($key, array_keys($userMeta))) {
+                $userMeta[$key] = $value;
+            } else {
+                $userMeta[$key] = $value;
+            }
         }
 
         return json_encode($userMeta);
