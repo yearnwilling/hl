@@ -22,19 +22,19 @@
         <form action="{{ path('personal', {type :type}) }}" method="post">
             <div class="form-group ">
                 <label>个人爱好</label>
-                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+                <input type="text" class="form-control" placeholder="" id="like" name="like" value="{{ user.like|default('') }}">
             </div>
             <div class="form-group ">
                 <label>音乐</label>
-                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+                <input type="text" class="form-control" placeholder="" id="music" name="music" value="{{ user.music|default('') }}">
             </div>
             <div class="form-group ">
                 <label>书籍</label>
-                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+                <input type="text" class="form-control" placeholder="" id="book" name="book" value="{{ user.book|default('') }}">
             </div>
             <div class="form-group ">
                 <label>运动</label>
-                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+                <input type="text" class="form-control" placeholder="" id="run" name="run" value="{{ user.run|default('') }}">
             </div>
 
             <div class="btn-area">

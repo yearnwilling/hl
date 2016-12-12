@@ -22,7 +22,7 @@ class UserProvider extends EntityRepository implements UserProviderInterface
     {
         $user = $this->getUserService()->getUserByUsername($username);
         $user['password'] = $this->getPasswordEncoder()->encodePassword('123456', '123456');
-        $user['roles'] = array('ROLE_USER');
+        $user['roles'] = array($user['roles']);
 //            $user = array(
 //                'username' => '123',
 //                'password' => $this->getPasswordEncoder()->encodePassword('123', '123'),
@@ -39,9 +39,9 @@ class UserProvider extends EntityRepository implements UserProviderInterface
 
         $currentUser = new CurrentUser($user);
 
-//        $this->biz->setUser($currentUser);
+        ServiceKernel::instance()->setCurrentUser($currentUser);
 
-        return new CurrentUser($user);
+        return $currentUser;
     }
 
     protected function getPasswordEncoder()

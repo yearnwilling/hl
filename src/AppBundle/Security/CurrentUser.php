@@ -82,6 +82,28 @@ class CurrentUser implements UserInterface, AdvancedUserInterface, EquatableInte
         return empty($this->id) ? false : true;
     }
 
+    public function getId()
+    {
+        return empty($this->id) ? false : $this->id;
+    }
+
+    public function isAdmin()
+    {
+        if (count(array_intersect($this->getRoles(), array('ROLE_ADMIN', 'ROLE_SUPER_ADMIN'))) > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public function isSuperAdmin()
+    {
+        if (count(array_intersect($this->getRoles(), array('ROLE_SUPER_ADMIN'))) > 0) {
+            return true;
+        }
+        return false;
+    }
+
+
     public function __set($name, $value)
     {
         if (array_key_exists($name, $this->fields)) {

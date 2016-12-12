@@ -22,27 +22,19 @@
         <form action="{{ path('personal', {type :type}) }}" method="post">
             <div class="form-group ">
                 <label>姓名</label>
-                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ user.name|default('') }}">
             </div>
             <div class="form-group ">
                 <label>性别</label>
-                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
-            </div>
-            <div class="form-group ">
-                <label>社团</label>
-                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
-            </div>
-            <div class="form-group ">
-                <label>部门</label>
-                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+                <input type="text" class="form-control" placeholder="" id="sex" name="sex" value="{{ user.sex|default('') }}">
             </div>
             <div class="form-group ">
                 <label>专业</label>
-                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+                <input type="text" class="form-control" placeholder="" id="profession" name="profession" value="{{ user.profession|default('') }}">
             </div>
             <div class="form-group ">
                 <label>籍贯</label>
-                <input type="text" class="form-control" placeholder="" id="name" name="name" value="{{ unit.name|default('') }}">
+                <input type="text" class="form-control" placeholder="" id="hometown" name="hometown" value="{{ user.hometown|default('') }}">
             </div>
 
             <div class="btn-area">
