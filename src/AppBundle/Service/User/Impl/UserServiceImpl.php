@@ -29,6 +29,20 @@ class UserServiceImpl extends BaseService implements UserService
         return true;
     }
 
+    public function getUser($id)
+    {
+        return $this->getUserDao()->getUser($id);
+    }
+
+    public function update($id, $Nowuser)
+    {
+        $user = $this->getUserDao()->getUser($id);
+        $user['password'] = $this->getPasswordEncoder()->encodePassword($Nowuser['password'], $user['salt']);
+        $user['username'] = $Nowuser['username'];
+        $this->getUserDao()->update($id, $user);
+        return true;
+    }
+
     public function getUserInformation()
     {
         $id = $this->getKernel()->getCurrentUser()->getId();
@@ -44,6 +58,21 @@ class UserServiceImpl extends BaseService implements UserService
             $user['roles'] = array('ROLE_USER');
         }
         return $this->getUserDao()->create($user);
+    }
+
+    public function searchUserCount($condition)
+    {
+        return $this->getUserDao()->searchUserCount($condition);
+    }
+
+    public function searchUser(array $conditions, array $orderBy, $start, $limit)
+    {
+        return $this->getUserDao()->searchUser($conditions, $orderBy, $start, $limit);
+    }
+
+    public function deleteUser($id)
+    {
+        return $this->getUserDao()->delete($id);
     }
 
     protected function getPasswordEncoder()

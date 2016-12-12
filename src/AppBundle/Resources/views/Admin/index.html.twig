@@ -1,0 +1,48 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% set nav = 'admin' %}
+
+{% block content_header %}
+    <h1>管理员管理</h1>
+{% endblock %}
+
+
+{% block content_body_boxed %}
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal"
+                    data-url="{{ path('admin_add') }}"
+                    style="margin-left: 13px">
+                添加
+            </button>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th width="30%">用户名</th>
+                        <th width="50%">角色</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.roles }}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal" data-url="{{ path('admin_edit',{id: user.id}) }}">编辑</button>
+                            {% if user.roles != 'ROLE_SUPER_ADMIN' %}
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" data-url="{{ path('admin_delete',{id: user.id}) }}">删除</button>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+{% endblock %}

@@ -19,8 +19,8 @@
         {% for picture in pictures %}
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="{{ path('community_picture_display',{pictureId: picture.id}) }}" alt="...">
-                    <div class="caption">
+                    <a href="{{ path('community_picture_display',{pictureId: picture.id}) }}"><img style="width:400px;height:200px" src="{{ path('community_picture_display',{pictureId: picture.id}) }}" alt="..."></a>
+                    <div class="caption" style="text-align: center">
                         <h3>{{ picture.name }}</h3>
                     </div>
                 </div>

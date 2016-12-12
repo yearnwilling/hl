@@ -75,3 +75,21 @@ community:
 personal:
     path: /personal/normal/{type}
     defaults: { _controller: AppBundle:Personal:index , type: 'interest' }
+
+
+admin:
+    path: /admin
+    defaults: { _controller: AppBundle:Admin:index}
+
+
+admin_add:
+    path: /admin/add
+    defaults: { _controller: AppBundle:Admin:add}
+
+admin_edit:
+    path: /admin/edit/{id}
+    defaults: { _controller: AppBundle:Admin:edit}
+
+admin_delete:
+    path: /admin/delete/{id}
+    defaults: { _controller: AppBundle:Admin:delete}
