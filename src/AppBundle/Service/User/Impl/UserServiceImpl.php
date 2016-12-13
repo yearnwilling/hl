@@ -38,7 +38,9 @@ class UserServiceImpl extends BaseService implements UserService
     {
         $user = $this->getUserDao()->getUser($id);
         $user['password'] = $this->getPasswordEncoder()->encodePassword($Nowuser['password'], $user['salt']);
-        $user['username'] = $Nowuser['username'];
+        if (isset($Nowuser['username'])) {
+            $user['username'] = $Nowuser['username'];
+        }
         $this->getUserDao()->update($id, $user);
         return true;
     }

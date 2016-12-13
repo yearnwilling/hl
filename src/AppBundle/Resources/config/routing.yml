@@ -93,3 +93,7 @@ admin_edit:
 admin_delete:
     path: /admin/delete/{id}
     defaults: { _controller: AppBundle:Admin:delete}
+
+personal_password:
+    path: /personal/password
+    defaults: { _controller: AppBundle:Personal:password }

@@ -1,7 +1,7 @@
-  $('.activity-submit').on('click', function () {
+$('.password-submit').on('click',function(){
+  if ($('#password').val() == $("#replace").val()) {
     var options = {
       success: function (data) {
-        $('#modal').modal('hide');
         $.notify({
           message: '保存成功'
         }, {
@@ -16,7 +16,7 @@
       },
       error : function (data) {
         $.notify({
-          message: ''
+          message: '保存失败'
         }, {
           placement: {
             align: 'center',
@@ -26,6 +26,18 @@
         });
       }
     };
-    $("#activity-from").ajaxSubmit(options);
-  });
+    $("#pwd-form").ajaxSubmit(options);
+  } else  {
+    $.notify({
+      message: '两次输入密码不同。'
+    }, {
+      placement: {
+        align: 'center',
+      },
+      type: 'danger',
+      delay: 2000,
+    });
+  }
 
+
+});

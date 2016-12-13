@@ -70,7 +70,7 @@
                             <li {% if sub_nav is defined and sub_nav == 'interest' %}class="active"{% endif %}>
                                 <a href="{{ path('personal') }}"><i class="fa fa-circle-o"></i> 个人信息管理</a>
                             </li>
-                            <li><a href="../pages/pwd.html"><i class="fa fa-circle-o"></i> 修改密码</a></li>
+                            <li><a href="{{ path('personal_password') }}"><i class="fa fa-circle-o"></i> 修改密码</a></li>
                         </ul>
                     </li>
                     {% if app.user.isSuperAdmin() %}
