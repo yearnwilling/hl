@@ -4,263 +4,39 @@
 {% block stylesheets %}
     <link href="{{ asset('bundles/app/css/index.css') }}" rel="stylesheet"/>
 {% endblock %}
+{% block content_header_boxed %}
+    <h4>备忘录</h4>
+    <div class="box-tools pull-right">
+        <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal"
+           data-url="{{ path('memo_add') }}">添加</a>
+    </div>
+{% endblock %}
 
 
 {% block content_body_boxed %}
-    <div class="row">
-        <div class="list-box">
-            <div class="list one">
-                <h2>杭电社团</h2>
-                <h4>影视科技类社团</h4>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
-                        style="margin: 20px auto;">
-                    点击查看详情
-                </button>
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span
-                                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title" id="myModalLabel">全部社团</h4>
-                            </div>
-                            <div class="modal-body">
-                                <button type="button" class="btn btn-primary">电脑俱乐部</button>
-                                <button type="button" class="btn btn-primary">1900影音工作室</button>
-                                <button type="button" class="btn btn-primary">杭电助手</button>
-                                <br/>
-                                <hr/>
-                                <button type="button" class="btn btn-primary">影视协会</button>
-                                <button type="button" class="btn btn-primary">杭电橡皮糖工作室</button>
-                                <button type="button" class="btn btn-primary">清晨工作室</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list two">
-                <h2>杭电社团</h2>
-                <h4>运动类社团</h4>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
-                        style="margin: 20px auto;">
-                    点击查看详情
-                </button>
-                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span
-                                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title" id="myModalLabel1">全部社团</h4>
-                            </div>
-                            <div class="modal-body">
-                                <button type="button" class="btn btn-primary">剑道社</button>
-                                <button type="button" class="btn btn-primary">梅花拳协会</button>
-                                <button type="button" class="btn btn-primary">乒乓球协会</button>
-                                <br/>
-                                <hr/>
-                                <button type="button" class="btn btn-primary">球迷协会</button>
-                                <button type="button" class="btn btn-primary">台球协会</button>
-                                <button type="button" class="btn btn-primary">空手道协会</button>
-                                <br/>
-                                <hr/>
-                                <button type="button" class="btn btn-primary">勇鑫跆拳道社</button>
-                                <button type="button" class="btn btn-primary">羽毛球协会</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list three">
-                <h2>杭电社团</h2>
-                <h4>文学类社团</h4>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
-                        style="margin: 20px auto;">
-                    点击查看详情
-                </button>
-                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span
-                                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title" id="myModalLabel2">全部社团</h4>
-                            </div>
-                            <div class="modal-body">
-                                <button type="button" class="btn btn-primary">莽原文学社</button>
-                                <button type="button" class="btn btn-primary">民族文化交流协会</button>
-                                <button type="button" class="btn btn-primary">星空读书会</button>
-                                <br/>
-                                <hr/>
-                                <button type="button" class="btn btn-primary">辩论协会</button>
-                                <button type="button" class="btn btn-primary">梦醒书画社</button>
-                                <button type="button" class="btn btn-primary">女子学堂</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list four">
-                <h2>杭电社团</h2>
-                <h4>人才类社团</h4>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
-                        style="margin: 20px auto;">
-                    点击查看详情
-                </button>
-                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span
-                                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title" id="myModalLabel3">全部社团</h4>
-                            </div>
-                            <div class="modal-body">
-                                <button type="button" class="btn btn-primary">人才协会</button>
-                                <button type="button" class="btn btn-primary">未来企业家协会</button>
-                                <button type="button" class="btn btn-primary">杭电校友协会</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list five">
-                <h2>杭电社团</h2>
-                <h4>音乐舞蹈类社团</h4>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
-                        style="margin: 20px auto;">
-                    点击查看详情
-                </button>
-                <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span
-                                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title" id="myModalLabel4">全部社团</h4>
-                            </div>
-                            <div class="modal-body">
-                                <button type="button" class="btn btn-primary">Setfree 斯波</button>
-                                <button type="button" class="btn btn-primary">哈哈舞协</button>
-                                <button type="button" class="btn btn-primary">吉他协会</button>
-                                <button type="button" class="btn btn-primary">口琴俱乐部</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr/>
-        <!-- /.col -->
-    </div>
-    <div class="left">
-        <div class="word">
-            <h2>备忘录</h2>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
-                    style="margin-right: 5px;">
-                添加
-            </button>
-            <div class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span
-                                        aria-hidden="true">&times;</span><span
-                                        class="sr-only">Close</span></button>
-                            <h4 class="modal-title">Modal title</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>One fine body&hellip;</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-        </div>
 
-        <div class="tips">
-            <table class="table table-hover">
-                <tbody>
-                <tr>
-                    <th>日期</th>
-                    <th>内容</th>
-                    <th>备注</th>
-                    <th>操作</th>
-                </tr>
-                <tr>
-                    <td>2016.10.18</td>
-                    <td>要对系统进行小规模的清理</td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-primary">编辑</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2016.10.1</td>
-                    <td>国庆，要发信息给每个社员</td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-primary">编辑</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2016.09.15</td>
-                    <td>中秋节，准备小礼物给社员</td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-primary">编辑</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2016.09.1</td>
-                    <td>为迎新做准备</td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-primary">编辑</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2016.07.15</td>
-                    <td>社团暑期实践</td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-primary">编辑</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2016.06.15</td>
-                    <td>期末来临，鼓励社员</td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-primary">编辑</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2016.06.01</td>
-                    <td>儿童节，创造一个不一样的节日</td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="btn btn-primary">编辑</button>
-                        <button type="button" class="btn btn-danger">删除</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+    <table class="table table-hover">
+        <tbody>
+        <tr>
+            <th width="20%">日期</th>
+            <th width="40%">内容</th>
+            <th width="20%">备注</th>
+            <th>操作</th>
+        </tr>
+        {% for memo in memos %}
+        <tr>
+            <td>{{ memo.created_time | date('Y-m-d H:i:s') }}</td>
+            <td>{{ memo.content }}</td>
+            <td>{{ memo.memo }}</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal" data-url="{{ path('memo_edit', {id: memo.id}) }}" >编辑</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" data-url="{{ path('memo_delete', {id: memo.id}) }}">删除</button>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ macro.paginator(paginator) }}
 
-        </div>
-    </div>
+
 {% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'modal-base.html.twig' %}
+
+{% block title %}
+    <h4 class="modal-title">
+        添加备忘录
+    </h4>
+{% endblock %}
+
+{% block body %}
+    <form class="form-horizontal" id="memo-form"
+            {% if type == 'add' %}
+                action="{{ path('memo_add') }}"
+            {% elseif type == 'edit' %}
+                action="{{ path('memo_edit',{id:memo.id}) }}"
+            {% endif %}
+          method="post">
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">内容</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputName" name="content"
+                       value="{{ memo.content |default('') }}"
+                       placeholder="内容">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">备注</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputName" name="memo"
+                       value="{{ memo.memo |default('') }}"
+                       placeholder="备注">
+            </div>
+        </div>
+    </form>
+    <script src="{{ asset('bundles/app/js/Controller/Index/memo.js') }}"></script>
+{% endblock %}
+
+
+{% block footer %}
+    <button type="button" class="btn btn-default " data-dismiss="modal">关闭</button>
+    <button type="button" class="btn btn-primary show-primary memo-submit">保存</button>
+{% endblock %}

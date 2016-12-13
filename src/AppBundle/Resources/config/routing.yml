@@ -97,3 +97,15 @@ admin_delete:
 personal_password:
     path: /personal/password
     defaults: { _controller: AppBundle:Personal:password }
+
+memo_add:
+    path: /memo/add
+    defaults: {_controller: AppBundle:Index:memoAdd}
+
+memo_edit:
+    path: /memo/edit/{id}
+    defaults: {_controller: AppBundle:Index:memoEdit}
+
+memo_delete:
+    path: /memo/delete/{id}
+    defaults: { _controller: AppBundle:Index:memoDelete}
