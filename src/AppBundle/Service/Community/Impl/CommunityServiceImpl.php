@@ -14,6 +14,12 @@ use AppBundle\Service\Community\CommunityService;
 
 class CommunityServiceImpl extends BaseService implements CommunityService
 {
+    public function addCommunity($community)
+    {
+        $community['create_time'] = time();
+        return $this->getCommunityDao()->create($community);
+    }
+
     public function searchCommunityCount($condition)
     {
         return $this->getCommunityDao()->searchCommunityCount($condition);

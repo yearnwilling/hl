@@ -65,8 +65,9 @@ community_picture:
     path: /community/{communityId}/picture
     defaults: { _controller: AppBundle:Community:picture }
 
-
-
+community_add:
+    path: /community/add
+    defaults: { _controller: AppBundle:Community:add }
 
 community:
     path: /community/{category}

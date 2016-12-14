@@ -16,6 +16,22 @@ class CommunityDaoImpl extends BaseDao implements CommunityDao
 {
     protected $table = 'community';
 
+    public function create($fields)
+    {
+        $affected = $this->getConnection()->insert($this->table, $fields);
+        if ($affected <= 0) {
+            throw $this->createDaoException('Insert course error.');
+        }
+        return $this->getCommunity($this->lastInsertId());
+    }
+
+    public function getCommunity($courseId)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE id = ?";
+        $sql = $this->modifyLimitQuery($sql, 1);
+        return $this->fetchAssoc($sql, array($courseId)) ?: null;
+    }
+
     public function searchCommunityCount($condition)
     {
         $builder = $this->_createSearchQueryBuilder($condition)

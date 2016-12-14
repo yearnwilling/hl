@@ -38,6 +38,16 @@ class CommunityController extends BaseController
         ));
     }
 
+    public function addAction(Request $request)
+    {
+        if ($request->getMethod() == 'POST') {
+            $community = $request->request->all();
+            $this->getCommunityService()->addCommunity($community);
+            return $this->createJsonResponse(true);
+        }
+        return $this->render('AppBundle:Community:community-add.html.twig');
+    }
+
     public function memberAction(Request $request, $communityId)
     {
         $condition = array();
