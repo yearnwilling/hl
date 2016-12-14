@@ -158,7 +158,7 @@ class CommunityController extends BaseController
     {
         $condition = array();
         $condition['type'] = $type;
-        $condition['communit_id'] = $communityId;
+        $condition['community_id'] = $communityId;
 
         $paginator = new Paginator(
             $request,
