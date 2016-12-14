@@ -116,6 +116,7 @@ class CommunityController extends BaseController
         $condition = array();
 
         $name = $request->query->get('keyword');
+        $condition['community_id'] = $communityId;
         if (!empty($name)) {
             $condition['name'] = '%'.$name.'%';
         }

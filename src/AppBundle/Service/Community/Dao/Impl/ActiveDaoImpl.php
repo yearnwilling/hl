@@ -63,7 +63,7 @@ class ActiveDaoImpl extends BaseDao implements ActiveDao
         $builder = $this->createDynamicQueryBuilder($conditions)
             ->from($this->table, 'community_active')
             ->andWhere('name LIKE :name')
-            ->andWhere('community_id LIKE :community_id');
+            ->andWhere('community_id = :community_id');
         return $builder;
     }
 }
