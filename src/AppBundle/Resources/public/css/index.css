@@ -4,3 +4,4 @@
 .left{width:1040px;margin-left:290px;margin-top: 50px;}
 .word{background: #00acd6;padding: 3px;width:1040px;}
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{border: 1px solid #a3d0ef;}
+.box-header>.box-tools {top: 13px;}
