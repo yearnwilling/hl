@@ -30,7 +30,15 @@
                     {% for user in users %}
                     <tr>
                         <td>{{ user.username }}</td>
-                        <td>{{ user.roles }}</td>
+                        <td>
+                            {% if  user.roles == 'ROLE_SUPER_ADMIN'%}
+                                    超级管理员
+                            {% elseif  user.roles == 'ROLE_ADMIN'%}
+                                    管理员
+                            {% elseif  user.roles == 'ROLE_USER' %}
+                                    一般用户
+                            {% endif %}
+                        </td>
                         <td>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal" data-url="{{ path('admin_edit',{id: user.id}) }}">编辑</button>
                             {% if user.roles != 'ROLE_SUPER_ADMIN' %}

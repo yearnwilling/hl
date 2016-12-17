@@ -8,6 +8,9 @@
     <h1>活动管理</h1>
 {% endblock %}
 
+{% block stylesheets %}
+    <link href="{{ asset('bundles/app/css/community/active.css') }}" rel="stylesheet"/>
+{% endblock %}
 
 {% block content_body_boxed %}
     <div class="row">
@@ -32,10 +35,10 @@
                             <!-- Post -->
                             <div class="post">
                                 <div class="user-block">
-                                <span class="username">
+                                <span class=" activity-name">
                                   <a href="#">{{ active.name}}</a>
                                 </span>
-                                    <span class="description">{{ active.community.name }}</span>
+                                    <span class="activity-type">杭电社团</span>
                                 </div>
                                 <!-- /.user-block -->
                                 <p>

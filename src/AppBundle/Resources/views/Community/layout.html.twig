@@ -38,7 +38,8 @@
                             <a href="{{ path('community_activity', {communityId:communityId}) }}"><i class="fa fa-circle-o"></i> 活动管理</a></li>
                         <li {% if sub_nav is defined and sub_nav == 'money' %}class="active"{% endif %}>
                             <a href="{{ path('community_money',{communityId:communityId}) }}"><i class="fa fa-circle-o"></i> 经费管理</a></li>
-                        <li><a href="{{ path('community_picture',{communityId:communityId}) }}"><i class="fa fa-circle-o"></i> 图片管理</a></li>
+                        <li {% if sub_nav is defined and sub_nav == 'picture' %}class="active"{% endif %}>
+                            <a href="{{ path('community_picture',{communityId:communityId}) }}"><i class="fa fa-circle-o"></i> 图片管理</a></li>
                     </ul>
                 </li>
 
