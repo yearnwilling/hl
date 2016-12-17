@@ -2,7 +2,11 @@
 
 {% block title %}
     <h4 class="modal-title">
-        添加社团
+        {% if type == 'add' %}
+            添加社团
+        {% elseif type == 'edit' %}
+            编辑社团
+        {% endif %}
     </h4>
 {% endblock %}
 
