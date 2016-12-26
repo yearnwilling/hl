@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block content_body %}
+    <div class="box">
+    <div class="box-header with-border">
     <ul class="nav nav-tabs" role="tablist">
         <li {% if category == 'video' %} class="active"{% endif %}><a
                     href="{{ path('community', {category: 'video'}) }}">影视科技类社团</a></li>
@@ -25,7 +27,7 @@
 
     <!-- Tab panes -->
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="tv" style="margin-top: 20px;">
+        <div role="tabpanel" class="tab-pa active" id="tv" style="margin-top: 20px;">
             {% for community in communitys %}
                     <div class="col-lg-3 col-xs-6">
                         <!-- small box -->
@@ -44,4 +46,5 @@
             {{ macro.paginator(paginator) }}
         </div>
     </div>
+    </div></div>
 {% endblock %}
