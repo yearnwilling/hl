@@ -21,7 +21,7 @@ class CommunityController extends BaseController
         $paginator = new Paginator(
             $request,
             $this->getCommunityService()->searchCommunityCount($condition),
-            5
+            8
         );
 
         $community = $this->getCommunityService()->searchCommunity(
