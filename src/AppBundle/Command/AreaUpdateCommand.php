@@ -13,12 +13,18 @@ use AppBundle\Service\Common\ServiceKernel;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class AreaUpdateCommand extends ContainerAwareCommand
 {
     protected static $deepVerify = array(
-        '1' => array('省', '市'),
+        '1' => array('省', '市', '自治区', '特别行政区'),
+        '2' => array('区', '市'),
+        '3' => array('市', '县', '区', '街道', '道', '镇', '乡'),
+        '4' => array('街道', '道', '镇', '乡', '区')
     );
+
+    protected $last_region_id;
 
     protected function configure()
     {
@@ -36,42 +42,124 @@ class AreaUpdateCommand extends ContainerAwareCommand
         $areas = $this->getAreaService()->getAll();
         $areas = $this->getAreaTree($areas);
 
+        $this->last_region_id = $this->getChinaAddressService()->getLastRegionId();
+        $number = 1;
         foreach ($areas as $area) {
-            if ($area['name'] == '浙江省') {
-                $file = fopen('/Users/yearnwilling/Desktop/a.txt', 'rw+');
-                fwrite($file, json_encode($area));
-                fclose($file);
+//            if ($area['name'] == '广西壮族自治区') {
+//                $file = fopen('/Users/yearnwilling/Desktop/a.txt', 'rw+');
+//                fwrite($file, json_encode($area));
+//                fclose($file);
                 $this->checkChangeArea($area, 1);
-            }
+                var_dump($number . ':' . $area['name']);
+                $number += 1;
+//            }
         }
-
 
     }
 
-    protected function checkChangeArea($areas, $deep)
+    protected function checkChangeArea($areas, $deep, $parent_area = array())
     {
         if ($deep == 1) { //省,市
-            $verifyedChinaAddress = array();
-            $checkedName = $this->sub_str($areas['name'], 1);
-            $selectedName = $areas['name'];
-            if (in_array($checkedName['deepName'], self::$deepVerify['1'])) {
-                $selectedName = $checkedName['checkName'];
+            $this->findChinaAddressList($areas, $deep);
+        } elseif (in_array($deep, array(2, 3, 4))) {
+            foreach ($areas as $id => $area) { //市,区,
+                $this->findChinaAddressList($area, $deep, $parent_area);
             }
-            $chinaAddress = $this->getChinaAddressService()->findChinaAddressLikeName($selectedName);
-            if (count($chinaAddress) == 1) {
-                $verifyedChinaAddress = $chinaAddress[0];
-                $areas['name'] = '浙江省';
-                if ($verifyedChinaAddress['region_type'] == $deep && $verifyedChinaAddress['region_name_cn'] != $areas['name']) {
-                    //同级但是名字不同,更新成新的名字
-                    $verifyedChinaAddress = $this->getChinaAddressService()->updateChinaAddressName($verifyedChinaAddress['region_id'], $areas['name']);
-                }
+        }
+    }
+
+    protected function findChinaAddressList($areas, $deep, $parent_area = array())
+    {
+        $resp = $this->verifyChinaAddress($areas, $deep, $parent_area, 1);
+
+        if (empty($resp['verifyedChinaAddress']) && in_array($deep, array(3, 4)) && $resp['needSecond']) {
+            $resp = $this->verifyChinaAddress($areas, $deep, $parent_area, 2);
+        }
+        if (empty($resp['verifyedChinaAddress']) && in_array($deep, array(1)) && $resp['needSecond']) {
+            $resp = $this->verifyChinaAddress($areas, $deep, $parent_area, 3);
+        }
+        if (empty($resp['verifyedChinaAddress']) && in_array($deep, array(1)) && $resp['needSecond']) {
+            $resp = $this->verifyChinaAddress($areas, $deep, $parent_area, 5);
+        }
+
+        //省的特殊情况处理
+        if (empty($resp['verifyedChinaAddress']) && in_array($deep, array(1)) && $resp['needSecond']) {
+            $resp = $this->verifyChinaAddress($areas, $deep, $parent_area, -2);
+        }
+        if (!empty($areas['children'])) {
+            $this->checkChangeArea($areas['children'], $deep + 1, $resp['verifyedChinaAddress']);
+        }
+    }
+
+    protected function verifyChinaAddress($areas, $deep, $parent_area = array(), $time)
+    {
+        $verifyedChinaAddress = array();
+        $needSecond = false;
+        $checkedName = $this->sub_str($areas['name'], $time);
+        if ($time == -2) {
+            $checkedName = $this->sub_str($areas['name'], $time);
+        }
+        $selectedName = $areas['name'];
+        if (in_array($checkedName['deepName'], self::$deepVerify[(string)$deep])) {
+            $selectedName = $checkedName['checkName'];
+        }
+
+        $chinaAddress = $this->getChinaAddressService()->findChinaAddressLikeName($selectedName, empty($parent_area)? '1': $parent_area['region_id']);
+        if (count($chinaAddress) == 1) {
+            $verifyedChinaAddress = $chinaAddress[0];
+//            var_dump(111);
+            if ($verifyedChinaAddress['region_type'] == $deep && $verifyedChinaAddress['region_name_cn'] != $areas['name']) {
+                //同级但是名字不同,更新成新的名字
+                var_dump($verifyedChinaAddress['region_name_cn'] . '->' . $areas['name']);
+                $verifyedChinaAddress = $this->getChinaAddressService()->updateChinaAddressName($verifyedChinaAddress['region_id'], $areas['name']);
             } else {
-                foreach ($chinaAddress as $Address) {
-                    if ($Address['region_name_cn'] == $areas['name']) {
-                        $verifyedChinaAddress = $Address;
-                    }
+                if (!$needSecond && $time == 1) {
+                    $needSecond = true;
                 }
             }
+        } elseif (count($chinaAddress) > 1) {
+//            var_dump(333);
+            foreach ($chinaAddress as $Address) {
+                if ($Address['region_name_cn'] == $areas['name']) {
+//                    var_dump(444);
+                    $verifyedChinaAddress = $Address;
+                }
+            }
+            if (empty($verifyedChinaAddress)) {
+                return;
+            }
+
+        } else {
+            if (!mb_strrpos($areas['name'], '自治区') && !mb_strrpos($areas['name'], '特别行政区') ) {
+                $newChinaAddress = array(
+                    'region_id' => $this->last_region_id + 1,
+                    'parent_id' => empty($parent_area) ? '1' : $parent_area['region_id'],
+                    'region_name_py' => '',
+                    'region_name_cn' => $areas['name'],
+                    'region_type' => $deep,
+                    'agency_id' => 0,
+                    'weight' => 0,
+                    'status' => 1,
+                );
+                $this->getChinaAddressService()->createChinaAddress($newChinaAddress);
+                $verifyedChinaAddress = $this->getChinaAddressService()->getChinaAddressByRegionId($newChinaAddress['region_id']);
+                $this->last_region_id += 1;
+            } else {
+                $needSecond = true;
+            }
+        }
+        return array('verifyedChinaAddress' => $verifyedChinaAddress, 'needSecond' => $needSecond);
+    }
+
+    protected function calculateDiffer($name1, $name2)
+    {
+        $len1 = mb_strlen($name1, 'utf-8');
+        $len2 = mb_strlen($name2, 'utf-8');
+
+        if ($len1 > $len2) {
+            return $len1-$len2;
+        } else {
+            return $len2-$len1;
 
         }
     }
@@ -81,6 +169,10 @@ class AreaUpdateCommand extends ContainerAwareCommand
         $name = ltrim($string);
         $checkName = mb_substr($name, 0, mb_strlen($name, 'utf-8') - $lastLength, 'utf-8');
         $deepName = mb_substr($name, mb_strlen($name, 'utf-8') - $lastLength, mb_strlen($name, 'utf-8'), 'utf-8');
+        if ($lastLength == -2) {
+            $checkName = mb_substr($name, 0, 2, 'utf-8');
+            $deepName = '自治区';
+        }
         return array('checkName' => $checkName, 'deepName' => $deepName);
     }
 

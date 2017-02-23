@@ -14,14 +14,30 @@ use AppBundle\Service\Common\BaseService;
 
 class ChinaAddressServiceImpl extends BaseService implements ChinaAddressService
 {
-    public function findChinaAddressLikeName($name)
+    public function findChinaAddressLikeName($name, $parentId)
     {
-        return $this->getChinaAddressDao()->getLikeName($name);
+        return $this->getChinaAddressDao()->getLikeName($name, $parentId);
     }
 
     public function updateChinaAddressName($id, $name)
     {
         return $this->getChinaAddressDao()->update($id, array('region_name_cn' => $name));
+    }
+
+    public function getLastRegionId()
+    {
+        $last = $this->getChinaAddressDao()->getLast();
+        return $last['region_id'];
+    }
+
+    public function createChinaAddress($chinaAddress)
+    {
+        return $this->getChinaAddressDao()->create($chinaAddress);
+    }
+
+    public function getChinaAddressByRegionId($id)
+    {
+        return $this->getChinaAddressDao()->getById($id);
     }
 
     public function getChinaAddressDao()
